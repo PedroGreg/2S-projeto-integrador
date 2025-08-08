@@ -1,2 +1,2 @@
-"# 2S-projeto-integrados" 
+"# 2S-projeto-integrado" 
 "integrantes" 
