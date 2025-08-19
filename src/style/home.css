@@ -1,0 +1,27 @@
+*{
+    background: none;
+    background-color: none;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    font-family: "";
+    box-sizing: border-box;
+    border: none;
+}
+header{
+    display: flex;
+    width: 100%;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 70px;
+    padding-right: 70px;
+}
+.header-logo{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.header-nav{
+    gap: 60px;
+}
