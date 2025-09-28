@@ -1,1 +1,2 @@
-"# 2S-projeto-integrador | Integrantes: Pedro Gregorio / Andr� Luiz / Arthur Cavalcante / Alexandre Ciocci" 
+# GMH-site
+GMH é um site que oferece serviços de Help Desk
