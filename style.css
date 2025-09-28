@@ -8,6 +8,65 @@
     ;
 }
 
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 110px 35px;
+}
+
+.section p {
+    line-height: 1.5;
+    font-weight: 300;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-bottom: 40px;
+}
+
+.card h4 {
+    font-size: 30px;
+    color: #6609BE;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card span {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.cards {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 40px 25px;
+}
+
+.categorias-card {
+    min-height: 540px;
+}
+
+.section h2 {
+    font-size: 48px;
+}
+
 header {
     display: flex;
     width: 100%;
@@ -96,48 +155,8 @@ main p {
     width: 190px;
     height: 40px;
 }
-
-#beneficios {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 110px 35px;
-}
-
-#beneficios h2 {
-    font-size: 48px;
-}
-
-#cards {
-    margin-top: 100px;
-    display: flex;
-    justify-content: space-between;
-    gap: 25px;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 25px;
-    gap: 20px;
-    box-shadow: 0px 0px 10px -5px black;
-    border-radius: 12px;
-}
-
-.card p {
-    font-size: 20px;
-    font-weight: 600;
-}
-
-.card span {
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.card img {
-    width: 15%;
+#beneficios{
+    gap: 60px;
 }
 
 #beneficios-card {
@@ -148,6 +167,7 @@ main p {
     justify-content: space-between;
     flex-direction: column;
     margin-top: 60px;
+    max-width: 1700px;
     padding: 45px 45px;
     border-radius: 16px;
 }
@@ -164,11 +184,16 @@ main p {
     width: 100%;
     display: flex;
     align-items: flex-end;
-    gap: 30%;
-    justify-content: center;
+
+    gap: 15%;
+    justify-content: space-between;
 }
+#benecifios-card-card p{
+    text-align: start;
+}
+
 #benecifios-card-card img {
-    box-shadow: 0px 0px 20px 0px white;
+    /* box-shadow: 0px 0px 20px 0px white; */
 }
 
 #benecifios-card-card div {
@@ -179,7 +204,7 @@ main p {
     gap: 25px;
 }
 
-#benecifios-card-card div a{
+#benecifios-card-card div a {
     width: 185px;
     height: 40px;
     display: flex;
@@ -189,4 +214,156 @@ main p {
     border-radius: 8px;
     padding: 10px 25px;
     background-color: #26D4D4;
+}
+
+.categorias-text {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.categorias-text h3,
+span {
+    margin: auto;
+}
+
+.categorias-text span {
+    height: 130px;
+}
+
+.categorias-text img {
+    height: 32px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorias-beneficios {
+    align-items: start;
+    margin-top: 25px;
+}
+
+.categorias-beneficios p {
+    text-align: start;
+}
+
+.categorias-beneficios ul {
+    margin-left: 20px;
+    list-style-image: url(./src/images/LandingPage/check.svg);
+}
+
+.transforme-img {
+    height: 65px;
+}
+
+.transforme-p {
+    font-size: 20;
+    color: #3D0673;
+}
+
+.transforme-span {
+    text-align: center;
+}
+
+.transforme-card {
+    width: 20%;
+    height: 100%;
+}
+
+.transfome-card2 {
+    display: flex;
+    padding: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    gap: 10px;
+    width: 70%;
+    max-width: 1700px;
+    background-color: #140094;
+}
+
+.transforme-card2-div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.transforme-card2-div h3 {
+    font-size: 30px;
+    color: white;
+}
+
+.transforme-card2-div p {
+    font-size: 16px;
+    color: white;
+    text-align: start;
+    margin-bottom: 20px;
+}
+
+.transforme-card2-a {
+    display: flex;
+    width: 300px;
+    gap: 10%;
+}
+
+.transforme-card2-a a {
+    width: 40%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    justify-content: center;
+}
+
+.a1 {
+    color: #6609BE;
+    background-color: white;
+}
+
+.a2 {
+    color: white;
+    border: white 1px solid;
+    background-color: #ffffff00;
+}
+#comecar-cards{
+    width: 100%;
+    align-items: start;
+    gap: 0;
+    margin-bottom: 150px;
+}
+.comecar-card{
+    width: 30%;
+    border: none;
+
+}
+.comecar-card p{
+    font-size: 20px;
+    color: #3D0673;
+    margin-bottom: 10px;
+}
+.comecar-card span{
+    display: flex;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+}
+.comecar-card img{
+    width: 100px;
+}
+.seta{
+    width: 5%;
+}
+.seta img{
+    margin-top: 38px;
+    width: 35px;
+}
+#comece{
+    display: flex;
+    width: 160px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-color: #6609BE;
+    color: white;
+    border-radius: 8px;
 }
