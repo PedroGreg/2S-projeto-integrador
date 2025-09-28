@@ -79,7 +79,7 @@ aside img {
 
 main {
     padding-left: 335px;
-    padding-top: 64px;
+    padding-top: 70px;
     width: 100%;
     min-height: 100vh;
 }
@@ -91,7 +91,7 @@ header {
     right: 0;
     align-items: center;
     padding: 15px 40px 15px 375px;
-    justify-content: end;
+    justify-content: space-between;
     background-color: white;
     z-index: 2;
 }
@@ -102,7 +102,6 @@ header {
 }
 
 #header-button {
-    display: none;
     width: 200px;
     height: 40px;
     background-color: var(--button-color-cian);
