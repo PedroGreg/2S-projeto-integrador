@@ -39,7 +39,7 @@
     <section id="beneficios" class="section">
         <h2>Benefícios ao Acionar a GMHSupport</h2>
         <div class="cards">
-            <div class="card">
+            <div class="card beneficios-card">
                 <img src="/src/images/LandingPage/Demandas.svg" alt="">
                 <p class="card-p">Demandas Concluídas com Êxito</p>
                 <span>Physical ID management and repetitive intercom
@@ -47,7 +47,7 @@
                     wait times for guests.
                 </span>
             </div>
-            <div class="card">
+            <div class="card beneficios-card">
                 <img src="/src/images/LandingPage/Custo.svg" alt="">
                 <p class="card-p">Custo abaixo do mercado (Alta Qualidade)</p>
                 <span>In-room dining, rentals, tour packages, and other
@@ -55,7 +55,7 @@
                     significant unrealized revenue.
                 </span>
             </div>
-            <div class="card">
+            <div class="card beneficios-card">
                 <img src="/src/images/LandingPage/Analise.svg" alt="">
                 <p class="card-p">Análises Detalhadas para os clientes</p>
                 <span>Without systems to track ratings, reviews, guest
@@ -72,7 +72,7 @@
                     </p>
                     <a href="">Saiba Mais</a>
                 </div>
-                <img src="./src/images/LandingPage/ImageExemplo.svg" alt="">
+                <img src="./src/images/LandingPage/ImageExemplo.svg" alt="" id="beneficios-img">
             </div>
         </div>
     </section>
@@ -212,10 +212,10 @@
                 </span>
             </div>
         </div>
-        <div class="transfome-card2">
+        <div class="transforme-card2">
             <div class="transforme-card2-div">
                 <h3>Pronto para ver esses benefícios para sua empresa?</h3>
-                <p>Junte-se a centenas de empresas que já vivenciam a diferença GMHSupport. Nossa plataforma foi
+                <p>Junte-se a centenas de empresas que já vivenciam a diferença GMHSupport. <br>Nossa plataforma foi
                     projetada para empresas
                     de todos os tamanhos, desde startups até multinacionais.
                 </p>
@@ -224,7 +224,7 @@
                     <a href="" class="a2">Teste Grátis</a>
                 </div>
             </div>
-            <img src="./src/images/LandingPage/ImageExemplo.svg" alt="">
+            <img src="./src/images/LandingPage/ImageExemplo.svg" alt="" id="transforme-img">
         </div>
     </section>
     <section id="comecar-simples" class="section">
@@ -240,7 +240,7 @@
                     <span>Crie seu perfil em minutos!</span>
                 </div>
             </div>
-            <div class="card comecar-card seta">
+            <div class="card comecar-card-seta">
                 <img src="./src/images/LandingPage/setaprogress.svg" alt="">
             </div>
             <div class="card comecar-card">
@@ -250,7 +250,7 @@
                     <span>Modifique sua foto de perfil e coloque um nome de sua preferência</span>
                 </div>
             </div>
-            <div class="card comecar-card seta">
+            <div class="card comecar-card-seta">
                 <img src="./src/images/LandingPage/setaprogress.svg" alt="">
             </div>
             <div class="card comecar-card">
@@ -260,7 +260,7 @@
                     <span>Com chamados você fala com os nossos melhores técnicos</span>
                 </div>
             </div>
-            <div class="card comecar-card seta">
+            <div class="card comecar-card-seta">
                 <img src="./src/images/LandingPage/setaprogress.svg" alt="">
             </div>
             <div class="card comecar-card">
@@ -340,27 +340,75 @@
     <section id="duvidas">
         <div id="duvidas-div">
             <h2>Duvidas</h2>
-            <div id="div">
-                <ul>Tem que pagar?</ul>
-                <ul>Posso dividir em 48x?</ul>
-                <ul>O serviço é bom?</ul>
-                <ul>O teste gratuito, é grátis?</ul>
-            </div>
+            <details class="faq-item">
+                <summary class="faq-pergunta">Tem que pagar?</summary>
+                <div class="faq-resposta">
+                    <p>A resposta para a primeira dúvida deve ser colocada aqui. Geralmente, esta área é expandida
+                        quando o usuário clica na pergunta.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-pergunta">Posso dividir em 48x?</summary>
+                <div class="faq-resposta">
+                    <p>Verifique as condições de pagamento na nossa página de planos. Aceitamos diversas formas de
+                        parcelamento, mas o limite pode variar.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-pergunta">O serviço é bom?</summary>
+                <div class="faq-resposta">
+                    <p>Nosso serviço é altamente avaliado pelos clientes. Confira os depoimentos e as avaliações em
+                        nossa página principal!</p>
+                </div>
+            </details>
+
         </div>
     </section>
     <section id="descontos">
-        <p>Descontos por tempo limitado</p>
-        <h1>Descontos por tempo limitado</h1>
-        <p>Junte-se a nós e economize tempo da sua equipe com o HelpDesk.
-            Inscreva-se hoje e ganhe 3 meses com 50% de desconto.
+        <p class="p1">Descontos por tempo limitado</p>
+        <h1>Já conhece nossos planos? Se não, venha conhecer!</h1>
+        <p class="p2">Junte-se a nós e economize tempo da sua equipe com o HelpDesk.<br>Inscreva-se hoje e ganhe 3 meses
+            com 50% de desconto.
         </p>
-        <div><a href="">Venha conhecer</a><a href="">WhatsApp</a></div>
+        <div id="descontos-a">
+            <a href="" class="a1">Venha conhecer</a>
+            <a href="" class="a2">WhatsApp</a>
+        </div>
         <h3>GMH Support</h3>
-        <div>
-            <img src="" alt=""><span>Nosso Contato</span>
-            <p>+11 91036-9845</p>
+        <div id="cont">
+            <img src="./src/images/LandingPage/Phone.svg" alt=""><span id="cont-s">Nosso Contato</span>
+            <p id="cont-p">+11 91036-9845</p>
         </div>
     </section>
+    <section id="footer">
+        <div class="footer-contato">
+            <h3>Contato</h3>
+            <div class="footer-span">
+                <img src="./src/images/LandingPage/local.svg" alt=""><span>Rua Marlene Dietrich, Jd. Guanhembu, 81,
+                    04814555, Brasil</span>
+            </div>
+            <div class="footer-span">
+                <img src="./src/images/LandingPage/email.svg" alt=""><span>GmhSupport@gmail.com</span>
+            </div>
+            <div class="footer-span">
+                <img src="./src/images/LandingPage/tel.svg" alt=""><span>+11 94548 04801</span>
+            </div>
+        </div>
+        <div class="footer-contato">
+            <h3>Nossas Redes Sociais</h3>
+            <div><img src="./src/images/LandingPage/Facebook.svg" alt=""><img
+                    src="./src/images/LandingPage/Instagram Circle.svg" alt=""><img
+                    src="./src/images/LandingPage/LinkedIn.svg" alt=""></div>
+        </div>
+    </section>
+    <footer>
+        <span>© 2025 GMHSupport. Todos os Direitos Reservados</span>
+        <div id="footer-a">
+            <a href="">Políticas de privacidade</a><a href="">Termos de Serviço</a><a href="">Política de Cookies</a>
+        </div>
+    </footer>
 </body>
 
 </html>

@@ -34,8 +34,9 @@
 
 .cards {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     gap: 25px;
 }
 
@@ -44,13 +45,14 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
-    border: 1px solid #E2E8F0;
+    border: 3px solid #000000;
     border-radius: 12px;
     padding: 40px 25px;
 }
 
 .categorias-card {
     min-height: 540px;
+    width: 330px;
 }
 
 .section h2 {
@@ -148,6 +150,7 @@ main p {
 
 #beneficios {
     display: flex;
+    background-color: #eeeeee;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -156,17 +159,31 @@ main p {
     gap: 60px;
 }
 
+.beneficios-card {
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+    height: 320px;
+}
+
 #beneficios-card {
-    width: 70%;
+    width: 80%;
     background-color: #140094;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
     margin-top: 60px;
     max-width: 1700px;
-    padding: 45px 45px;
+    padding: 45px 8%;
     border-radius: 16px;
+}
+
+#beneficios-img {
+    max-width: 200px;
+    min-width: 100px;
+    flex-shrink: 100;
 }
 
 #beneficios-card h3 {
@@ -211,6 +228,7 @@ main p {
 }
 
 #chamados-categorias {
+    background-color: #e4e4e4;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -256,6 +274,7 @@ span {
 }
 
 #transforme-desempenho {
+    background-color: #dfdfdf;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -279,20 +298,26 @@ span {
 }
 
 .transforme-card {
-    width: 20%;
-    height: 100%;
+    width: 250px;
+    height: 400px;
 }
 
-.transfome-card2 {
+.transforme-card2 {
     display: flex;
     padding: 50px;
     justify-content: center;
     align-items: center;
     border-radius: 16px;
     gap: 10px;
-    width: 70%;
+    width: 80%;
     max-width: 1700px;
     background-color: #140094;
+}
+
+#transforme-img {
+    flex-shrink: 1;
+    min-width: 100px;
+    max-width: 200px;
 }
 
 .transforme-card2-div {
@@ -340,6 +365,7 @@ span {
 }
 
 #comecar-simples {
+    background-color: #d3d3d3;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -356,9 +382,9 @@ span {
 }
 
 .comecar-card {
-    width: 30%;
-    border: none;
-
+    margin-top: 20px;
+    width: 250px;
+    height: 400px;
 }
 
 .comecar-card p {
@@ -380,9 +406,11 @@ span {
     width: 100px;
 }
 
-.seta {
+.comecar-card-seta {
     width: 5%;
+    border: none;
 }
+
 
 .seta img {
     margin-top: 38px;
@@ -401,6 +429,7 @@ span {
 }
 
 #planos {
+    background-color: #eeeeee;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -416,6 +445,7 @@ span {
 }
 
 .planos-card {
+    width: 450px;
     height: 100%;
     align-items: start;
     justify-content: space-between;
@@ -463,6 +493,7 @@ span {
 
 #duvidas {
     display: flex;
+
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
@@ -470,47 +501,214 @@ span {
     padding: 110px 35px;
     gap: 60px;
 }
-#duvidas-div{
+
+#duvidas-div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     width: 80%;
     gap: 40px;
-    background-color: #F9FAFB;
+    background-color: #c5c5c5;
     border-radius: 16px;
     padding: 30px;
 }
-#duvidas-div h2{
+
+#duvidas-div h2 {
     font-size: 26px;
     font-weight: 600;
     color: #1E0E3E;
 }
-#div{
+
+#div {
     display: flex;
     width: 100%;
     align-items: center;
     flex-direction: column;
     gap: 20px;
 }
-#duvidas-div ul{
-    display: flex;
-    align-items: center;
-    border: #0F172A 1px solid;
-    width: 80%;
-    height: 50px;
-    background-color: white;
-    border-radius: 8px;
-    font-size: 16px;
-    color: #1E0E3E;
+
+
+.abertura {
+    transition: 0.5s;
 }
-#descontos{
+
+#descontos {
     display: flex;
-    background-color: #5A08A8;
+    background-color: #2700F0;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 25px;
     padding: 110px 35px;
-    gap: 60px;
+    gap: 25px;
+}
+
+.p1 {
+    color: white;
+    background-color: #FFFFFF23;
+    padding: 5px 20px;
+    font-size: 16px;
+    border-radius: 30px;
+}
+
+.p2 {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+
+#descontos h1 {
+    font-size: 48px;
+    color: white;
+}
+
+#descontos-a {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    gap: 30px;
+}
+
+#descontos-a a {
+    padding: 10px 40px;
+    border-radius: 8px;
+}
+
+#descontos h3 {
+    font-size: 30px;
+    color: white;
+}
+
+#cont {
+    display: flex;
+    width: 40%;
+    justify-content: center;
+    gap: 20px;
+}
+
+#cont-s {
+    margin: 0;
+    color: white;
+}
+
+#cont-p {
+    margin: 0;
+    color: white;
+}
+
+.faq-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    width: 100%;
+    background-color: white;
+    /* Remove o marcador padrão do <details> no Firefox */
+    list-style: none;
+}
+
+/* Ajuste para remover o marcador no Webkit (Chrome/Safari) */
+.faq-item>summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-pergunta {
+    /* Define o estilo da linha da pergunta */
+    padding: 18px 20px;
+    font-weight: 500;
+    color: var(--cor-texto);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    /* Impede seleção do texto ao clicar */
+
+    /* Adiciona o ícone de seta customizado */
+    position: relative;
+}
+
+/* Cria o ícone de seta personalizado (chevrón) */
+.faq-pergunta::after {
+    content: '⌵';
+    /* Seta para baixo, você pode usar um SVG ou '⌄' se preferir */
+    font-size: 24px;
+    color: #888;
+    transition: transform 0.3s;
+    line-height: 1;
+}
+
+/* Gira a seta quando o item está aberto */
+.faq-item[open] .faq-pergunta::after {
+    transform: rotate(180deg);
+    color: var(--cor-principal);
+}
+
+/* --------------------------------- */
+/* Estilo da Resposta (Animação) */
+/* --------------------------------- */
+
+.faq-resposta {
+    /* Esconde o conteúdo e prepara para a animação */
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+
+    /* A chave da animação: transição suave */
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+
+    background-color: #fafafa;
+    /* Fundo suave para a resposta */
+    border-top: 1px solid #eee;
+}
+
+/* Estado Aberto: Expande a altura máxima e adiciona padding */
+.faq-item[open] .faq-resposta {
+    max-height: 500px;
+    /* Valor grande o suficiente para qualquer resposta */
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.faq-resposta p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+#footer {
+    display: flex;
+    padding: 80px 35px;
+    gap: 150px;
+}
+
+.footer-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.footer-contato h3{
+    color: #3D0673;
+    font-size: 18px;
+}
+.footer-span img{
+    margin-right: 10px;
+}
+footer{
+    display: flex;
+    padding: 20px 35px;
+    border-top: 1px rgb(0, 0, 0) solid;
+    justify-content: space-between;
+    text-align: justify;
+}
+footer span{
+    margin: 0;
+    color: gray;
+}
+#footer-a{
+    display: flex;
+    gap: 20px;
+    color: gray;
 }
