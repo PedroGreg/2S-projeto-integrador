@@ -4,33 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/usr_chamados_finalizados.css">
+    <link rel="stylesheet" href="../style/chamados_designados.css">
     <link rel="stylesheet" href="../style/geral.css">
-    <link rel="stylesheet" href="../style/style_usr.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Chamados Finalizados</title>
+    <title>Chamados Designados</title>
 </head>
 
 <body class="display-flex">
     <aside class="display-flex">
         <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Logo.svg" alt="">
             </a>
-            <a href="./usr_meus_chamados.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Itens novos.svg" alt="">
             </a>
-            <!-- <a href="./adm_usuarios.html">
+            <a href="./adm_usuarios.php">
                 <img src="../../images/logado/Pessoas.svg" alt="">
             </a>
-            <a href="./adm_relatorios.html">
+            <a href="./adm_relatorios.php">
                 <img src="../../images/logado/Rede.svg" alt="">
-            </a> -->
+            </a>
         </nav>
         <section id="navbar-dir" class="display-flex-column">
             <div id="navbar-dir-enterprise" class="display-flex">
@@ -46,15 +46,15 @@
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_meus_chamados.html">Meus chamados abertos</a>
+                    <a href="./chamados_abertos.php">Chamados abertos</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_finalizados.html">Chamados finalizados</a>
+                    <a href="./chamados_designados.php">Chamados designados</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_pendentes.html">Chamados c/ pendencias</a>
+                    <a href="./chamados_concluidos.php">Chamados concluídos</a>
                     <p>1</p>
                 </div>
             </div>
@@ -69,12 +69,12 @@
         </header>
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
-                <h2>Chamados finalizados</h2>
+                <h2>Chamados Designados</h2>
                 <p class="display-flex">2</p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button>
             <div class="titulos display-flex">
-                <button class="margin-button"></button>
+                <button class="margin-button">D</button>
                 <p class="margin-email">Email</p>
                 <p class="margin-id">ID do chamado</p>
                 <p class="margin-status">Status</p>
@@ -82,52 +82,51 @@
                 <p class="margin-prioridade">Prioridade</p>
             </div> -->
             <section id="section-chamados" class="display-flex-column">
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
-                        <h3 class="button">P</h3>
-                        <div class="email">
-                            <p>Problemas na internet</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
-                        </div>
-                        <div id="id">
-                            <p>ID #1</p>
-                            <span>Finalizado 1 dia atrás</span>
-                        </div>
-                        <h4 class="button">Fechado</h4>
-                        <p>Reparo de servidor</p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
+                <article class="chamados display-flex">
+                    <button class="check chamados-button"></button>
+                    <h3 class="button">J</h3>
+                    <div class="email">
+                        <p>tecnicoteste@gmhelp.com</p>
+                        <div class="email-detalhe"><img src="" alt=""><span>Designado ao técnico Cleber</span></div>
                     </div>
-                    <div class="extra">
-                        <p>Aqui ficará o histórico de acompanhamento completo de chamado do cliente</p>
+                    <div id="id">
+                        <p>ID #1</p>
+                        <span>Chamado aceito dia (01/09/2025)</span>
                     </div>
+                    <h4 class="button">Em atendimento</h4>
+                    <p>Reparo de servidor</p>
+                    <ul>
+                        <li>
+                            <p>Medio</p>
+                        </li>
+                    </ul>
+                    <button class="chamados-button"></button>
                 </article>
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
-                        <h3 class="button">P</h3>
-                        <div class="email">
-                            <p>Problemas no servidor</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
-                        </div>
-                        <div id="id">
-                            <p>ID #2</p>
-                            <span>Finalizado 1 semana atrás</span>
-                        </div>
-                        <h4 class="button">Fechado</h4>
-                        <p>Reparo de servidor</p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
+                <article class="chamados display-flex">
+                    <button class="check chamados-button"></button>
+                    <h3 class="button">J</h3>
+                    <div class="email">
+                        <p>tecnicoteste@gmhelp.com</p>
+                        <div class="email-detalhe"><img src="" alt=""><span>Designado ao técnico Vladmir</span></div>
                     </div>
-                    <div class="extra">
-                        <p>Aqui ficará o histórico de acompanhamento completo de chamado do cliente</p>
+                    <div id="id">
+                        <p>ID #2</p>
+                        <span>Chamado aceito dia (01/09/2025)</span>
                     </div>
+                    <h4 class="button">Em atendimento</h4>
+                    <p>Reparo de servidor</p>
+                    <ul>
+                        <li>
+                            <p>Medio</p>
+                        </li>
+                    </ul>
+                    <button class="chamados-button"></button>
                 </article>
             </section>
         </section>
     </main>
     <script src="../script/button.js"></script>
     <script src="../script/checkButton.js"></script>
-    <script src="../script/chamados.js"></script>
 </body>
 
 </html>

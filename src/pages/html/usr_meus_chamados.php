@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/usr_chamados_pendentes.css">
+    <link rel="stylesheet" href="../style/usr_meus_chamados.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style_usr.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,22 +13,22 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Chamados Finalizados</title>
+    <title>Meus chamados abertos</title>
 </head>
 
 <body class="display-flex">
     <aside class="display-flex">
         <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Logo.svg" alt="">
             </a>
-            <a href="./usr_meus_chamados.html">
+            <a href="./usr_meus_chamados.php">
                 <img src="../../images/logado/Itens novos.svg" alt="">
             </a>
-            <!-- <a href="./adm_usuarios.html">
+            <!-- <a href="./adm_usuarios.php">
                 <img src="../../images/logado/Pessoas.svg" alt="">
             </a>
-            <a href="./adm_relatorios.html">
+            <a href="./adm_relatorios.php">
                 <img src="../../images/logado/Rede.svg" alt="">
             </a> -->
         </nav>
@@ -46,15 +46,15 @@
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_meus_chamados.html">Meus chamados abertos</a>
+                    <a href="./usr_meus_chamados.php">Meus chamados abertos</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_finalizados.html">Chamados finalizados</a>
+                    <a href="./usr_chamados_finalizados.php">Chamados finalizados</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_pendentes.html">Chamados c/ pendencias</a>
+                    <a href="./usr_chamados_pendentes.php">Chamados c/ pendencias</a>
                     <p>1</p>
                 </div>
             </div>
@@ -69,11 +69,11 @@
         </header>
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
-                <h2>Chamados pendênciados</h2>
-                <p class="display-flex">1</p>
+                <h2>Meus chamados Abertos</h2>
+                <p class="display-flex">2</p>
             </div>
-            <!-- <button class="chamados-button" id="checkall"></button> -->
-            <!-- <div class="titulos display-flex">
+            <!-- <button class="chamados-button" id="checkall"></button>
+            <div class="titulos display-flex">
                 <button class="margin-button"></button>
                 <p class="margin-email">Email</p>
                 <p class="margin-id">ID do chamado</p>
@@ -88,18 +88,38 @@
                         <h3 class="button">P</h3>
                         <div class="email">
                             <p>Problemas na internet</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
+                            <div class="email-detalhe"><img src="" alt=""><span>criado a 3 horas por Pedro</span></div>
                         </div>
                         <div id="id">
                             <p>ID #1</p>
-                            <span>Pendenciado 1 semana atrás</span>
+                            <span>Respondido 1 hora atrás</span>
                         </div>
-                        <h4 class="button">Pendente</h4>
-                        <p>Acesso à internet</p>
+                        <h4 class="button">Em atendimento</h4>
+                        <p>Reparo de servidor</p>
                         <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
                     </div>
                     <div class="extra">
-                        <p>Aqui ficará o motivo do chamado estar pendente.<br>Ex. instalar cabeamento de internet entre ponto X e Y.</p>
+                        <p>Aqui ficará o acompanhamento de progresso do chamado do cliente</p>
+                    </div>
+                </article>
+                <article class="chamado">
+                    <div class="chamados  display-flex">
+                        <button class="check chamados-button"></button>
+                        <h3 class="button">P</h3>
+                        <div class="email">
+                            <p>Problemas no servidor</p>
+                            <div class="email-detalhe"><img src="" alt=""><span>criado a 3 horas por Pedro</span></div>
+                        </div>
+                        <div id="id">
+                            <p>ID #2</p>
+                            <span>Respondido 1 hora atrás</span>
+                        </div>
+                        <h4 class="button">Em atendimento</h4>
+                        <p>Reparo de servidor</p>
+                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
+                    </div>
+                    <div class="extra">
+                        <p>Aqui ficará o acompanhamento de progresso do chamado do cliente</p>
                     </div>
                 </article>
             </section>

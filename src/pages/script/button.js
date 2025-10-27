@@ -3,31 +3,31 @@ button.forEach((button) => {
     button.addEventListener('click', () => {
         switch (button.textContent) {
             case 'ACEITAR CHAMADO':
-                window.location.href = 'finalizar_chamado.html'
+                window.location.href = 'finalizar_chamado.php'
                 break;
             case 'RECUSAR CHAMADO':
-                window.location.href = 'chamados_abertos.html'
+                window.location.href = 'chamados_abertos.php'
                 break;
             case 'CONCLUIR CHAMADO':
-                window.location.href = 'chamado_concluido.html'
+                window.location.href = 'chamado_concluido.php'
                 break;
             case 'FINALIZAR CHAMADO':
-                window.location.href = 'conclusao_chamado.html'
+                window.location.href = 'conclusao_chamado.php'
                 break;
             case 'CHAMADOS ABERTOS':
-                window.location.href = 'chamados_abertos.html'
+                window.location.href = 'chamados_abertos.php'
                 break;
             case 'DETALHES':
-                window.location.href = 'detalhes_chamado.html'
+                window.location.href = 'detalhes_chamado.php'
                 break;
             case '+ NOVO CHAMADO':
-                window.location.href = 'abertura_chamado.html'
+                window.location.href = 'abertura_chamado.php'
                 break;
             case 'REALIZAR CHAMADO':
-                window.location.href = 'chamado_aberto.html'
+                window.location.href = 'chamado_aberto.php'
                 break;
             case 'MEUS CHAMADOS ABERTOS':
-                window.location.href = 'usr_meus_chamados.html'
+                window.location.href = 'usr_meus_chamados.php'
                 break;
         }
     })
