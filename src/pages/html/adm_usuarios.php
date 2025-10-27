@@ -1,3 +1,20 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
+    header("location: ./login.php");
+    exit();
+}
+try {
+    require_once("../php/conn.php");
+    $sql = "SELECT u.nome, u.email, u.id_usuario, e.empresa FROM usuarios u INNER JOIN empresas e ON u.id_empresa = e.id_empresa";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+catch (PDOException $e) {
+    echo "Erro " . $e;
+}
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -54,6 +71,14 @@
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
+                    <a href="./adm_administradores.php">Administradores</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
+                    <a href="./cadastrar_tecnico.php">Cadastrar Tecnico</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
                     <a href="./cadastrar_administrador.php">Cadastrar administrador</a>
                     <p></p>
                 </div>
@@ -78,25 +103,18 @@
                         <td>Nome</td>
                         <td>Email</td>
                         <td>ID do usuário</td>
+                        <td>Empresa responsável</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="table-row">
-                        <td>João</td>
-                        <td>joao@gmail.com</td>
-                        <td>01</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td>Cleber</td>
-                        <td>cleber@gmail.com</td>
-                        <td>02</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td>Maria</td>
-                        <td>maria@gmail.com</td>
-                        <td>03
-                        </td>
-                    </tr>
+                    <?php foreach($usuarios as $user): ?>
+                        <tr>
+                            <td><?php echo $user['nome']?></td>
+                            <td><?php echo $user['email']?></td>
+                            <td><?php echo $user['id_usuario']?></td>
+                            <td><?php echo $user['empresa']?></td>
+                        </tr>
+                    <?php endforeach?>
                 </tbody>
             </table>
         </section>

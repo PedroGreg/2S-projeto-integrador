@@ -21,10 +21,10 @@ button.forEach((button) => {
                 window.location.href = 'detalhes_chamado.php'
                 break;
             case '+ NOVO CHAMADO':
-                window.location.href = 'abertura_chamado.php'
+                window.location.href = 'usr_abertura_chamado.php'
                 break;
             case 'REALIZAR CHAMADO':
-                window.location.href = 'chamado_aberto.php'
+                window.location.href = 'usr_chamado_aberto.php'
                 break;
             case 'MEUS CHAMADOS ABERTOS':
                 window.location.href = 'usr_meus_chamados.php'

@@ -1,10 +1,17 @@
+<?php
+session_start();
+if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false) {
+    header("location: ./login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/abertura_chamado.css">
+    <link rel="stylesheet" href="../style/usr_abertura_chamado.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style_usr.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

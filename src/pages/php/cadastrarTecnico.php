@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_POST["submit"]) || strlen($_POST["codigo"]) != 8 || !isset($_POST["email"]) || !isset($_POST["senha"])) {
     $_SESSION["mensagem_erro"] = "Erro no cadastro, verifique as informações";
-    header("location:../html/cadastrar_administrador.php");
+    header("location:../html/cadastrar_tecnico.php");
     exit();
 }
 unset($_SESSION["mensagem_erro"]);
@@ -29,7 +29,7 @@ if (
         if ($testeCodigo->rowCount() == 1) {
             $resultado = $testeCodigo->fetch(PDO::FETCH_ASSOC);
             $IDE = $resultado["id_empresa"];
-            $sql = "INSERT INTO administradores (id_empresa,nome,email,senha,ativo) VALUES (:IDE,:nome,:email,:senha,:ativo)";
+            $sql = "INSERT INTO tecnicos (id_empresa,nome,email,senha,ativo) VALUES (:IDE,:nome,:email,:senha,:ativo)";
             $query = $pdo->prepare($sql);
             $query->bindParam(":IDE", $IDE, PDO::PARAM_INT);
             $query->bindParam(":nome", $nome, PDO::PARAM_STR);
@@ -37,12 +37,12 @@ if (
             $query->bindParam(":senha", $senha, PDO::PARAM_STR);
             $query->bindParam(":ativo", $ativo, PDO::PARAM_INT);
             $query->execute();
-            $_SESSION["mensagem_sucesso"] = "Administrador cadastrado com sucesso";
-            header("location: ../html/cadastrar_administrador.php");
+            $_SESSION["mensagem_sucesso"] = "Tecnico cadastrado com sucesso";
+            header("location: ../html/cadastrar_tecnico.php");
             exit();
         } else {
             $_SESSION["mensagem_erro"] = "Código da empresa incorreto";
-            header("location:../html/cadastrar_administrador.php");
+            header("location:../html/cadastrar_tecnico.php");
             exit();
         }
     } catch (PDOException $e) {

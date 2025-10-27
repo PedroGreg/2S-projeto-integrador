@@ -4,6 +4,15 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
     header("location: ./login.php");
     exit();
 }
+try {
+    require_once("../php/conn.php");
+    $sql = "SELECT a.nome, a.email, a.id_administrador, a.ativo, e.empresa FROM administradores a INNER JOIN empresas e ON a.id_empresa = e.id_empresa";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $administradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Erro " . $e;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -11,7 +20,7 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/adm_relatorios.css">
+    <link rel="stylesheet" href="../style/adm_usuarios.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +29,7 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Relatórios</title>
+    <title>Administradores</title>
 </head>
 
 <body class="display-flex">
@@ -48,16 +57,28 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
                 </div>
             </div>
             <div class="navbar-dir-a display-flex">
-                <a href="./chamados_abertos.php">Pagina Inicial</a>
+                <a href="">Pagina Inicial</a>
                 <p>0</p>
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_dashboard.php">DASHBOARD</a>
+                    <a href="./adm_usuarios.php">Usuários</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_relatorios.php">Relatórios</a>
+                    <a href="./adm_colaboradores.php">Colaboradores</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
+                    <a href="./adm_administradores.php">Administradores</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
+                    <a href="./cadastrar_tecnico.php">Cadastrar Tecnico</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
+                    <a href="./cadastrar_administrador.php">Cadastrar administrador</a>
                     <p></p>
                 </div>
             </div>
@@ -72,41 +93,35 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
         </header>
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
-                <h2>Gerar relatórios</h2>
-                <p class="display-flex">2</p>
+                <h2>Administradores</h2>
+                <p class="display-flex">3</p>
             </div>
-            <article class="relatorios display-flex">
-                <form action="" class="display-flex">
-                    <div class="display-flex">
-                        <h3>Chamados atendidos</h3>
-                        <div id="id">
-                            <span>Inicio dia:</span>
-                            <input type="date" id="data-limite" name="data_inicio" min="2025-01-01" max="" required>
-                        </div>
-                        <div id="id">
-                            <span>Término dia:</span>
-                            <input type="date" id="data-limite" name="data_inicio" min="2025-01-01" max="" required>
-                        </div>
-                    </div>
-                    <button id="submit" type="submit">Gerar relatório</button>
-                </form>
-            </article>
-            <article class="relatorios display-flex">
-                <form action="" class="display-flex">
-                    <div class="email display-flex">
-                        <h3>Chamados realizados</h3>
-                        <div id="id">
-                            <span>Inicio dia:</span>
-                            <input type="date" id="data-limite" name="data_inicio" min="2025-01-01" max="" required>
-                        </div>
-                        <div id="id">
-                            <span>Término dia:</span>
-                            <input type="date" id="data-limite" name="data_inicio" min="2025-01-01" max="" required>
-                        </div>
-                    </div>
-                    <button id="submit" type="submit">Gerar relatório</button>
-                </form>
-            </article>
+            <table>
+                <thead class="">
+                    <tr class="table-header">
+                        <td>Nome</td>
+                        <td>Email</td>
+                        <td>ID do administrador</td>
+                        <td>Empresa responsável</td>
+                        <td>Ativo</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($administradores as $admin): ?>
+                        <tr>
+                            <td><?php echo $admin['nome'] ?></td>
+                            <td><?php echo $admin['email'] ?></td>
+                            <td><?php echo $admin['id_administrador'] ?></td>
+                            <td><?php echo $admin['empresa'] ?></td>
+                            <td><?php if ($admin['ativo']) {
+                                echo "ATIVO";
+                            } else {
+                                echo "INATIVO";
+                            } ?></td>
+                        </tr>
+                    <?php endforeach ?>
+                </tbody>
+            </table>
         </section>
     </main>
     <script src="../script/button.js"></script>

@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
+    header("location: ./login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -19,13 +26,13 @@
 <body class="display-flex">
     <aside class="display-flex">
         <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Logo.svg" alt="">
             </a>
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Itens novos.svg" alt="">
             </a>
-            <a href="./adm_usuarios.html">
+            <a href="./adm_usuarios.php">
                 <img src="../../images/logado/Pessoas.svg" alt="">
             </a>
             <a href="">
@@ -46,15 +53,15 @@
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./chamados_abertos.html">Chamados abertos</a>
+                    <a href="./chamados_abertos.php">Chamados abertos</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./chamados_designados.html">Chamados designados</a>
+                    <a href="./chamados_designados.php">Chamados designados</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./chamados_concluidos.html">Chamados concluídos</a>
+                    <a href="./chamados_concluidos.php">Chamados concluídos</a>
                     <p>1</p>
                 </div>
             </div>

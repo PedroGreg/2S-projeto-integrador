@@ -17,12 +17,14 @@ try {
     $query2->execute();
     if ($query2->rowCount() > 0) {
         $_SESSION['admin_logado'] = true;
-        header('location: ../html/chamados_abertos.html');
+        $_SESSION['usuario_logado'] = false;
+        header('location: ../html/chamados_abertos.php');
         unset($_SESSION['mensagem_erro']);
         exit();
     } elseif ($query1->rowCount() > 0) {
         $_SESSION['usuario_logado'] = true;
-        header('location: ../html/usr_meus_chamados.html');
+        $_SESSION['admin_logado'] = false;
+        header('location: ../html/usr_meus_chamados.php');
         unset($_SESSION['mensagem_erro']);
         exit();
     } else {

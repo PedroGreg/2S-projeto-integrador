@@ -15,7 +15,7 @@ try {
     $query -> execute();
     if ($query ->rowCount() == 1) {
         $empresa = $query -> fetch(PDO::FETCH_ASSOC);
-        $_SESSION['empresa'] = $empresa['nome'];
+        $_SESSION['empresa'] = $empresa['empresa'];
         $_SESSION['IDE'] = $empresa['id_empresa'];
         header('location: ../html/cadastro.php');
         exit();

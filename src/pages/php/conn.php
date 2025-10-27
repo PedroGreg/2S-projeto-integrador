@@ -14,8 +14,8 @@ $options = array(
 
 try {
     $pdo = new PDO($dsn, $dbUsername, $dbPassword, $options);
-    echo "Conexão bem sucedida";
+    //echo "Conexão bem sucedida";
 } catch (PDOException $e) {
-    echo "Deu erro: " . $e->getMessage();
+    //echo "Deu erro: " . $e->getMessage();
 }
 ?>

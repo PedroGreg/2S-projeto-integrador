@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
+    header("location: ./login.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -56,6 +60,14 @@ session_start();
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
+                    <a href="./adm_administradores.php">Administradores</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
+                    <a href="./cadastrar_tecnico.php">Cadastrar Tecnico</a>
+                    <p></p>
+                </div>
+                <div class="navbar-dir-a display-flex">
                     <a href="./cadastrar_administrador.php">Cadastrar administrador</a>
                     <p></p>
                 </div>
@@ -96,8 +108,8 @@ session_start();
                             <input type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>
                         </div>
                         <button type="submit" name="submit" id="submit">CADASTRAR</button>
-                        <?php
-                        if (isset($_SESSION["mensagem_erro"])) echo "<h3>" .$_SESSION['mensagem_erro'] . "</h3>" ?>
+                        <?php if (isset($_SESSION["mensagem_erro"])) echo "<h3>" .$_SESSION['mensagem_erro'] . "</h3>" ?>
+                        <?php if (isset($_SESSION["mensagem_sucesso"])) echo "<h3>" .$_SESSION['mensagem_sucesso'] . "</h3>" ?>
                     </fieldset>
                 </form>
             </div>
@@ -107,3 +119,7 @@ session_start();
 </body>
 
 </html>
+<?php
+unset($_SESSION["mensagem_erro"]);
+unset($_SESSION["mensagem_sucesso"]);
+?>
