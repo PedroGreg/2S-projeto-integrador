@@ -19,16 +19,16 @@
 <body class="display-flex">
     <aside class="display-flex">
         <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Logo.svg" alt="">
             </a>
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Itens novos.svg" alt="">
             </a>
-            <a href="./adm_usuarios.html">
+            <a href="./adm_usuarios.php">
                 <img src="../../images/logado/Pessoas.svg" alt="">
             </a>
-            <a href="./adm_relatorios.html">
+            <a href="./adm_relatorios.php">
                 <img src="../../images/logado/Rede.svg" alt="">
             </a>
         </nav>
@@ -46,11 +46,11 @@
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_usuarios.html">Usuários</a>
+                    <a href="./adm_usuarios.php">Usuários</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_colaboradores.html">Colaboradores</a>
+                    <a href="./adm_colaboradores.php">Colaboradores</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
