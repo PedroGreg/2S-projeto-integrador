@@ -19,13 +19,13 @@
 <body class="display-flex">
     <aside class="display-flex">
         <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.html">
+            <a href="./chamados_abertos.php">
                 <img src="../../images/logado/Logo.svg" alt="">
             </a>
-            <a href="./usr_meus_chamados.html">
+            <a href="./usr_meus_chamados.php">
                 <img src="../../images/logado/Itens novos.svg" alt="">
             </a>
-            <!-- <a href="./adm_usuarios.html">
+            <!-- <a href="./adm_usuarios.php">
                 <img src="../../images/logado/Pessoas.svg" alt="">
             </a>
             <a href="">
@@ -46,15 +46,15 @@
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_meus_chamados.html">Meus chamados abertos</a>
+                    <a href="./usr_meus_chamados.php">Meus chamados abertos</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_finalizados.html">Chamados finalizados</a>
+                    <a href="./usr_chamados_finalizados.php">Chamados finalizados</a>
                     <p>2</p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_pendentes.html">Chamados c/ pendencias</a>
+                    <a href="./usr_chamados_pendentes.php">Chamados c/ pendencias</a>
                     <p>1</p>
                 </div>
             </div>
