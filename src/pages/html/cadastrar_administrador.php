@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/adm_colaboradores.css">
+    <link rel="stylesheet" href="../style/cadastrar_administrador.css">
     <link rel="stylesheet" href="../style/geral.css">
-    <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Colaboradores</title>
+    <title>Título</title>
 </head>
 
 <body class="display-flex">
@@ -60,55 +59,38 @@
             </div>
         </section>
     </aside>
+    <header class="display-flex">
+        <div id="header-user" class="display-flex">
+            <img src="../../images/logado/User.svg" alt="">
+        </div>
+    </header>
     <main>
-        <header class="display-flex">
-            <button id="header-button" class="botao">+ NOVO CHAMADO</button>
-            <div id="header-user" class="display-flex">
-                <img src="../../images/logado/User.svg" alt="">
-            </div>
-        </header>
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
-                <h2>Colaboradores</h2>
-                <p class="display-flex">3</p>
+                <h2>Cadastrar Administrador</h2>
             </div>
-            <table>
-                <thead class="">
-                    <tr class="table-header">
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>Status</td>
-                        <td>ID do chamado</td>
-                        <td>ID do colaborador</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-row">
-                        <td>João</td>
-                        <td>joao@gmail.com</td>
-                        <td>Disponivel</td>
-                        <td>NA</td>
-                        <td>01</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td>Cleber</td>
-                        <td>cleber@gmail.com</td>
-                        <td>Em atendimento</td>
-                        <td>02</td>
-                        <td>02</td>
-                    </tr>
-                    <tr class="table-row">
-                        <td>Maria</td>
-                        <td>maria@gmail.com</td>
-                        <td>Folga</td>
-                        <td>NA</td>
-                        <td>03</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div>
+                <form action="../php/cadastrarAdministrador.php" method="post">
+                    <fieldset>
+                        <div class="divInput">
+                            <label for="nome">Nome Completo</label>
+                            <input type="text" id="nome" class="input" required>
+                        </div>
+                        <div class="divInput">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="input" required>
+                        </div>
+                        <div class="divInput">
+                            <label for="senha">Senha</label>
+                            <input type="text" id="senha" class="input" required>
+                        </div>
+                        <button type="submit" name="submit" id="submit">CADASTRAR</button>
+                    </fieldset>
+                </form>
+            </div>
         </section>
     </main>
-    <script src="../script/button.js"></script>
+    <script src="../script/chamados_abertos.js"></script>
 </body>
 
 </html>
