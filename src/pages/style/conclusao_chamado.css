@@ -1,0 +1,17 @@
+form{
+    gap: 20px;
+    columns: 1;
+}
+.form-div input, select, textarea{
+    display: inline;
+    background-color: white;
+    border: 1px solid var(--text-color-gray);
+    border-radius: 2px;
+    width: 100%;
+}
+
+.form-div label{
+    color: var(--text-color-titulo);
+    font-weight: 600;
+    display: inline-block;
+}
