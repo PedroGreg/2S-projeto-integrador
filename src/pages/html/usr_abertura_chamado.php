@@ -79,7 +79,7 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
                 <h2>Abertura de chamado</h2>
                 <!-- <p class="display-flex">#01</p> -->
             </div>
-            <form method="" action="./chamado_aberto.php">
+            <form method="POST" action="./usr_chamado_aberto.php">
                 <div class="form-div">
                     <label for="categoria">Categoria do chamado:</label>
                     <select name="categoria" id="categoria">
@@ -90,21 +90,21 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
                     </select>
                 </div>
                 <div class="form-div">
-                    <label for="obs">Endereço:</label>
-                    <textarea rows="1" name="obs" id="obs"></textarea>
+                    <label for="endereco">Endereço:</label>
+                    <textarea rows="1" name="endereco" id="endereco"></textarea>
                 </div>
                 <div class="form-div">
-                    <label for="descricaoPend">Descrição do chamado:</label>
-                    <textarea rows="3" name="descricaoPend" id="descricaoPend"></textarea>
+                    <label for="descricaoChamado">Descrição do chamado:</label>
+                    <textarea rows="3" name="descricaoChamado" id="descricaoChamado"></textarea>
                 </div>
                 <div class="form-div">
                     <label for="obs">Observação:</label>
                     <textarea rows="3" name="obs" id="obs"></textarea>
                 </div>
+                <div id="descricao-button">
+                    <button class="button-cian" type="submit" name="submit" id="meuBotao">REALIZAR CHAMADO</button>
+                </div>
             </form>
-            <div id="descricao-button">
-                <button class="botao button-cian" id="meuBotao">REALIZAR CHAMADO</button>
-            </div>
         </section>
     </main>
     <script src="../script/button.js"></script>

@@ -36,8 +36,7 @@ unset($_SESSION['IDE']);
                     <div class="divInput">
                         <label for="email" class="labelUser">Email</label>
                         <input type="email" value="<?php if (isset($_SESSION['email']))
-                            print_r($_SESSION['email']) ?>"
-                                name="email" id="email" class="inputUser" required>
+                            print_r($_SESSION['email']) ?>" name="email" id="email" class="inputUser" required>
                         </div>
                         <div class="divInput">
                             <label for="senha" class="labelUser">Senha</label>
@@ -54,6 +53,6 @@ unset($_SESSION['IDE']);
     </body>
 
     </html>
-<?php
+    <?php
                         unset($_SESSION['mensagem_erro']);
                         ?>

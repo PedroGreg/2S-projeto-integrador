@@ -4,6 +4,43 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
     header("location: ./login.php");
     exit();
 }
+if (!isset($_POST["submit"]) || !isset($_POST["descricaoChamado"]) || !isset($_POST['categoria'])) {
+    header("location: ./usr_abertura_chamado.php");
+    exit();
+}
+$id = $_SESSION["id"];
+$categoria = $_POST["categoria"];
+$endereco = $_POST["endereco"];
+$descricao = $_POST["descricaoChamado"];
+$observacao = $_POST["obs"];
+try {
+    require_once('../php/conn.php');
+
+    $slqcate = "SELECT c.id_categoria FROM categorias c WHERE categoria = :cat";
+    $querycate = $pdo->prepare($slqcate);
+    $querycate->bindParam(":cat", $categoria, PDO::PARAM_STR);
+    $querycate->execute();
+    $categoria = $querycate->fetch(PDO::FETCH_ASSOC);
+    $cat = $categoria['id_categoria'];
+    $slqprio = "SELECT p.id_prioridade FROM prioridade p INNER JOIN categorias c ON p.id_categoria = $cat";
+    $queryprio = $pdo->prepare($slqprio);
+    $queryprio->execute();
+    $prioridade = $queryprio->fetch(PDO::FETCH_ASSOC);
+    $prio = $prioridade["id_prioridade"];
+    $sql = "INSERT INTO chamados (id_usuario,id_prioridade,id_categoria,endereco,descricao,observacao) 
+    VALUES (:id,:idp,:idc,:ender,:descr,:obser)";
+    $query = $pdo->prepare($sql);
+    $query->bindParam(":id", $id, PDO::PARAM_INT);
+    $query->bindParam(":idp", $prio, PDO::PARAM_INT);
+    $query->bindParam(":idc", $cat, PDO::PARAM_INT);
+    $query->bindParam(":ender", $endereco, PDO::PARAM_STR);
+    $query->bindParam(":descr", $descricao, PDO::PARAM_STR);
+    $query->bindParam(":obser", $observacao, PDO::PARAM_STR);
+    $query->execute();
+
+} catch (PDOException $e) {
+    print_r("Erro " . $e->getMessage());
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -82,10 +119,10 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
             <div id="chamado-aberto" class="display-flex-column">
                 <h1>Chamado aberto com sucesso!</h1>
                 <div>
-                <p>O chamado foi aberto!<br>
-                Um técnico irá lhe atender o mais breve possível</p>
+                    <p>O chamado foi aberto!<br>
+                        Um técnico irá lhe atender o mais breve possível</p>
                 </div>
-            <button class="botao button-cian">MEUS CHAMADOS ABERTOS</button>
+                <button class="botao button-cian">MEUS CHAMADOS ABERTOS</button>
             </div>
         </section>
     </main>

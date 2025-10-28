@@ -17,18 +17,23 @@ try {
     $query2->execute();
     if ($query2->rowCount() > 0) {
         $_SESSION['admin_logado'] = true;
+        $administrador = $query2->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['id'] = $administrador['id_administrador'];
         $_SESSION['usuario_logado'] = false;
         header('location: ../html/chamados_abertos.php');
         unset($_SESSION['mensagem_erro']);
         exit();
     } elseif ($query1->rowCount() > 0) {
         $_SESSION['usuario_logado'] = true;
+        $usuario = $query1->fetch(PDO::FETCH_ASSOC);
+        $_SESSION['id'] = $usuario['id_usuario'];
         $_SESSION['admin_logado'] = false;
         header('location: ../html/usr_meus_chamados.php');
         unset($_SESSION['mensagem_erro']);
         exit();
     } else {
         $_SESSION['admin_logado'] = false;
+        unset($_SERVER['id']);
         $_SESSION['usuario_logado'] = false;
         $_SESSION['mensagem_erro'] = "Email e/ou senha incorretos.";
         header('location: ../html/login.php');
