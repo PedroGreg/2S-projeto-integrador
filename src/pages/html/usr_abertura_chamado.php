@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false) {
-    header("location: ./login.php");
-    exit();
-}
+require_once('../php/usr_teste.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -24,49 +20,7 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
 </head>
 
 <body class="display-flex">
-    <aside class="display-flex">
-        <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.php">
-                <img src="../../images/logado/Logo.svg" alt="">
-            </a>
-            <a href="./usr_meus_chamados.php">
-                <img src="../../images/logado/Itens novos.svg" alt="">
-            </a>
-            <!-- <a href="./adm_usuarios.html">
-                <img src="../../images/logado/Pessoas.svg" alt="">
-            </a>
-            <a href="">
-                <img src="../../images/logado/Rede.svg" alt="">
-            </a> -->
-        </nav>
-        <section id="navbar-dir" class="display-flex-column">
-            <div id="navbar-dir-enterprise" class="display-flex">
-                <img src="../../images/logado/Logo.svg" alt="">
-                <div>
-                    <h1>GMH SUPPORT</h1>
-                    <h2>HELP DESK</h2>
-                </div>
-            </div>
-            <div class="navbar-dir-a display-flex">
-                <a href="">Pagina Inicial</a>
-                <p>0</p>
-            </div>
-            <div id="navbar-dir-ancoras" class="display-flex-column">
-                <div class="navbar-dir-a display-flex">
-                    <a href="./usr_meus_chamados.php">Meus chamados abertos</a>
-                    <p>2</p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_finalizados.php">Chamados finalizados</a>
-                    <p>2</p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_pendentes.php">Chamados c/ pendencias</a>
-                    <p>1</p>
-                </div>
-            </div>
-        </section>
-    </aside>
+    <?php include_once('../php/usr_nav.php') ?>
     <header class="display-flex">
         <button id="header-button" class="botao">+ NOVO CHAMADO</button>
         <div id="header-user" class="display-flex">

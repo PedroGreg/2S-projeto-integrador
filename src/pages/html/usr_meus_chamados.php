@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false) {
-    header("location: ./login.php");
-    exit();
-}
+require_once('../php/usr_teste.php');
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -24,49 +20,7 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
 </head>
 
 <body class="display-flex">
-    <aside class="display-flex">
-        <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.php">
-                <img src="../../images/logado/Logo.svg" alt="">
-            </a>
-            <a href="./usr_meus_chamados.php">
-                <img src="../../images/logado/Itens novos.svg" alt="">
-            </a>
-            <!-- <a href="./adm_usuarios.php">
-                <img src="../../images/logado/Pessoas.svg" alt="">
-            </a>
-            <a href="./adm_relatorios.php">
-                <img src="../../images/logado/Rede.svg" alt="">
-            </a> -->
-        </nav>
-        <section id="navbar-dir" class="display-flex-column">
-            <div id="navbar-dir-enterprise" class="display-flex">
-                <img src="../../images/logado/Logo.svg" alt="">
-                <div>
-                    <h1>GMH SUPPORT</h1>
-                    <h2>HELP DESK</h2>
-                </div>
-            </div>
-            <div class="navbar-dir-a display-flex">
-                <a href="">Pagina Inicial</a>
-                <p>0</p>
-            </div>
-            <div id="navbar-dir-ancoras" class="display-flex-column">
-                <div class="navbar-dir-a display-flex">
-                    <a href="./usr_meus_chamados.php">Meus chamados abertos</a>
-                    <p>2</p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_finalizados.php">Chamados finalizados</a>
-                    <p>2</p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./usr_chamados_pendentes.php">Chamados c/ pendencias</a>
-                    <p>1</p>
-                </div>
-            </div>
-        </section>
-    </aside>
+    <?php include_once('../php/usr_nav.php') ?>
     <main>
         <header class="display-flex">
             <button id="header-button" class="botao">+ NOVO CHAMADO</button>
@@ -89,46 +43,80 @@ if (!isset($_SESSION["usuario_logado"]) || $_SESSION["usuario_logado"] == false)
                 <p class="margin-prioridade">Prioridade</p>
             </div> -->
             <section id="section-chamados" class="display-flex-column">
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
-                        <h3 class="button">P</h3>
-                        <div class="email">
-                            <p>Problemas na internet</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 3 horas por Pedro</span></div>
+                <?php foreach ($chamados as $chamado): ?>
+                    <article class="chamado">
+                        <div class="chamados  display-flex">
+                            <!-- <button class="check chamados-button"></button> -->
+                            <h3 class="button">P</h3>
+                            <div id="email">
+                                <p>
+                                    <?php
+                                    switch ($chamado["id_categoria"]) {
+                                        case "1":
+                                            echo "Outros";
+                                            break;
+                                        case "2":
+                                            echo "Problemas na internet";
+                                            break;
+                                        case "3":
+                                            echo "Problemas em equipamentos";
+                                            break;
+                                        case "4":
+                                            echo "Problemas de software";
+                                            break;
+                                    }
+                                    ?>
+                                </p>
+                                <div class="email-detalhe"><img src="" alt=""><span>criado a 3 horas por Pedro</span></div>
+                            </div>
+                            <div id="id">
+                                <p>
+                                    <?php echo "ID # " . $chamado['id_chamado'] ?>
+                                </p>
+                                <span>Respondido 1 hora atrás</span>
+                            </div>
+                            <h4 class="button">
+                                <?php echo $chamado['status'] ?>
+                            </h4>
+                            <p>
+                                <?php
+                                switch ($chamado['id_categoria']) {
+                                    case '1':
+                                        echo 'Outros reparos';
+                                        break;
+                                    case '2':
+                                        echo 'Reparo em rede<br>e/ou internet';
+                                        break;
+                                    case '3':
+                                        echo 'Reparo em equipamentos<br>fisicos';
+                                        break;
+                                    case '4':
+                                        echo 'Reparo em aplicativos';
+                                        break;
+                                }
+                                ?>
+                            </p>
+                            <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
                         </div>
-                        <div id="id">
-                            <p>ID #1</p>
-                            <span>Respondido 1 hora atrás</span>
+                        <div class="extra">
+                            <p>
+                                <?php
+                                switch ($chamado['status']) {
+                                    case 'aberto':
+                                        echo '☑ Chamado aberto... ------ ☐ Chamado em atendimento ------ ☐ Chamado finalizado';
+                                        break;
+                                    case 'atendimento':
+                                        echo '☑ Chamado aberto ------ ☑ Chamado em atendimento... ------ ☐ Chamado finalizado';
+                                        break;
+                                    case 'finalizado':
+                                        echo '☑ Chamado aberto ------ ☑ Chamado em atendimento ------ ☑ Chamado finalizado';
+                                        break;
+                                }
+                                ?>
+                            </p>
                         </div>
-                        <h4 class="button">Em atendimento</h4>
-                        <p>Reparo de servidor</p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
-                    </div>
-                    <div class="extra">
-                        <p>Aqui ficará o acompanhamento de progresso do chamado do cliente</p>
-                    </div>
-                </article>
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
-                        <h3 class="button">P</h3>
-                        <div class="email">
-                            <p>Problemas no servidor</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 3 horas por Pedro</span></div>
-                        </div>
-                        <div id="id">
-                            <p>ID #2</p>
-                            <span>Respondido 1 hora atrás</span>
-                        </div>
-                        <h4 class="button">Em atendimento</h4>
-                        <p>Reparo de servidor</p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
-                    </div>
-                    <div class="extra">
-                        <p>Aqui ficará o acompanhamento de progresso do chamado do cliente</p>
-                    </div>
-                </article>
+                    </article>
+                <?php endforeach ?>
             </section>
         </section>
     </main>
