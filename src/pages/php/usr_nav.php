@@ -28,7 +28,7 @@
         <div id="navbar-dir-ancoras" class="display-flex-column">
             <div class="navbar-dir-a display-flex">
                 <a href="./usr_meus_chamados.php">Meus chamados abertos</a>
-                <p><?php if (isset($_SESSION['meuschamados'])) echo $_SESSION['meuschamados']; echo "0" ?></p>
+                <p><?php if (isset($meuschamados)){ echo $meuschamados;}else{ echo "0";} ?></p>
             </div>
             <div class="navbar-dir-a display-flex">
                 <a href="./usr_chamados_finalizados.php">Chamados finalizados</a>
