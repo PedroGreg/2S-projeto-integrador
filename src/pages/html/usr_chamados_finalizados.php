@@ -74,7 +74,7 @@ require_once('../php/usr_teste.php');
                             </p>
                             <span>Finalizado 1 dia atrás</span>
                         </div>
-                        <h4 class="button">Fechado</h4>
+                        <h4 class="button"><?php echo $chamado['status'] ?></h4>
                         <p id="sobre">
                             <?php
                                 switch ($chamado['id_categoria']) {

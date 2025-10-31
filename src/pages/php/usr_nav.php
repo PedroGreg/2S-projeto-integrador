@@ -23,7 +23,7 @@
         </div>
         <div class="navbar-dir-a display-flex">
             <a href="">Pagina Inicial</a>
-            <p>0</p>
+            <p><?php if (isset($meuschamados)){ echo ($meuschamados);}else{ echo "0";} ?></p>
         </div>
         <div id="navbar-dir-ancoras" class="display-flex-column">
             <div class="navbar-dir-a display-flex">
@@ -36,7 +36,7 @@
             </div>
             <div class="navbar-dir-a display-flex">
                 <a href="./usr_chamados_pendentes.php">Chamados c/ pendencias</a>
-                <p>1</p>
+                <p><?php if (isset($chamadospendentes)){ echo $chamadospendentes;}else{ echo "0";} ?></p>
             </div>
         </div>
     </section>

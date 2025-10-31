@@ -31,7 +31,7 @@ require_once('../php/usr_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados pendênciados</h2>
-                <p class="display-flex">1</p>
+                <p class="display-flex"><?php echo $chamadospendentes ?></p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button> -->
             <!-- <div class="titulos display-flex">
@@ -43,26 +43,67 @@ require_once('../php/usr_teste.php');
                 <p class="margin-prioridade">Prioridade</p>
             </div> -->
             <section id="section-chamados" class="display-flex-column">
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
-                        <h3 class="button">P</h3>
-                        <div class="email">
-                            <p>Problemas na internet</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
+                <?php foreach ($chamadospen as $chamado): ?>
+                    <article class="chamado">
+                        <div class="chamados  display-flex">
+                            <h3 class="button">P</h3>
+                            <div class="email">
+                                <p>
+                                    <?php
+                                    switch ($chamado["id_categoria"]) {
+                                        case "1":
+                                            echo "Outros";
+                                            break;
+                                        case "2":
+                                            echo "Problemas na internet";
+                                            break;
+                                        case "3":
+                                            echo "Problemas de hardware";
+                                            break;
+                                        case "4":
+                                            echo "Problemas de software";
+                                            break;
+                                    }
+                                    ?>
+                                </p>
+                                <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
+                            </div>
+                            <div id="id">
+                                <p>
+                                    <?php echo "ID # " . $chamado['id_chamado'] ?>
+                                </p>
+                                <span>Finalizado 1 dia atrás</span>
+                            </div>
+                            <h4 class="button"><?php echo $chamado['status'] ?></h4>
+                            <p id="sobre">
+                                <?php
+                                switch ($chamado['id_categoria']) {
+                                    case '1':
+                                        echo 'Outros reparos';
+                                        break;
+                                    case '2':
+                                        echo 'Reparo em rede<br>e/ou internet';
+                                        break;
+                                    case '3':
+                                        echo 'Reparo em equipamentos fisicos';
+                                        break;
+                                    case '4':
+                                        echo 'Reparo em aplicativos';
+                                        break;
+                                }
+                                ?>
+                            </p>
+                            <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
                         </div>
-                        <div id="id">
-                            <p>ID #1</p>
-                            <span>Pendenciado 1 semana atrás</span>
+                        <div class="extra">
+                            <p>
+                                <?php
+                                echo $chamado['pendencia'];
+                                ?>
+                            </p>
                         </div>
-                        <h4 class="button">Pendente</h4>
-                        <p>Acesso à internet</p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
-                    </div>
-                    <div class="extra">
-                        <p>Aqui ficará o motivo do chamado estar pendente.<br>Ex. instalar cabeamento de internet entre ponto X e Y.</p>
-                    </div>
-                </article>
+                    </article>
+                <?php endforeach ?>
             </section>
         </section>
     </main>
