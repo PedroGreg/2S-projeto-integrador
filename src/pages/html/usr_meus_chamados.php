@@ -31,7 +31,7 @@ require_once('../php/usr_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Meus chamados Abertos</h2>
-                <p class="display-flex">2</p>
+                <p class="display-flex"><?php if (isset($meuschamados)){ echo $meuschamados;}else{ echo "0";} ?></p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button>
             <div class="titulos display-flex">
@@ -48,7 +48,7 @@ require_once('../php/usr_teste.php');
                         <div class="chamados  display-flex">
                             <!-- <button class="check chamados-button"></button> -->
                             <h3 class="button">P</h3>
-                            <div id="email">
+                            <div class="email">
                                 <p>
                                     <?php
                                     switch ($chamado["id_categoria"]) {
@@ -59,7 +59,7 @@ require_once('../php/usr_teste.php');
                                             echo "Problemas na internet";
                                             break;
                                         case "3":
-                                            echo "Problemas em equipamentos";
+                                            echo "Problemas de hardware";
                                             break;
                                         case "4":
                                             echo "Problemas de software";
@@ -78,7 +78,7 @@ require_once('../php/usr_teste.php');
                             <h4 class="button">
                                 <?php echo $chamado['status'] ?>
                             </h4>
-                            <p>
+                            <p id="sobre">
                                 <?php
                                 switch ($chamado['id_categoria']) {
                                     case '1':
@@ -88,7 +88,7 @@ require_once('../php/usr_teste.php');
                                         echo 'Reparo em rede<br>e/ou internet';
                                         break;
                                     case '3':
-                                        echo 'Reparo em equipamentos<br>fisicos';
+                                        echo 'Reparo em equipamentos fisicos';
                                         break;
                                     case '4':
                                         echo 'Reparo em aplicativos';

@@ -32,7 +32,7 @@
             </div>
             <div class="navbar-dir-a display-flex">
                 <a href="./usr_chamados_finalizados.php">Chamados finalizados</a>
-                <p>2</p>
+                <p><?php if (isset($chamadosfinalizados)){ echo $chamadosfinalizados;}else{ echo "0";} ?></p>
             </div>
             <div class="navbar-dir-a display-flex">
                 <a href="./usr_chamados_pendentes.php">Chamados c/ pendencias</a>

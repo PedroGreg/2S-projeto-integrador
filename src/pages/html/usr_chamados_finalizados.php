@@ -31,7 +31,7 @@ require_once('../php/usr_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados finalizados</h2>
-                <p class="display-flex">2</p>
+                <p class="display-flex"><?php if (isset($chamadosfinalizados)){ echo $chamadosfinalizados;}else{ echo "0";} ?></p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button>
             <div class="titulos display-flex">
@@ -43,46 +43,77 @@ require_once('../php/usr_teste.php');
                 <p class="margin-prioridade">Prioridade</p>
             </div> -->
             <section id="section-chamados" class="display-flex-column">
+                <?php foreach($chamadosfin as $chamado): ?>
                 <article class="chamado">
                     <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
                         <h3 class="button">P</h3>
                         <div class="email">
-                            <p>Problemas na internet</p>
+                            <p>                                    
+                                <?php
+                                    switch ($chamado["id_categoria"]) {
+                                        case "1":
+                                            echo "Outros";
+                                            break;
+                                        case "2":
+                                            echo "Problemas na internet";
+                                            break;
+                                        case "3":
+                                            echo "Problemas de hardware";
+                                            break;
+                                        case "4":
+                                            echo "Problemas de software";
+                                            break;
+                                    }
+                                ?>
+                            </p>
                             <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
                         </div>
                         <div id="id">
-                            <p>ID #1</p>
+                            <p>
+                                <?php echo "ID # " . $chamado['id_chamado'] ?>
+                            </p>
                             <span>Finalizado 1 dia atrás</span>
                         </div>
                         <h4 class="button">Fechado</h4>
-                        <p>Reparo de servidor</p>
+                        <p id="sobre">
+                            <?php
+                                switch ($chamado['id_categoria']) {
+                                    case '1':
+                                        echo 'Outros reparos';
+                                        break;
+                                    case '2':
+                                        echo 'Reparo em rede<br>e/ou internet';
+                                        break;
+                                    case '3':
+                                        echo 'Reparo em equipamentos fisicos';
+                                        break;
+                                    case '4':
+                                        echo 'Reparo em aplicativos';
+                                        break;
+                                }
+                            ?>
+                        </p>
                         <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
                     </div>
                     <div class="extra">
-                        <p>Aqui ficará o histórico de acompanhamento completo de chamado do cliente</p>
+                        <p>
+                        <?php
+                                switch ($chamado['status']) {
+                                    case 'aberto':
+                                        echo '☑ Chamado aberto... ------ ☐ Chamado em atendimento ------ ☐ Chamado finalizado';
+                                        break;
+                                    case 'atendimento':
+                                        echo '☑ Chamado aberto ------ ☑ Chamado em atendimento... ------ ☐ Chamado finalizado';
+                                        break;
+                                    case 'finalizado':
+                                        echo '☑ Chamado aberto ------ ☑ Chamado em atendimento ------ ☑ Chamado finalizado';
+                                        break;
+                                }
+                                ?>
+                        </p>
                     </div>
                 </article>
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <button class="check chamados-button"></button>
-                        <h3 class="button">P</h3>
-                        <div class="email">
-                            <p>Problemas no servidor</p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
-                        </div>
-                        <div id="id">
-                            <p>ID #2</p>
-                            <span>Finalizado 1 semana atrás</span>
-                        </div>
-                        <h4 class="button">Fechado</h4>
-                        <p>Reparo de servidor</p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
-                    </div>
-                    <div class="extra">
-                        <p>Aqui ficará o histórico de acompanhamento completo de chamado do cliente</p>
-                    </div>
-                </article>
+                <?php endforeach ?>
             </section>
         </section>
     </main>
