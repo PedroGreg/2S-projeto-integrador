@@ -1,9 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
-    header("location: ./login.php");
-    exit();
-}
+require_once("../php/adm_teste.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -23,57 +19,7 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
 </head>
 
 <body class="display-flex">
-    <aside class="display-flex">
-        <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.php">
-                <img src="../../images/logado/Logo.svg" alt="">
-            </a>
-            <a href="./chamados_abertos.php">
-                <img src="../../images/logado/Itens novos.svg" alt="">
-            </a>
-            <a href="./adm_usuarios.php">
-                <img src="../../images/logado/Pessoas.svg" alt="">
-            </a>
-            <a href="./adm_relatorios.php">
-                <img src="../../images/logado/Rede.svg" alt="">
-            </a>
-        </nav>
-        <section id="navbar-dir" class="display-flex-column">
-            <div id="navbar-dir-enterprise" class="display-flex">
-                <img src="../../images/logado/Logo.svg" alt="">
-                <div>
-                    <h1>GMH SUPPORT</h1>
-                    <h2>HELP DESK</h2>
-                </div>
-            </div>
-            <div class="navbar-dir-a display-flex">
-                <a href="">Pagina Inicial</a>
-                <p>0</p>
-            </div>
-            <div id="navbar-dir-ancoras" class="display-flex-column">
-                <div class="navbar-dir-a display-flex">
-                    <a href="./adm_usuarios.php">Usuários</a>
-                    <p></p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./adm_colaboradores.php">Colaboradores</a>
-                    <p></p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./adm_administradores.php">Administradores</a>
-                    <p></p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./cadastrar_tecnico.php">Cadastrar Tecnico</a>
-                    <p></p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./cadastrar_administrador.php">Cadastrar administrador</a>
-                    <p></p>
-                </div>
-            </div>
-        </section>
-    </aside>
+<?php include_once('../php/adm_nav.php') ?>
     <header class="display-flex">
         <div id="header-user" class="display-flex">
             <img src="../../images/logado/User.svg" alt="">

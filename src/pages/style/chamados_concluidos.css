@@ -2,13 +2,15 @@
     display: none;
     align-items: center;
     color: #00000077;
-     justify-content: space-between; 
+    justify-content: space-between;
     gap: 60px;
     width: 100%;
 }
-#section-chamados{
+
+#section-chamados {
     gap: 15px;
 }
+
 .chamados {
     align-items: center;
     border-radius: 5px;
@@ -18,31 +20,55 @@
     padding: 15px 20px;
     width: 100%;
 }
-.chamados p{
+
+.chamados p {
     font-size: 13px;
     font-weight: 600;
     color: #031849;
 }
-.chamados span{
+
+.chamados span {
     font-size: 10px;
     color: var(--text-color-gray);
 }
-.chamados h4{
+
+.chamados h4 {
     text-align: center;
     font-size: 20px;
 }
-.chamados h3{
+
+.chamados h3 {
     width: 40px;
     height: 40px;
 }
-#id{
+
+#id {
     text-align: center;
+    min-width: 90px;
 }
-#avaliacao{
+
+#avaliacao {
     width: 40px;
     height: 40px;
 }
-#avaliacao img{
+
+#avaliacao img {
     width: 40px;
     height: auto;
+}
+
+h4 {
+    width: 120px;
+}
+
+#av{
+    width: auto;
+}
+
+.email {
+    width: 160px;
+}
+
+#sobre {
+    width: 170px;
 }

@@ -100,4 +100,14 @@
 
 #id {
     text-align: center;
+    min-width: 150px;
+}
+h4{
+    width: 120px;
+}
+.email{
+    width: 160px;
+}
+#sobre{
+    width: 170px;
 }

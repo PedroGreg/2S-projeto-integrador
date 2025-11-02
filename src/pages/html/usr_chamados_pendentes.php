@@ -31,7 +31,7 @@ require_once('../php/usr_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados pendênciados</h2>
-                <p class="display-flex"><?php echo $chamadospendentes ?></p>
+                <p class="display-flex"><?php if (isset($chamadospendentes)) {echo $chamadospendentes;}else{echo '0';} ?></p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button> -->
             <!-- <div class="titulos display-flex">
@@ -70,7 +70,7 @@ require_once('../php/usr_teste.php');
                             </div>
                             <div id="id">
                                 <p>
-                                    <?php echo "ID # " . $chamado['id_chamado'] ?>
+                                    <?php echo "ID #" . $chamado['id_chamado'] ?>
                                 </p>
                                 <span>Finalizado 1 dia atrás</span>
                             </div>

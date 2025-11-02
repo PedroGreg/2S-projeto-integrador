@@ -1,10 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
-    header("location: ./login.php");
-    exit();
-}
-?>
+<?php require_once('../php/tec_teste.php') ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -24,49 +18,7 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
 </head>
 
 <body class="display-flex">
-    <aside class="display-flex">
-        <nav id="navbar-esq" class="display-flex-column">
-            <a href="./chamados_abertos.php">
-                <img src="../../images/logado/Logo.svg" alt="">
-            </a>
-            <a href="./chamados_abertos.php">
-                <img src="../../images/logado/Itens novos.svg" alt="">
-            </a>
-            <a href="./adm_usuarios.php">
-                <img src="../../images/logado/Pessoas.svg" alt="">
-            </a>
-            <a href="./adm_relatorios.php">
-                <img src="../../images/logado/Rede.svg" alt="">
-            </a>
-        </nav>
-        <section id="navbar-dir" class="display-flex-column">
-            <div id="navbar-dir-enterprise" class="display-flex">
-                <img src="../../images/logado/Logo.svg" alt="">
-                <div>
-                    <h1>GMH SUPPORT</h1>
-                    <h2>HELP DESK</h2>
-                </div>
-            </div>
-            <div class="navbar-dir-a display-flex">
-                <a href="">Pagina Inicial</a>
-                <p>0</p>
-            </div>
-            <div id="navbar-dir-ancoras" class="display-flex-column">
-                <div class="navbar-dir-a display-flex">
-                    <a href="./chamados_abertos.php">Chamados abertos</a>
-                    <p>2</p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./chamados_designados.php">Chamados designados</a>
-                    <p>2</p>
-                </div>
-                <div class="navbar-dir-a display-flex">
-                    <a href="./chamados_concluidos.php">Chamados concluídos</a>
-                    <p>1</p>
-                </div>
-            </div>
-        </section>
-    </aside>
+<?php include_once('../php/tec_nav.php') ?>
     <main>
         <header class="display-flex">
             <button id="header-button" class="botao">+ NOVO CHAMADO</button>
@@ -110,7 +62,7 @@ if (!isset($_SESSION["admin_logado"]) || $_SESSION["admin_logado"] == false) {
                         <p>3 dias</p>
                     </div>
                     <div id="avaliacao" class="display-flex-column">
-                        <h4>5.0</h4>
+                        <h4 id="av">5.0</h4>
                         <img src="../../images/logado/5-estrelas.svg" alt="">
                     </div>
                 </article>

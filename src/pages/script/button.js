@@ -3,22 +3,22 @@ button.forEach((button) => {
     button.addEventListener('click', () => {
         switch (button.textContent) {
             case 'ACEITAR CHAMADO':
-                window.location.href = 'finalizar_chamado.php'
+                window.location.href = "tec_finalizar_chamado.php"
                 break;
             case 'RECUSAR CHAMADO':
-                window.location.href = 'chamados_abertos.php'
+                window.location.href = 'tec_chamados_abertos.php'
                 break;
             case 'CONCLUIR CHAMADO':
-                window.location.href = 'chamado_concluido.php'
+                window.location.href = 'tec_chamado_concluido.php'
                 break;
             case 'FINALIZAR CHAMADO':
-                window.location.href = 'conclusao_chamado.php'
+                window.location.href = 'tec_conclusao_chamado.php'
                 break;
             case 'CHAMADOS ABERTOS':
-                window.location.href = 'chamados_abertos.php'
+                window.location.href = 'tec_chamados_abertos.php'
                 break;
             case 'DETALHES':
-                window.location.href = 'detalhes_chamado.php'
+                window.location.href = "tec_detalhes_chamado.php"
                 break;
             case '+ NOVO CHAMADO':
                 window.location.href = 'usr_abertura_chamado.php'

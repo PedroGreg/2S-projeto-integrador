@@ -70,7 +70,7 @@ require_once('../php/usr_teste.php');
                         </div>
                         <div id="id">
                             <p>
-                                <?php echo "ID # " . $chamado['id_chamado'] ?>
+                                <?php echo "ID #" . $chamado['id_chamado'] ?>
                             </p>
                             <span>Finalizado 1 dia atrás</span>
                         </div>
