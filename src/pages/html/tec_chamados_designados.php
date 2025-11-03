@@ -1,11 +1,14 @@
-<?php require_once('../php/tec_teste.php') ?>
+<?php
+require_once('../php/tec_teste.php');
+
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/chamados_designados.css">
+    <link rel="stylesheet" href="../style/tec_chamados_designados.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +21,7 @@
 </head>
 
 <body class="display-flex">
-<?php include_once('../php/tec_nav.php') ?>
+    <?php include_once('../php/tec_nav.php') ?>
     <main>
         <header class="display-flex">
             <button id="header-button" class="botao">+ NOVO CHAMADO</button>
@@ -29,7 +32,13 @@
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados Designados</h2>
-                <p class="display-flex">2</p>
+                <p class="display-flex">
+                    <?php if (isset($chamadosatendimento)) {
+                        echo $chamadosatendimento;
+                    } else {
+                        echo '0';
+                    } ?>
+                </p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button>
             <div class="titulos display-flex">
@@ -41,46 +50,29 @@
                 <p class="margin-prioridade">Prioridade</p>
             </div> -->
             <section id="section-chamados" class="display-flex-column">
-                <article class="chamados display-flex">
-                    <button class="check chamados-button"></button>
-                    <h3 class="button">J</h3>
-                    <div class="email">
-                        <p>tecnicoteste@gmhelp.com</p>
-                        <div class="email-detalhe"><img src="" alt=""><span>Designado ao técnico Cleber</span></div>
-                    </div>
-                    <div id="id">
-                        <p>ID #1</p>
-                        <span>Chamado aceito dia (01/09/2025)</span>
-                    </div>
-                    <h4 class="button">Em atendimento</h4>
-                    <p>Reparo de servidor</p>
-                    <ul>
-                        <li>
-                            <p>Medio</p>
-                        </li>
-                    </ul>
-                    <button class="chamados-button"></button>
-                </article>
-                <article class="chamados display-flex">
-                    <button class="check chamados-button"></button>
-                    <h3 class="button">J</h3>
-                    <div class="email">
-                        <p>tecnicoteste@gmhelp.com</p>
-                        <div class="email-detalhe"><img src="" alt=""><span>Designado ao técnico Vladmir</span></div>
-                    </div>
-                    <div id="id">
-                        <p>ID #2</p>
-                        <span>Chamado aceito dia (01/09/2025)</span>
-                    </div>
-                    <h4 class="button">Em atendimento</h4>
-                    <p>Reparo de servidor</p>
-                    <ul>
-                        <li>
-                            <p>Medio</p>
-                        </li>
-                    </ul>
-                    <button class="chamados-button"></button>
-                </article>
+                <?php foreach ($chamadosatend as $chamado): ?>
+                    <article class="chamados display-flex">
+                        <h3 class="button"><?php echo $chamado['inicial']?></h3>
+                        <div class="email">
+                            <p><?php echo $chamado['email'] ?></p>
+                            <div class="email-detalhe"><img src="" alt=""><span>Sendo atendido por
+                                    <?php echo $chamado['tecnome'] ?></span></div>
+                        </div>
+                        <div id="id">
+                            <p><?php echo "ID #" . $chamado['id_chamado'] ?></p>
+                            <span></span>
+                        </div>
+                        <h4 class="button">Atendimento</h4>
+                        <p>Reparo de servidor</p>
+                        <ul>
+                            <li>
+                                <p><?php echo $chamado['prioridade'] ?></p>
+                            </li>
+                        </ul>
+                        <a href="tec_detalhes_chamado.php?id_chamado=<?php echo $chamado['id_chamado'] ?>&consulta=1"
+                            class="button-cian">DETALHES</a>
+                    </article>
+                <?php endforeach ?>
             </section>
         </section>
     </main>

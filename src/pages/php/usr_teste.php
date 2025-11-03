@@ -30,7 +30,11 @@ try {
         $chamadosfinalizados = $query->rowCount();
     }
 
-    $sql = 'SELECT * FROM chamados c WHERE id_usuario = :id AND c.status = :stat';
+    $sql = "SELECT c.*, COUNT(m.mensagem_usuario) as mu, COUNT(m.mensagem_tecnico) as mt 
+    FROM chamados c 
+    LEFT JOIN mensagens m ON m.id_chamado = c.id_chamado 
+    WHERE id_usuario = :id AND c.status = :stat
+    GROUP by id_chamado";
     $query = $pdo->prepare($sql);
     $query->bindParam(":id", $id, PDO::PARAM_INT);
     $query->bindParam(":stat", $status["2"], PDO::PARAM_STR);

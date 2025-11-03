@@ -1,11 +1,14 @@
-<?php require_once('../php/tec_teste.php') ?>
+<?php
+require_once('../php/tec_teste.php');
+
+?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/chamados_concluidos.css">
+    <link rel="stylesheet" href="../style/tec_chamados_concluidos.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +21,7 @@
 </head>
 
 <body class="display-flex">
-<?php include_once('../php/tec_nav.php') ?>
+    <?php include_once('../php/tec_nav.php') ?>
     <main>
         <header class="display-flex">
             <button id="header-button" class="botao">+ NOVO CHAMADO</button>
@@ -31,41 +34,37 @@
                 <h2>Chamados Concluidos</h2>
                 <p class="display-flex">1</p>
             </div>
-            <!-- <button class="chamados-button" id="checkall"></button>
-            <div class="titulos display-flex">
-                <button class="margin-button">D</button>
-                <p class="margin-email">Email</p>
-                <p class="margin-id">ID do chamado</p>
-                <p class="margin-status">Status</p>
-                <p class="margin-categoria">Categoria</p>
-                <p class="margin-prioridade">Prioridade</p>
-            </div> -->
             <section id="section-chamados" class="display-flex-column">
-                <article class="chamados display-flex">
-                    <button class="check chamados-button"></button>
-                    <h3 class="button">J</h3>
-                    <div class="email">
-                        <p>teste@gmhelp.com</p>
-                        <div class="email-detalhe"><img src="" alt=""><span>Atendido por tecnico Cleber</span></div>
-                    </div>
-
-                    <div id="id">
-                        <span>Aberto dia</span>
-                        <p>01/09/2025</p>
-                    </div>
-                    <div id="id">
-                        <span>Concluído dia</span>
-                        <p>04/09/2025</p>
-                    </div>
-                    <div id="id">
-                        <span>Tempo total</span>
-                        <p>3 dias</p>
-                    </div>
-                    <div id="avaliacao" class="display-flex-column">
-                        <h4 id="av">5.0</h4>
-                        <img src="../../images/logado/5-estrelas.svg" alt="">
-                    </div>
-                </article>
+                <?php foreach ($chamadosfin as $chamado): ?>
+                    <article class="chamados display-flex">
+                        <h3 class="button"><?php echo $chamado['inicial'] ?></h3>
+                        <div class="email">
+                            <p><?php echo $chamado['email'] ?></p>
+                            <div class="email-detalhe"><img src="" alt=""><span>Atendido por
+                                    <?php echo $chamado['tecnome'] ?></span></div>
+                        </div>
+                        <div id="id">
+                            <p><?php echo "ID #" . $chamado['id_chamado'] ?></p>
+                            <span></span>
+                        </div>
+                        <div id="id">
+                            <span>Aberto dia</span>
+                            <p><?php echo $chamado['dataA'] ?></p>
+                        </div>
+                        <div id="id">
+                            <span>Concluído dia</span>
+                            <p><?php echo $chamado['dataE'] ?></p>
+                        </div>
+                        <div id="id">
+                            <span>Tempo total</span>
+                            <p><?php echo $chamado['tempo'] . 'h' ?></p>
+                        </div>
+                        <div id="avaliacao" class="display-flex-column">
+                            <h4 id="av">5.0</h4>
+                            <img src="../../images/logado/5-estrelas.svg" alt="">
+                        </div>
+                    </article>
+                <?php endforeach ?>
             </section>
         </section>
     </main>

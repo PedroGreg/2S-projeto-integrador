@@ -44,7 +44,7 @@ try {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/chamado_aberto.css">
+    <link rel="stylesheet" href="../style/usr_chamado_aberto.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style_usr.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

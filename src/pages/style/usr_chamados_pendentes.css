@@ -62,6 +62,12 @@
 }
 
 .extra.ativo {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
     /* transition: max-height 0.4s ease-out, padding 0.9s ease-out; */
     max-height: 300px;
     padding: 30px 20px 20px 20px;
@@ -111,4 +117,51 @@ h4{
 }
 #sobre{
     width: 170px;
+}
+.clicked {
+    display: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0px;
+}
+.form{
+    width: 100%;
+    display: none;
+}
+.label{
+    font-size: 10px;
+}
+.resposta{
+    border: 1px solid gray;
+}
+/*#submit{
+
+}*/
+.divInput{
+    width: 100%;
+    display: flex;
+    align-items: start;
+}
+.mensagem{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.p1{
+    background-color: #00000025;
+}
+.p2{
+    background-color: #0000000D;
+}
+.conversa{
+    display: none;
+}
+.conversa.ativo{
+    display: block;
+}
+.form.ativo{
+    display: block;
+}
+textarea{
+    width: 100%;
 }

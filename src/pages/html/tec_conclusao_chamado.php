@@ -8,7 +8,7 @@ require_once('../php/tec_detalhes_chamado.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/conclusao_chamado.css">
+    <link rel="stylesheet" href="../style/tec_conclusao_chamado.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">

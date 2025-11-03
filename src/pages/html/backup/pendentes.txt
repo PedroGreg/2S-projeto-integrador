@@ -1,0 +1,10 @@
+                                 <?php if ($chamado['mu'] != ' ' || $chamado['mt'] != ' '): ?>
+                                        <div class="conversa">
+                                            <?php if ($chamado['mu'] != ' '): ?>
+                                                <p class="p1"><?php echo "Usuário: " . $chamado['mu'] ?></p>
+                                            <?php endif ?>
+                                            <?php if ($chamado['mt'] != ' '): ?>
+                                                <p class="p2"><?php echo "Tecnico: " . $chamado['mt'] ?></p>
+                                            <?php endif ?>
+                                        </div>
+                                <?php endif ?>

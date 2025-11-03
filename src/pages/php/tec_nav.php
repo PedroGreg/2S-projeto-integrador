@@ -34,11 +34,11 @@
             </div>
             <div class="navbar-dir-a display-flex">
                 <a href="./tec_chamados_designados.php">Chamados designados</a>
-                <p>2</p>
+                <p><?php if(isset($chamadosatendimento)){echo $chamadosatendimento;}else{echo '0';}?></p>
             </div>
             <div class="navbar-dir-a display-flex">
                 <a href="./tec_chamados_concluidos.php">Chamados concluídos</a>
-                <p>1</p>
+                <p><?php if(isset($chamadosfinalizados)){echo $chamadosfinalizados;}else{echo '0';}?></p>
             </div>
         </div>
     </section>

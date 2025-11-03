@@ -31,7 +31,13 @@ require_once('../php/usr_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados pendênciados</h2>
-                <p class="display-flex"><?php if (isset($chamadospendentes)) {echo $chamadospendentes;}else{echo '0';} ?></p>
+                <p class="display-flex">
+                    <?php if (isset($chamadospendentes)) {
+                        echo $chamadospendentes;
+                    } else {
+                        echo '0';
+                    } ?>
+                </p>
             </div>
             <!-- <button class="chamados-button" id="checkall"></button> -->
             <!-- <div class="titulos display-flex">
@@ -101,6 +107,18 @@ require_once('../php/usr_teste.php');
                                 echo $chamado['pendencia'];
                                 ?>
                             </p>
+                            <button class="button-cian responder">Responder pendencia</button>
+                            <div class="mensagem">
+                                <form class="form" method="POST" action=<?php echo "../php/usr_retornar_pendencia.php?id_chamado=" . $chamado["id_chamado"] ?>>
+                                    <div class="divInput">
+                                        <label for="resposta" class="label">Responder pendência:</label>
+                                        <textarea type="textarea" name="resposta" class="resposta" required="" rows="3"
+                                            cols="50"></textarea>
+                                    </div><br>
+                                    <button type="submit" name="submit" class="submit button-cian"
+                                        class="button-cian">Enviar resposta</button>
+                                </form>
+                            </div>
                         </div>
                     </article>
                 <?php endforeach ?>

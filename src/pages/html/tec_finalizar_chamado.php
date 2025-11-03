@@ -1,12 +1,12 @@
-<?php 
-require_once('../php/tec_teste.php'); 
+<?php
+require_once('../php/tec_teste.php');
 require_once('../php/tec_detalhes_chamado.php');
 try {
-$sql = "UPDATE chamados c SET status = 'atendimento', c.id_tecnico = :idtec WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
-$query = $pdo->prepare($sql);
-$query->bindParam(":idtec", $id, PDO::PARAM_INT);
-$query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
-$query->execute(); 
+    $sql = "UPDATE chamados c SET status = 'atendimento', c.id_tecnico = :idtec WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
+    $query = $pdo->prepare($sql);
+    $query->bindParam(":idtec", $id, PDO::PARAM_INT);
+    $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
+    $query->execute();
 } catch (PDOException $e) {
     echo 'Erro ' . $e->getMessage();
 }
@@ -17,7 +17,7 @@ $query->execute();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/finalizar_chamado.css">
+    <link rel="stylesheet" href="../style/tec_finalizar_chamado.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@ $query->execute();
 </head>
 
 <body class="display-flex">
-<?php include_once('../php/tec_nav.php') ?>
+    <?php include_once('../php/tec_nav.php') ?>
     <header class="display-flex">
         <button id="header-button" class="botao">+ NOVO CHAMADO</button>
         <div id="header-user" class="display-flex">
@@ -41,13 +41,13 @@ $query->execute();
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Detalhes do chamado</h2>
-           
+
                 <p class="display-flex"><?php echo "#" . $detalhechamado['id_chamado'] ?></p>
             </div>
             <dl id="chamados-descricao">
                 <div class="chamados-info">
                     <dt>Prioridade:</dt>
-                    <dd><?php echo $detalhechamado['prioridade']  ?></dd>
+                    <dd><?php echo $detalhechamado['prioridade'] ?></dd>
                 </div>
                 <div class="chamados-info">
                     <dt>Status:</dt>
@@ -63,8 +63,14 @@ $query->execute();
                 </div>
                 <div class="chamados-info">
                     <dt>Descrição do cliente:</dt>
-                    <dd><?php echo $detalhechamado['descricao']?></dd>
+                    <dd><?php echo $detalhechamado['descricao'] ?></dd>
                 </div>
+                <?php if (isset($detalhechamado['mu'])): ?>
+                    <div class="chamados-info">
+                        <dt>Mensagem pendencia</dt>
+                        <dd><?php echo $detalhechamado['mu'] ?></dd>
+                    </div>
+                <?php endif ?>
                 <div class="chamados-info">
                     <dt>Empresa:</dt>
                     <dd><?php echo $detalhechamado['empresa'] ?></dd>
@@ -75,7 +81,8 @@ $query->execute();
                 </div>
             </dl>
             <div id="descricao-button">
-                <a href="./tec_conclusao_chamado.php?id_chamado=<?php echo $detalhechamado['id_chamado'] ?>" class="button-cian">FINALIZAR CHAMADO</a>
+                <a href="./tec_conclusao_chamado.php?id_chamado=<?php echo $detalhechamado['id_chamado'] ?>"
+                    class="button-cian">FINALIZAR CHAMADO</a>
             </div>
         </section>
     </main>

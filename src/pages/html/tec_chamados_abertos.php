@@ -1,4 +1,7 @@
-<?php require_once('../php/tec_teste.php') ?>
+<?php
+require_once('../php/tec_teste.php')
+
+    ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
 
@@ -18,7 +21,7 @@
 </head>
 
 <body class="display-flex">
-<?php include_once('../php/tec_nav.php') ?>
+    <?php include_once('../php/tec_nav.php') ?>
     <main>
         <header class="display-flex">
             <button id="header-button" class="botao">+ NOVO CHAMADO</button>
@@ -29,30 +32,35 @@
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados Abertos</h2>
-                <p class="display-flex"><?php if(isset($chamadosabertos)){echo $chamadosabertos;}else{echo '0';}?></p>
+                <p class="display-flex"><?php if (isset($chamadosabertos)) {
+                    echo $chamadosabertos;
+                } else {
+                    echo '0';
+                } ?></p>
             </div>
             <section id="section-chamados" class="display-flex-column">
                 <?php foreach ($chamados as $chamado): ?>
-                <article class="chamados display-flex">
-                    
-                        <h3 class="button">J</h3>
+                    <article class="chamados display-flex">
+                        <h3 class="button"><?php echo $chamado['inicial'] ?></h3>
                         <div class="email">
                             <p><?php echo $chamado['email'] ?></p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado por <?php echo $chamado['nome'] ?> 3 horas atrás</span></div>
+                            <div class="email-detalhe"><img src="" alt=""><span>criado por <?php echo $chamado['nome'] ?> 3
+                                    horas atrás</span></div>
                         </div>
                         <div id="id">
-                            <p><?php echo "ID #" . $chamado['id_chamado']?></p>
+                            <p><?php echo "ID #" . $chamado['id_chamado'] ?></p>
                             <span></span>
                         </div>
                         <h4 class="button">Aberto</h4>
                         <p>Reparo de servidor</p>
                         <ul>
                             <li>
-                                <p><?php echo $chamado['prioridade']?></p>
+                                <p><?php echo $chamado['prioridade'] ?></p>
                             </li>
                         </ul>
-                        <a href="tec_detalhes_chamado.php?id_chamado=<?php echo $chamado['id_chamado']?>" class="button-cian">DETALHES</a>
-                </article>
+                        <a href="tec_detalhes_chamado.php?id_chamado=<?php echo $chamado['id_chamado'] ?>&consulta=0"
+                            class="button-cian">DETALHES</a>
+                    </article>
                 <?php endforeach ?>
             </section>
         </section>

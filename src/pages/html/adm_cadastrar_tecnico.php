@@ -7,7 +7,7 @@ require_once("../php/adm_teste.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style/cadastrar_administrador.css">
+    <link rel="stylesheet" href="../style/adm_cadastrar_administrador.css">
     <link rel="stylesheet" href="../style/geral.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

@@ -1,6 +1,11 @@
 <?php
 require_once('../php/tec_teste.php');
 require_once('../php/tec_detalhes_chamado.php');
+if (!isset($detalhechamado['mu'])) {
+    if ($_SESSION['id'] === $detalhechamado['id_tecnico']) {
+        header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_tecnico']);
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -24,7 +29,7 @@ require_once('../php/tec_detalhes_chamado.php');
     <?php include_once('../php/tec_nav.php') ?>
     <header class="display-flex">
         <button id="header-button" class="botao">+ NOVO CHAMADO</button>
-            <?php ?>
+        <?php ?>
         <div id="header-user" class="display-flex">
             <img src="../../images/logado/User.svg" alt="">
         </div>
@@ -38,7 +43,7 @@ require_once('../php/tec_detalhes_chamado.php');
             <dl id="chamados-descricao">
                 <div class="chamados-info">
                     <dt>Prioridade:</dt>
-                    <dd><?php echo $detalhechamado['prioridade']  ?></dd>
+                    <dd><?php echo $detalhechamado['prioridade'] ?></dd>
                 </div>
                 <div class="chamados-info">
                     <dt>Status:</dt>
@@ -52,10 +57,22 @@ require_once('../php/tec_detalhes_chamado.php');
                     <dt>TAC:</dt>
                     <dd>1h20 --- Aberto as 13:00, prazo ideal: até as 14:20.</dd>
                 </div>
+                <?php if ($_GET['consulta'] == 1 && $detalhechamado['status'] == 'atendimento'): ?>
+                    <div class="chamados-info">
+                        <dt>Técnico designado:</dt>
+                        <dd><?php echo $detalhechamado['tecnome'] ?></dd>
+                    </div>
+                <?php endif ?>
                 <div class="chamados-info">
                     <dt>Descrição do cliente:</dt>
-                    <dd><?php echo $detalhechamado['descricao']?></dd>
+                    <dd><?php echo $detalhechamado['descricao'] ?></dd>
                 </div>
+                <?php if (isset($detalhechamado['mu'])): ?>
+                    <div class="chamados-info">
+                        <dt>Mensagem pendencia</dt>
+                        <dd><?php echo $detalhechamado['mu'] ?></dd>
+                    </div>
+                <?php endif ?>
                 <div class="chamados-info">
                     <dt>Empresa:</dt>
                     <dd><?php echo $detalhechamado['empresa'] ?></dd>
@@ -65,10 +82,13 @@ require_once('../php/tec_detalhes_chamado.php');
                     <dd><?php echo $detalhechamado['endereco'] ?></dd>
                 </div>
             </dl>
-            <div id="descricao-button">
-                <a href="./tec_finalizar_chamado.php?id_chamado=<?php echo $detalhechamado['id_chamado']?>" class="button-cian">ACEITAR CHAMADO</a>
-                <a href="./tec_chamados_abertos.php" class="button-red">RECUSAR CHAMADO</a>
-            </div>
+            <?php if (($_GET['consulta'] == 0 && $detalhechamado['status'] == 'aberto')): ?>
+                <div id="descricao-button">
+                    <a href="./tec_finalizar_chamado.php?id_chamado=<?php echo $detalhechamado['id_chamado'] ?>"
+                        class="button-cian">ACEITAR CHAMADO</a>
+                    <a href="./tec_chamados_abertos.php" class="button-red">RECUSAR CHAMADO</a>
+                </div>
+            <?php endif ?>
         </section>
     </main>
     <script src="../script/button.js"></script>
