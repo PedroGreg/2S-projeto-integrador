@@ -47,7 +47,7 @@ require_once('../php/usr_teste.php');
                     <article class="chamado">
                         <div class="chamados  display-flex">
                             <!-- <button class="check chamados-button"></button> -->
-                            <h3 class="button">P</h3>
+                            <h3 class="button"><?php echo $chamado['inicial'] ?></h3>
                             <div class="email">
                                 <p>
                                     <?php
@@ -67,7 +67,7 @@ require_once('../php/usr_teste.php');
                                     }
                                     ?>
                                 </p>
-                                <div class="email-detalhe"><img src="" alt=""><span>criado a 3 horas por Pedro</span></div>
+                                <div class="email-detalhe"><img src="" alt=""><span>criado por <?php echo $chamado['nome'] ?></span></div>
                             </div>
                             <div id="id">
                                 <p>

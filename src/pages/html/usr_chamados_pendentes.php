@@ -52,7 +52,7 @@ require_once('../php/usr_teste.php');
                 <?php foreach ($chamadospen as $chamado): ?>
                     <article class="chamado">
                         <div class="chamados  display-flex">
-                            <h3 class="button">P</h3>
+                            <h3 class="button"><?php echo $chamado['inicial'] ?></h3>
                             <div class="email">
                                 <p>
                                     <?php
