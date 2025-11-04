@@ -22,12 +22,6 @@ try {
     $query->execute();
     $success = $query->execute();
 
-    if ($success === false) {
-        $error = $query->errorInfo();
-        echo "Erro no MySQL (código): " . $error[0] . "\n";
-        echo "Erro no Driver (código): " . $error[1] . "\n";
-        echo "Mensagem de Erro: " . $error[2] . "\n";
-    }
     $chamados = $query->fetchAll(PDO::FETCH_ASSOC);
     if ($query->rowCount() > 0) {
         $meuschamados = $query->rowCount();

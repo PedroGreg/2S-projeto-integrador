@@ -38,11 +38,11 @@ if (
             $query->bindParam(":ativo", $ativo, PDO::PARAM_INT);
             $query->execute();
             $_SESSION["mensagem_sucesso"] = "Administrador cadastrado com sucesso";
-            header("location: ../html/cadastrar_administrador.php");
+            header("location: ../html/adm_cadastrar_administrador.php");
             exit();
         } else {
             $_SESSION["mensagem_erro"] = "Código da empresa incorreto";
-            header("location:../html/cadastrar_administrador.php");
+            header("location:../html/adm_cadastrar_administrador.php");
             exit();
         }
     } catch (PDOException $e) {

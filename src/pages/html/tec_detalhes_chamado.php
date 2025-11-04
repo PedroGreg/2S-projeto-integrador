@@ -2,9 +2,11 @@
 require_once('../php/tec_teste.php');
 require_once('../php/tec_detalhes_chamado.php');
 if (!isset($detalhechamado['mu'])) {
-    if ($_SESSION['id'] === $detalhechamado['id_tecnico']) {
-        header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_tecnico']);
+    if ($id === $detalhechamado['id_tecnico']) {
+        header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_chamado']);
     }
+} elseif ($id === $detalhechamado['id_tecnico']) {
+    header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_chamado']);
 }
 ?>
 <!DOCTYPE html>

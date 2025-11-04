@@ -50,6 +50,8 @@ try {
                         <td>Status</td>
                         <td>ID do chamado</td>
                         <td>ID do colaborador</td>
+                        <td>Ativo</td>
+                        <td>Ações</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -60,13 +62,20 @@ try {
                             <td><?php echo $tec['status']?></td>
                             <td><?php echo $tec['id_chamado']?></td>
                             <td><?php echo $tec['id_tecnico']?></td>
+                            <td><?php if ($tec['ativo'] === 1){ echo "SIM"; }else{ echo "NÃO";} ?></td>
+                            <td><a href="./adm_editar_colaboradores.php?id_tecnico=<?php echo $tec['id_tecnico']; ?>" class="action-btn">Editar</a>
+                            <a href="../php/adm_excluir_colaboradores.php?id_tecnico=<?php echo $tec['id_tecnico']; ?>" class="action-btn delete-btn" onclick="return confirmDeletion();">Excluir</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
         </section>
     </main>
-    <script src="../script/button.js"></script>
+    <script src="../script/button.js">
+        function confirmDeletion(){
+            return confirm('Tem certeza que deseja deletar esse colaborador?');
+        }
+    </script>
 </body>
 
 </html>

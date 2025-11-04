@@ -23,12 +23,13 @@ try {
     $query->execute();
     $result = $query->fetch(PDO::FETCH_ASSOC);
     $idp = $result["id_prioridade"];
-    $sql = "INSERT INTO chamados (id_usuario,id_prioridade,id_categoria,endereco,descricao,observacao) 
-            VALUES (:id,:idp,:idc,:ender,:descr,:obser)";
+    $sql = "INSERT INTO chamados (id_usuario,id_prioridade,id_categoria,pendencia,endereco,descricao,observacao) 
+            VALUES (:id,:idp,:idc,:pend,:ender,:descr,:obser)";
     $query = $pdo->prepare($sql);
     $query->bindParam(":id", $id, PDO::PARAM_INT);
     $query->bindParam(":idp", $idp, PDO::PARAM_INT);
     $query->bindParam(":idc", $idc, PDO::PARAM_INT);
+    $query->bindParam(":pend", $pend, PDO::PARAM_STR);
     $query->bindParam(":ender", $endereco, PDO::PARAM_STR);
     $query->bindParam(":descr", $descricao, PDO::PARAM_STR);
     $query->bindParam(":obser", $observacao, PDO::PARAM_STR);

@@ -11,7 +11,7 @@ try {
     $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_INT);
     $query->bindParam(":mensagem", $_POST['resposta'], PDO::PARAM_STR);
     $query->execute();
-    $sql = "UPDATE chamados c SET status = 'aberto' WHERE id_chamado = :id AND c.status = 'pendente'";
+    $sql = "UPDATE chamados c SET id_tecnico = NULL, status = 'aberto' WHERE id_chamado = :id AND c.status = 'pendente'";
     $query = $pdo->prepare($sql);
     $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_INT);
     $query->execute();

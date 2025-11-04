@@ -2,8 +2,13 @@
 require_once('../php/tec_teste.php');
 require_once('../php/tec_detalhes_chamado.php');
 try {
-    $sql = "UPDATE chamados c SET status = 'atendimento', c.id_tecnico = :idtec WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
+    $sql = "UPDATE chamados c SET c.status = 'atendimento', c.id_tecnico = :idtec 
+    WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
     $query = $pdo->prepare($sql);
+    $query->bindParam(":idtec", $id, PDO::PARAM_INT);
+    $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
+    $query->execute();
+    $sql = "UPDATE tecnicos SET status = 'atendendo chamado', id_chamado = :id WHERE id_tecnico = :idtec";
     $query->bindParam(":idtec", $id, PDO::PARAM_INT);
     $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
     $query->execute();
