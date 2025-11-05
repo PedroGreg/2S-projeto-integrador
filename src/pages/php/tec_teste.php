@@ -10,7 +10,7 @@ $id = $_SESSION["id"];
 require_once('../php/conn.php');
 $status = ['aberto', 'atendimento', 'pendente', 'finalizado'];
 try {
-    $sql = "SELECT c.id_chamado, c.id_categoria, 
+    $sql = "SELECT c.id_chamado, 
     UPPER(LEFT(u.nome, 1)) as inicial,
     CONCAT(UPPER(LEFT(c.status, 1)), LOWER(SUBSTRING(c.status, 2))) as status, 
     CONCAT(LOWER(SUBSTRING(u.email, 1))) as email, 
@@ -29,7 +29,7 @@ try {
         $chamadosabertos = $query->rowCount();
     }
 
-    $sql = "SELECT c.id_chamado, c.id_categoria, 
+    $sql = "SELECT c.id_chamado,
     UPPER(LEFT(u.nome, 1)) as inicial,
     COALESCE(CONCAT(UPPER(LEFT(t.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(t.nome, ' ', 1), 2))), 'Sem Técnico') as tecnome,
     CONCAT(UPPER(LEFT(c.status, 1)), LOWER(SUBSTRING(c.status, 2))) as status, 
@@ -50,13 +50,12 @@ try {
         $chamadosatendimento = $query->rowCount();
     }
 
-    $sql = "SELECT c.id_chamado, c.id_categoria,
+    $sql = "SELECT c.id_chamado, 
     DATE_FORMAT(c.data_abertura, '%d/%m/%Y ás %H:%i') AS dataA,
     DATE_FORMAT(c.data_encerramento, '%d/%m/%Y ás %H:%i') AS dataE,
     TIMESTAMPDIFF(HOUR, c.data_abertura, c.data_encerramento) AS tempo,
     UPPER(LEFT(u.nome, 1)) AS inicial,
     COALESCE(CONCAT(UPPER(LEFT(t.nome, 1)),LOWER(SUBSTRING(SUBSTRING_INDEX(t.nome, ' ', 1),2))),'Sem Técnico') AS tecnome,
-    CONCAT(UPPER(LEFT(c.status, 1)),LOWER(SUBSTRING(c.status, 2))) AS status,
     CONCAT(LOWER(SUBSTRING(u.email, 1))) AS email,
     SUBSTRING_INDEX(u.nome, ' ', 1) AS nome,
     p.prioridade

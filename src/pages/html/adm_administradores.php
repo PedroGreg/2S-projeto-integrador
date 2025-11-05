@@ -6,6 +6,9 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $administradores = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($stmt->rowCount() > 0){
+        $numadministradores = $stmt->rowCount();
+    }
 } catch (PDOException $e) {
     echo "Erro " . $e;
 }
@@ -40,7 +43,14 @@ try {
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Administradores</h2>
-                <p class="display-flex">3</p>
+                <p class="display-flex">
+                    <?php if (isset($numadministradores)) {
+                    echo $numadministradores;
+                    } else {
+                    echo '0';
+                    } 
+                    ?>
+                </p>
             </div>
             <table>
                 <thead class="">

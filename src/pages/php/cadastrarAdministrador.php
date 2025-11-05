@@ -17,7 +17,7 @@ if (
 ) {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
-    $email = $_POST['email'];
+    $email = strtolower(trim($_POST['email']));
     $senha = $_POST['senha'];
     $ativo = $_POST['ativo'];
     require_once('./conn.php');

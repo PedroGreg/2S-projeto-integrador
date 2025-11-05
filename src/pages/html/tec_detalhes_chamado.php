@@ -69,9 +69,15 @@ if (!isset($detalhechamado['mu'])) {
                     <dt>Descrição do cliente:</dt>
                     <dd><?php echo $detalhechamado['descricao'] ?></dd>
                 </div>
+                <?php if (isset($detalhechamado['pendencia']) && $detalhechamado['pendencia'] != ''): ?>
+                <div class="chamados-info">
+                    <dt>Pendencia:</dt>
+                    <dd><?php echo $detalhechamado['pendencia'] ?></dd>
+                </div>
+                <?php endif ?>
                 <?php if (isset($detalhechamado['mu'])): ?>
                     <div class="chamados-info">
-                        <dt>Mensagem pendencia</dt>
+                        <dt>Mensagem pendencia:</dt>
                         <dd><?php echo $detalhechamado['mu'] ?></dd>
                     </div>
                 <?php endif ?>
