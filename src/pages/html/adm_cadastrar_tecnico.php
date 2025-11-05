@@ -34,26 +34,26 @@ require_once("../php/adm_teste.php");
                 <form action="../php/cadastrarTecnico.php" method="post">
                     <fieldset>
                         <div class="divInput">
-                            <label for="codigo">ID da empresa</label>
-                            <input type="number" name="codigo" id="codigo" class="input" required>
+                            <label class="label" for="codigo">ID da empresa</label>
+                            <input class="input" type="number" name="codigo" id="codigo" class="input" required>
                         </div>
                         <div class="divInput">
-                            <label for="nome">Nome Completo</label>
-                            <input type="text" name="nome" id="nome" class="input" required>
+                            <label class="label" for="nome">Nome Completo</label>
+                            <input class="input" type="text" name="nome" id="nome" class="input" required>
                         </div>
                         <div class="divInput">
-                            <label for="email">Email</label>
-                            <input type="email" name="email" id="email" class="input" required>
+                            <label class="label" for="email">Email</label>
+                            <input class="input" type="email" name="email" id="email" class="input" required>
                         </div>
                         <div class="divInput">
-                            <label for="senha">Senha</label>
-                            <input type="text" name="senha" id="senha" class="input" required>
+                            <label class="label" for="senha">Senha</label>
+                            <input class="input" type="text" name="senha" id="senha" class="input" required>
                         </div>
                         <div class="divInput">
-                            <label for="ativo">Ativo</label>
-                            <input type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>
+                            <label class="labelcheck" for="ativo">Ativo</label>
+                            <input class="input" type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>
                         </div>
-                        <button type="submit" name="submit" id="submit">CADASTRAR</button>
+                        <button class="button-cian" type="submit" name="submit" id="submit">CADASTRAR</button>
                         <?php if (isset($_SESSION["mensagem_erro"])) echo "<h3>" .$_SESSION['mensagem_erro'] . "</h3>" ?>
                         <?php if (isset($_SESSION["mensagem_sucesso"])) echo "<h3>" .$_SESSION['mensagem_sucesso'] . "</h3>" ?>
                     </fieldset>

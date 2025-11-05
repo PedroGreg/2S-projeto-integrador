@@ -6,6 +6,9 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    if ($stmt->rowCount() > 0){
+        $numusuarios = $stmt->rowCount();
+    }
 }
 catch (PDOException $e) {
     echo "Erro " . $e;
@@ -41,7 +44,7 @@ catch (PDOException $e) {
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Usuários</h2>
-                <p class="display-flex">3</p>
+                <p class="display-flex"><?php if(isset($numusuarios)){ echo $numusuarios;} else {echo '0';} ?></p>
             </div>
             <table>
                 <thead class="">

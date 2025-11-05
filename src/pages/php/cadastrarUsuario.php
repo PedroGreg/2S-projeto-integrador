@@ -16,7 +16,7 @@ if(strlen($_POST["nome"]) > 0 &&
         require_once "./conn.php";
         try {
         $nome = $_POST['nome'];
-        $email = $_POST['email'];
+        $email = strtolower(trim($_POST['email']));
         $senha = $_POST['senha'];
         $ativo = 1;
         $sql = "INSERT INTO usuarios (id_empresa,nome,email,senha,ativo) VALUES (:IDE,:nome,:email,:senha,:ativo);";

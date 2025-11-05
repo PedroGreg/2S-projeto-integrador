@@ -67,35 +67,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Editar Colaborador</h2>
-                <p class="display-flex">3</p>
+                <p class="display-flex"><?php echo '#' . $tec_id ?></p>
             </div>
             <div>
                 <form action="" method="post">
                     <fieldset>
                         <div class="divInput">
-                            <label for="nome">Nome</label>
+                            <label class="label" for="nome">Nome</label>
                             <input type="text" name="nome" id="nome" value="<?= $tec['nome'] ?>" class="input" required>
                         </div>
                         <div class="divInput">
-                            <label for="email">Email</label>
+                            <label class="label"for="email">Email</label>
                             <input type="text" name="email" id="email" value="<?= $tec['email'] ?>" class="input"
                                 required>
                         </div>
                         <div class="divInput">
-                            <label for="senha">Senha</label>
+                            <label class="label"for="senha">Senha</label>
                             <input type="number" name="senha" id="senha" value="<?= $tec['senha'] ?>" class="input"
                                 required>
                         </div>
                         <div class="divInput">
-                            <label for="telefone">Telefone</label>
-                            <input type="number" name="telefone" id="telefone" value="<?= $tec['telefone'] ?>"
-                                class="input" required>
+                            <label class="label"for="telefone">Telefone</label>
+                            <input type="number" name="telefone" id="telefone" value="<?= $tec['telefone'] ?>" class="input">
                         </div>
                         <div class="divInput">
-                            <label for="ativo">Ativo</label>
+                            <label class="labelcheck"for="ativo">Ativo</label>
                             <input type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>
                         </div>
-                        <button type="submit" name="submit" id="submit">CADASTRAR</button>
+                        <button class="button-cian" type="submit" name="submit" id="submit">CADASTRAR</button>
                     </fieldset>
                     <?php
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

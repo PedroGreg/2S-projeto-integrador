@@ -30,10 +30,13 @@ require_once('../php/tec_detalhes_chamado.php');
                 $_SESSION['pend'] = 1;
                 $_SESSION['descricao'] = $_POST["descricaoPend"];
                 header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
+                exit();
             }
         } elseif ($_POST['pendencia'] == 'nao') {
             $_SESSION['pend'] = 0;
+            $_SESSION['mensagem'] = $_POST['mensagem'];
             header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
+            exit();
         }
     }
     include_once('../php/tec_nav.php')
@@ -61,6 +64,10 @@ require_once('../php/tec_detalhes_chamado.php');
                 <div class="form-div">
                     <label for="descricaoPend">Descrição das pendências</label>
                     <textarea rows="3" name="descricaoPend" id="descricaoPend"></textarea>
+                </div>
+                <div class="form-div">
+                    <label for="mensagem">Descrição do serviço</label>
+                    <textarea rows="3" name="mensagem" id="mensagem"></textarea>
                 </div>
                 <br>
                 <button type="submit" name="submit" value="submit" class="button-cian" id="submit">CONCLUIR

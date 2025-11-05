@@ -7,10 +7,11 @@ if (!isset($_GET['id_chamado'])) {
 }
 if ($_SESSION['pend'] == 0) {
     try {
-        $sql = "UPDATE chamados c SET status = 'finalizado', c.data_encerramento = NOW() 
+        $sql = "UPDATE chamados c SET status = 'finalizado', c.data_encerramento = NOW(), c.mensagem_tecnico = :mensagem 
     WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
         $query = $pdo->prepare($sql);
         $query->bindParam(":id", $_GET["id_chamado"], PDO::PARAM_INT);
+        $query->bindParam(":mensagem", $_SESSION["mensagem"], PDO::PARAM_INT);
         $query->execute();
     } catch (PDOException $e) {
         echo 'Erro ' . $e->getMessage();

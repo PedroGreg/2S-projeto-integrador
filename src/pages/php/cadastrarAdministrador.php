@@ -17,7 +17,7 @@ if (
 ) {
     $codigo = $_POST['codigo'];
     $nome = $_POST['nome'];
-    $email = $_POST['email'];
+    $email = strtolower(trim($_POST['email']));
     $senha = $_POST['senha'];
     $ativo = $_POST['ativo'];
     require_once('./conn.php');
@@ -48,5 +48,9 @@ if (
     } catch (PDOException $e) {
         echo 'Erro:' . $e->getMessage();
     }
+}else{
+    $_SESSION["mensagem_erro"] = "Verifique as informações";
+    header('location: ../html/adm_cadastrar_administrador.php');
+    exit();
 }
 ?>

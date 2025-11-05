@@ -62,7 +62,7 @@ require_once('../php/tec_teste.php');
                             <p><?php echo "ID #" . $chamado['id_chamado'] ?></p>
                             <span></span>
                         </div>
-                        <h4 class="button">Atendimento</h4>
+                        <h4 class="button"><?php echo $chamado['status'] ?></h4>
                         <p>Reparo de servidor</p>
                         <ul>
                             <li>
