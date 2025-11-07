@@ -5,28 +5,45 @@ if (!isset($_GET['id_chamado'])) {
     header('location:./tec_chamados_abertos.php');
     exit();
 }
-if ($_SESSION['pend'] == 0) {
-    try {
-        $sql = "UPDATE chamados c SET status = 'finalizado', c.data_encerramento = NOW(), c.mensagem_tecnico = :mensagem 
-    WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
-        $query = $pdo->prepare($sql);
-        $query->bindParam(":id", $_GET["id_chamado"], PDO::PARAM_INT);
-        $query->bindParam(":mensagem", $_SESSION["mensagem"], PDO::PARAM_INT);
-        $query->execute();
-    } catch (PDOException $e) {
-        echo 'Erro ' . $e->getMessage();
-    }
-} else if ($_SESSION['pend'] == 1) {
-    try {
-        $sql = "UPDATE chamados c SET status = 'pendente', pendencia = :pendencia
-        WHERE id_chamado = :id AND c.data_encerramento IS NULL";
-        $query = $pdo->prepare($sql);
-        $query->bindParam(":pendencia", $_SESSION["descricao"], PDO::PARAM_STR);
-        $query->bindParam("id", $_GET['id_chamado'], PDO::PARAM_INT);
-        $query->execute();
-    } catch (PDOException $e) {
+if (isset($_SESSION['mensagem'])) {
+    if ($_SESSION['pend'] == 0) {
+        try {
+            $sql = "UPDATE chamados c SET status = 'finalizado', c.data_encerramento = NOW() 
+            WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
+            $query = $pdo->prepare($sql);
+            $query->bindParam(":id", $_GET["id_chamado"], PDO::PARAM_INT);
+            $query->execute();
 
-        echo 'erro '. $e->getMessage();}
+            $sql = "INSERT INTO mensagens (id_chamado,mensagem_tecnico,data_envio) VALUES (:id,:mensagem,NOW())";
+            $query = $pdo->prepare($sql);
+            $query->bindParam(":id", $_GET["id_chamado"], PDO::PARAM_INT);
+            $query->bindParam(":mensagem", $_SESSION["mensagem"], PDO::PARAM_STR);
+            $query->execute();
+        } catch (PDOException $e) {
+            echo 'Erro ' . $e->getMessage();
+        }
+    } else if ($_SESSION['pend'] == 1) {
+        try {
+            $sql = "UPDATE chamados c SET status = 'pendente', pendencia = :pendencia
+        WHERE id_chamado = :id AND c.data_encerramento IS NULL";
+            $query = $pdo->prepare($sql);
+            $query->bindParam(":pendencia", $_SESSION["descricao"], PDO::PARAM_STR);
+            $query->bindParam("id", $_GET['id_chamado'], PDO::PARAM_INT);
+            $query->execute();
+
+            $sql = "INSERT INTO mensagens (id_chamado,mensagem_tecnico,data_envio) VALUES (:id,:mensagem,NOW())";
+            $query = $pdo->prepare($sql);
+            $query->bindParam(":id", $_GET["id_chamado"], PDO::PARAM_INT);
+            $query->bindParam(":mensagem", $_SESSION["mensagem"], PDO::PARAM_STR);
+            $query->execute();
+        } catch (PDOException $e) {
+
+            echo 'erro ' . $e->getMessage();
+        }
+    }
+    $_SESSION['mensagem'] = NULL;
+    $_SESSION['pend'] = NULL;
+    $_SESSION['descricao'] = NULL;
 }
 ?>
 <!DOCTYPE html>
@@ -59,7 +76,7 @@ if ($_SESSION['pend'] == 0) {
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamado concluído</h2>
-                <p class="display-flex"><?php echo "#".$detalhechamado['id_chamado'] ?></p>
+                <p class="display-flex"><?php echo "#" . $detalhechamado['id_chamado'] ?></p>
             </div>
             <div id="chamado-concluido" class="display-flex-column">
                 <h1>Chamado concluído com sucesso!</h1>

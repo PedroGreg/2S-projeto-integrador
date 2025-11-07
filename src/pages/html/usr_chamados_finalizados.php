@@ -98,6 +98,7 @@ require_once('../php/usr_teste.php');
                     <div class="extra">
                         <p>
                         <?php
+                                echo "<span style='font-size: 10px'>Mensagem: </span>" . $chamado['mensagem'] . "<br><br>";
                                 switch ($chamado['status']) {
                                     case 'aberto':
                                         echo '☑ Chamado aberto... ------ ☐ Chamado em atendimento ------ ☐ Chamado finalizado';

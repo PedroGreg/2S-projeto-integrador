@@ -24,8 +24,8 @@ try {
         $_SESSION['admin_logado'] = true;
         $administrador = $query1->fetch(PDO::FETCH_ASSOC);
         $_SESSION['id'] = $administrador['id_administrador'];
-        $_SESSION['usuario_logado'] = false;
-        $_SESSION['tecnico_logado'] = false;
+        $_SESSION['usuario_logado'] = NULL;
+        $_SESSION['tecnico_logado'] = NULL;
         header('location: ../html/tec_chamados_abertos.php');
         unset($_SESSION['mensagem_erro']);
         exit();
@@ -33,8 +33,8 @@ try {
         $_SESSION['tecnico_logado'] = true;
         $tecnico = $query2->fetch(PDO::FETCH_ASSOC);
         $_SESSION['id'] = $tecnico['id_tecnico'];
-        $_SESSION['usuario_logado'] = false;
-        $_SESSION['admin_logado'] = false;
+        $_SESSION['usuario_logado'] = NULL;
+        $_SESSION['admin_logado'] = NULL;
         header('location:../html/tec_chamados_abertos.php');
         unset($_SESSION['mensagem_erro']);
         exit();
@@ -42,16 +42,16 @@ try {
         $_SESSION['usuario_logado'] = true;
         $usuario = $query3->fetch(PDO::FETCH_ASSOC);
         $_SESSION['id'] = $usuario['id_usuario'];
-        $_SESSION['admin_logado'] = false;
-        $_SESSION['tecnico_logado'] = false;
+        $_SESSION['admin_logado'] = NULL;
+        $_SESSION['tecnico_logado'] = NULL;
         header('location: ../html/usr_meus_chamados.php');
         unset($_SESSION['mensagem_erro']);
         exit();
     } else {
         unset($_SERVER['id']);
-        $_SESSION['admin_logado'] = false;
-        $_SESSION['usuario_logado'] = false;
-        $_SESSION['tecnico_logado'] = false;
+        $_SESSION['admin_logado'] = NULL;
+        $_SESSION['usuario_logado'] = NULL;
+        $_SESSION['tecnico_logado'] = NULL;
         $_SESSION['mensagem_erro'] = "Email e/ou senha incorretos.";
         header('location: ../html/login.php');
         exit();

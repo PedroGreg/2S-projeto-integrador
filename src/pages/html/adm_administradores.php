@@ -55,32 +55,39 @@ try {
             <table>
                 <thead class="">
                     <tr class="table-header">
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>ID do administrador</td>
-                        <td>Empresa responsável</td>
-                        <td>Ativo</td>
+                        <td class="tdhead">Nome</td>
+                        <td class="tdhead">Email</td>
+                        <td class="tdhead">ID do administrador</td>
+                        <td class="tdhead">Empresa responsável</td>
+                        <td class="tdhead">Ativo</td>
+                        <td class="tdhead">Ações</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($administradores as $admin): ?>
-                        <tr>
-                            <td><?php echo $admin['nome'] ?></td>
-                            <td><?php echo $admin['email'] ?></td>
-                            <td><?php echo $admin['id_administrador'] ?></td>
-                            <td><?php echo $admin['empresa'] ?></td>
-                            <td><?php if ($admin['ativo']) {
+                        <tr class="<?php if($x == 1){ echo "gray"; $x = 0; }else{ echo "white"; $x = 1; } ?>">
+                            <td class="tdbody"><?php echo $admin['nome'] ?></td>
+                            <td class="tdbody"><?php echo $admin['email'] ?></td>
+                            <td class="tdbody"><?php echo $admin['id_administrador'] ?></td>
+                            <td class="tdbody"><?php echo $admin['empresa'] ?></td>
+                            <td class="tdbody"><?php if ($admin['ativo']) {
                                 echo "ATIVO";
                             } else {
                                 echo "INATIVO";
                             } ?></td>
+                            <td><a href="./adm_editar_administradores.php?id_administrador=<?php echo $admin['id_administrador']; ?>" class="action-btn editar">Editar</a>
+                            <a href="../php/adm_excluir_administradores.php?id_administrador=<?php echo $admin['id_administrador']; ?>" class="action-btn delete-btn deletar" onclick="return confirmDeletion();">Excluir</a></td>
                         </tr>
                     <?php endforeach ?>
                 </tbody>
             </table>
         </section>
     </main>
-    <script src="../script/button.js"></script>
+    <script>
+        function confirmDeletion(){
+            return confirm('Tem certeza que deseja deletar esse colaborador?');
+        }
+    </script>
 </body>
 
 </html>

@@ -104,7 +104,10 @@ require_once('../php/usr_teste.php');
                         <div class="extra">
                             <p>
                                 <?php
-                                echo $chamado['pendencia'];
+                                echo "<span style='font-size: 10px'>Pendência: </span>" . $chamado['pendencia'] . "<br>";
+                                if($chamado['mensagem'] != NULL){
+                                    echo "<span style='font-size: 10px'>Mensagem: </span>" . $chamado['mensagem'] . "<br>";
+                                } 
                                 ?>
                             </p>
                             <button class="button-cian responder">Responder pendencia</button>

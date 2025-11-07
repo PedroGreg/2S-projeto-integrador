@@ -29,14 +29,22 @@ require_once('../php/tec_detalhes_chamado.php');
             } else {
                 $_SESSION['pend'] = 1;
                 $_SESSION['descricao'] = $_POST["descricaoPend"];
+                $_SESSION['mensagem'] = $_POST["mensagem"];
+                // $_SESSION['id_chamado'] = $detalhechamado['id_chamado'];
                 header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
                 exit();
             }
+
         } elseif ($_POST['pendencia'] == 'nao') {
-            $_SESSION['pend'] = 0;
-            $_SESSION['mensagem'] = $_POST['mensagem'];
-            header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
-            exit();
+            if (strlen($_POST['mensagem']) > 3) {
+                $_SESSION['pend'] = 0;
+                $_SESSION['mensagem'] = $_POST['mensagem'];
+                // $_SESSION['id_chamado'] = $detalhechamado['id_chamado'];
+                header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
+                exit();
+            } else {
+                echo "<p style='text-align: center; position: absolute; left: 50%; z-index: 3; margin-top: 20px'>Necesário informar a descrição válida do serviço</p>";
+            }
         }
     }
     include_once('../php/tec_nav.php')
@@ -51,7 +59,7 @@ require_once('../php/tec_detalhes_chamado.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Conclusão do chamado</h2>
-                <p class="display-flex"><?php echo "#".$detalhechamado['id_chamado'] ?></p>
+                <p class="display-flex"><?php echo "#" . $detalhechamado['id_chamado'] ?></p>
             </div>
             <form method="POST" action="" id="form">
                 <div class="form-div">

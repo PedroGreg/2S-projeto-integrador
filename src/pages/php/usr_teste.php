@@ -29,6 +29,11 @@ try {
 
     $sql = "SELECT c.*,
     UPPER(LEFT(u.nome, 1)) AS inicial,
+    (SELECT m.mensagem_tecnico
+    FROM mensagens m 
+    WHERE m.id_chamado = c.id_chamado 
+    ORDER BY m.data_envio DESC 
+    LIMIT 1) AS mensagem,
     CONCAT(UPPER(LEFT(u.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(u.nome, ' ', 1), 2))) AS nome
     FROM chamados c
     INNER JOIN usuarios u ON u.id_usuario = c.id_usuario
@@ -45,6 +50,11 @@ try {
     $sql = "SELECT c.*, 
     COUNT(m.mensagem_usuario) as mu, 
     COUNT(m.mensagem_tecnico) as mt,
+    (SELECT m.mensagem_tecnico
+    FROM mensagens m 
+    WHERE m.id_chamado = c.id_chamado 
+    ORDER BY m.data_envio DESC 
+    LIMIT 1) AS mensagem,
     UPPER(LEFT(u.nome, 1)) AS inicial,
     CONCAT(UPPER(LEFT(u.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(u.nome, ' ', 1), 2))) AS nome
     FROM chamados c

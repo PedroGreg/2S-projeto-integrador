@@ -12,6 +12,7 @@ try {
 } catch (PDOException $e) {
     echo "Erro " . $e;
 }
+$x = NULL;
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -55,26 +56,26 @@ try {
             <table>
                 <thead class="">
                     <tr class="table-header">
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>Status</td>
-                        <td>ID do chamado</td>
-                        <td>ID do colaborador</td>
-                        <td>Ativo</td>
-                        <td>Ações</td>
+                        <td class="tdhead">Nome</td>
+                        <td class="tdhead">Email</td>
+                        <td class="tdhead">Status</td>
+                        <td class="tdhead">ID do chamado</td>
+                        <td class="tdhead">ID do colaborador</td>
+                        <td class="tdhead">Ativo</td>
+                        <td class="tdhead">Ações</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($tecnicos as $tec): ?>
-                        <tr>
-                            <td><?php echo $tec['nome'] ?></td>
-                            <td><?php echo $tec['email']?></td>
-                            <td><?php echo $tec['status']?></td>
-                            <td><?php echo $tec['id_chamado']?></td>
-                            <td><?php echo $tec['id_tecnico']?></td>
-                            <td><?php if ($tec['ativo'] === 1){ echo "SIM"; }else{ echo "NÃO";} ?></td>
-                            <td><a href="./adm_editar_colaboradores.php?id_tecnico=<?php echo $tec['id_tecnico']; ?>" class="action-btn">Editar</a>
-                            <a href="../php/adm_excluir_colaboradores.php?id_tecnico=<?php echo $tec['id_tecnico']; ?>" class="action-btn delete-btn" onclick="return confirmDeletion();">Excluir</a></td>
+                        <tr class="<?php if($x == 1){ echo "gray"; $x = 0; }else{ echo "white"; $x = 1; } ?>">
+                            <td class="tdbody"><?php echo $tec['nome'] ?></td>
+                            <td class="tdbody"><?php echo $tec['email']?></td>
+                            <td class="tdbody"><?php echo $tec['status']?></td>
+                            <td class="tdbody"><?php echo $tec['id_chamado']?></td>
+                            <td class="tdbody"><?php echo $tec['id_tecnico']?></td>
+                            <td class="tdbody"><?php if ($tec['ativo'] === 1){ echo "SIM"; }else{ echo "NÃO";} ?></td>
+                            <td><a href="./adm_editar_colaboradores.php?id_tecnico=<?php echo $tec['id_tecnico']; ?>" class="action-btn editar">Editar</a>
+                            <a href="../php/adm_excluir_colaboradores.php?id_tecnico=<?php echo $tec['id_tecnico']; ?>" class="action-btn delete-btn deletar" onclick="return confirmDeletion();">Excluir</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

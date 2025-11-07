@@ -7,11 +7,11 @@ if (!isset($_SESSION['admin_logado'])) {
     header("Location:login.php");
     exit();
 }
-$tec_id = $_GET['id_tecnico'];
-$stmt_tec = $pdo->prepare('SELECT * FROM tecnicos WHERE id_tecnico = :id_tecnico');
-$stmt_tec->bindParam('id_tecnico', $tec_id, PDO::PARAM_INT);
-$stmt_tec->execute();
-$tec = $stmt_tec->fetch(PDO::FETCH_ASSOC);
+$user_id = $_GET['id_usuario'];
+$stmt_user = $pdo->prepare('SELECT * FROM usuarios WHERE id_usuario = :id_usuario');
+$stmt_user->bindParam(':id_usuario', $user_id, PDO::PARAM_INT);
+$stmt_user->execute();
+$user = $stmt_user->fetch(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -20,15 +20,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ativo = $_POST['ativo'];
 
     try {
-        $stmt_update_colaboradores = $pdo->prepare("UPDATE tecnicos SET nome = :nome, email = :email, senha = :senha, telefone = :telefone, ativo = :ativo WHERE id_tecnico = :id");
-        $stmt_update_colaboradores->bindParam(':nome', $nome);
-        $stmt_update_colaboradores->bindParam(':id', $tec_id);
-        $stmt_update_colaboradores->bindParam(':email', $email);
-        $stmt_update_colaboradores->bindParam(':senha', $senha);
-        $stmt_update_colaboradores->bindParam(':ativo', $ativo);
-        $stmt_update_colaboradores->bindParam(':telefone', $telefone);
-        $stmt_update_colaboradores->execute();
-        header('location:./adm_colaboradores.php');
+        $stmt_update_usuarios = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, ativo = :ativo WHERE id_usuario = :id");
+        $stmt_update_usuarios->bindParam(':nome', $nome);
+        $stmt_update_usuarios->bindParam(':id', $user_id);
+        $stmt_update_usuarios->bindParam(':email', $email);
+        $stmt_update_usuarios->bindParam(':senha', $senha);
+        $stmt_update_usuarios->bindParam(':ativo', $ativo);
+        // $stmt_update_usuarios->bindParam(':telefone', $telefone);
+        $stmt_update_usuarios->execute();
+        header('location:./adm_usuarios.php');
         exit();
     } catch (PDOException $e) {
 
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
 
-    <title>Editar colaborador</title>
+    <title>Editar usuário</title>
 </head>
 
 <body class="display-flex">
@@ -66,30 +66,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </header>
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
-                <h2>Editar Colaborador</h2>
-                <p class="display-flex"><?php echo '#' . $tec_id ?></p>
+                <h2>Editar Usuário</h2>
+                <p class="display-flex"><?php echo '#' . $user_id ?></p>
             </div>
             <div>
                 <form action="" method="post">
                     <fieldset>
                         <div class="divInput">
                             <label class="label" for="nome">Nome</label>
-                            <input type="text" name="nome" id="nome" value="<?= $tec['nome'] ?>" class="input" required>
+                            <input type="text" name="nome" id="nome" value="<?= $user['nome'] ?>" class="input" required>
                         </div>
                         <div class="divInput">
                             <label class="label"for="email">Email</label>
-                            <input type="text" name="email" id="email" value="<?= $tec['email'] ?>" class="input"
+                            <input type="text" name="email" id="email" value="<?= $user['email'] ?>" class="input"
                                 required>
                         </div>
                         <div class="divInput">
                             <label class="label"for="senha">Senha</label>
-                            <input type="text" name="senha" id="senha" value="<?= $tec['senha'] ?>" class="input"
+                            <input type="text" name="senha" id="senha" value="<?= $user['senha'] ?>" class="input"
                                 required>
                         </div>
-                        <div class="divInput">
+                        <!-- <div class="divInput">
                             <label class="label"for="telefone">Telefone</label>
-                            <input type="number" name="telefone" id="telefone" value="<?= $tec['telefone'] ?>" class="input">
-                        </div>
+                            <input type="number" name="telefone" id="telefone" value="<?= $user['telefone'] ?>" class="input">
+                        </div> -->
                         <div class="divInput">
                             <label class="labelcheck"for="ativo">Ativo</label>
                             <input type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>

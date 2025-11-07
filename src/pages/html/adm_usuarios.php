@@ -1,5 +1,6 @@
 <?php
 require_once("../php/adm_teste.php");
+$x = true;
 try {
     require_once("../php/conn.php");
     $sql = "SELECT u.nome, u.email, u.id_usuario, e.empresa FROM usuarios u INNER JOIN empresas e ON u.id_empresa = e.id_empresa";
@@ -49,26 +50,33 @@ catch (PDOException $e) {
             <table>
                 <thead class="">
                     <tr class="table-header">
-                        <td>Nome</td>
-                        <td>Email</td>
-                        <td>ID do usuário</td>
-                        <td>Empresa responsável</td>
+                        <td class="tdhead">Nome</td>
+                        <td class="tdhead">Email</td>
+                        <td class="tdhead">ID do usuário</td>
+                        <td class="tdhead">Empresa responsável</td>
+                        <td class="tdhead">Ações</td>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach($usuarios as $user): ?>
-                        <tr>
-                            <td><?php echo $user['nome']?></td>
-                            <td><?php echo $user['email']?></td>
-                            <td><?php echo $user['id_usuario']?></td>
-                            <td><?php echo $user['empresa']?></td>
+                        <tr class="<?php if($x == 1){ echo "gray"; $x = 0; }else{ echo "white"; $x = 1; } ?>">
+                            <td class="tdbody"><?php echo $user['nome']?></td>
+                            <td class="tdbody"><?php echo $user['email']?></td>
+                            <td class="tdbody"><?php echo $user['id_usuario']?></td>
+                            <td class="tdbody"s><?php echo $user['empresa']?></td>
+                            <td><a href="./adm_editar_usuarios.php?id_usuario=<?php echo $user['id_usuario']; ?>" class="action-btn editar">Editar</a>
+                            <a href="../php/adm_excluir_usuarios.php?id_usuario=<?php echo $user['id_usuario']; ?>" class="action-btn delete-btn deletar" onclick="return confirmDeletion();">Excluir</a></td>
                         </tr>
-                    <?php endforeach?>
+                    <?php  endforeach?>
                 </tbody>
             </table>
         </section>
     </main>
-    <script src="../script/button.js"></script>
+    <script>
+        function confirmDeletion(){
+            return confirm('Tem certeza que deseja deletar esse colaborador?');
+        }
+    </script>
 </body>
 
 </html>

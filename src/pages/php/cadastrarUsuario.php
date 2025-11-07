@@ -35,5 +35,4 @@ if(strlen($_POST["nome"]) > 0 &&
         } else {
         header("location:../html/cadastro.php");
     }
-    else();
 ?>
