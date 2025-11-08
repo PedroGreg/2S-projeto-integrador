@@ -35,16 +35,17 @@ if (!isset($_SESSION['empresa']) || !isset($_SESSION['IDE'])) {
                 <fieldset>
                     <legend><b>CADASTRO</b></legend>
                     <div style="margin-bottom: 40px;">
-                        <p><?php if (isset($_SESSION['empresa']))
-                            print_r($_SESSION['empresa']) ?></p>
+                        <p><?php if (isset($_SESSION['empresa'])) echo $_SESSION['empresa'] ?></p>
                         </div>
                         <div class="divInput">
-                                <label for="nome" class="labelUser">Nome Completo</label>
-                                <input type="text" name="nome" id="nome" class="inputUser" required>
+                            <label for="nome" class="labelUser">Nome Completo</label>
+                            <input type="text" name="nome" id="nome" value="<?php if (isset($_SESSION['nomecad']))
+                            echo $_SESSION['nomecad'] ?>" class="inputUser" required>
                         </div>
                         <div class="divInput">
                             <label for="email" class="labelUser">Email</label>
-                            <input type="email" name="email" id="email" class="inputUser" required>
+                            <input type="email" name="email" id="email" value="<?php if (isset($_SESSION['emailcad']))
+                            echo $_SESSION['emailcad'] ?>" class="inputUser" required>
                         </div>
                         <div class="divInput">
                             <label for="senha" class="labelUser">Senha</label>
@@ -53,6 +54,8 @@ if (!isset($_SESSION['empresa']) || !isset($_SESSION['IDE'])) {
                         <div class="divInput">
                             <label for="confirm" class="labelUser">Confirme a senha</label>
                             <input type="password" name="confirm" id="confirm" class="inputUser" required>
+                            <p style="color: red; font-size: 12px; margin: top 5px; font-weight: 600;">
+                            <?php if (isset($_SESSION['mensagem_erro'])) echo $_SESSION['mensagem_erro'] ?> </p>
                         </div>
                         <input type="checkbox" name="termos" id="termos" required>
                         <label for="termos">Li e concordo com os termos</label><br><br>
@@ -65,4 +68,8 @@ if (!isset($_SESSION['empresa']) || !isset($_SESSION['IDE'])) {
         </main>
     </body>
 
-    </html>
+</html>
+<?php
+    unset($_SESSION["mensagem_erro"]);
+    unset($_SESSION['emailcad']);
+    unset($_SESSION['nomecad']);

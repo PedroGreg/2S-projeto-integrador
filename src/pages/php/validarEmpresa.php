@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_POST["submit"]) || !isset($_POST["codigo"]) || strlen($_POST["codigo"]) != 6) {
+$regex_empresa = "/^[0-9]{6}$/";
+if (!isset($_POST["submit"]) || !isset($_POST["codigo"]) || strlen($_POST["codigo"]) != 6 || !preg_match($regex_empresa, $_POST["codigo"])) {
     $_SESSION["mensagem_erro"] = "DADOS INCORRETOS";
     header("location: ../html/identificarEmpresa.php");
     exit();

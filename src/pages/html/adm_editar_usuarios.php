@@ -7,6 +7,7 @@ if (!isset($_SESSION['admin_logado'])) {
     header("Location:login.php");
     exit();
 }
+$regex_nome = "/^[A-Za-zÀ-ü]+(\s[A-za-zÀ-ü]+)+$/";
 $user_id = $_GET['id_usuario'];
 $stmt_user = $pdo->prepare('SELECT * FROM usuarios WHERE id_usuario = :id_usuario');
 $stmt_user->bindParam(':id_usuario', $user_id, PDO::PARAM_INT);
@@ -21,24 +22,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $telefone = $_POST['telefone'];
     }
-    if(isset($_POST['ativo'])){
+    if (isset($_POST['ativo'])) {
         $ativo = $_POST['ativo'];
-    } else{
+    } else {
         $ativo = 0;
     }
-    try {
-        $stmt_update_usuarios = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, ativo = :ativo WHERE id_usuario = :id");
-        $stmt_update_usuarios->bindParam(':nome', $nome);
-        $stmt_update_usuarios->bindParam(':id', $user_id);
-        $stmt_update_usuarios->bindParam(':email', $email);
-        $stmt_update_usuarios->bindParam(':senha', $senha);
-        $stmt_update_usuarios->bindParam(':ativo', $ativo);
-        // $stmt_update_usuarios->bindParam(':telefone', $telefone);
-        $stmt_update_usuarios->execute();
-        header('location:./adm_usuarios.php');
-        exit();
-    } catch (PDOException $e) {
+    if (
+        strlen($_POST["nome"]) > 3 &&
+        strlen($_POST["nome"]) <= 255 &&
+        strlen($_POST["email"]) > 0 &&
+        strlen($_POST["email"]) <= 255 &&
+        filter_var(($_POST['email']), FILTER_VALIDATE_EMAIL) &&
+        preg_match($regex_nome, $_POST['nome']) &&
+        strlen($_POST["senha"]) > 7 &&
+        strlen($_POST["senha"]) <= 35
+    ) {
 
+        try {
+            $stmt_update_usuarios = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, ativo = :ativo WHERE id_usuario = :id");
+            $stmt_update_usuarios->bindParam(':nome', $nome);
+            $stmt_update_usuarios->bindParam(':id', $user_id);
+            $stmt_update_usuarios->bindParam(':email', $email);
+            $stmt_update_usuarios->bindParam(':senha', $senha);
+            $stmt_update_usuarios->bindParam(':ativo', $ativo);
+            // $stmt_update_usuarios->bindParam(':telefone', $telefone);
+            $stmt_update_usuarios->execute();
+            header('location:./adm_usuarios.php');
+            exit();
+        } catch (PDOException $e) {
+
+        }
+    } elseif (strlen($_POST["nome"]) <= 3 || strlen($_POST["nome"]) > 255) {
+        $_SESSION['mensagem_erro'] = "O nome deve ter entre 4 e 255 letras";
+        header("location:./adm_editar_usuarios.php?id_usuario=" . $user_id);
+        exit();
+    } elseif (!preg_match($regex_nome, $_POST['nome'])) {
+        $_SESSION['mensagem_erro'] = "O nome deve ter pelo menos um nome e sobrenome e não deve conter números!";
+        header("location:./adm_editar_usuarios.php?id_usuario=" . $user_id);
+        exit();
+    } elseif (!filter_var(($_POST['email']), FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['mensagem_erro'] = "Insira um email válido!";
+        header("location:./adm_editar_usuarios.php?id_usuario=" . $user_id);
+        exit();
+
+    } elseif (strlen($_POST["senha"]) <= 7 || strlen($_POST["senha"]) > 35) {
+        $_SESSION['mensagem_erro'] = "A senha deve ter entre 8 e 35 digitos/caracteres!";
+        header("location:./adm_editar_usuarios.php?id_usuario=" . $user_id);
+        exit();
+    } else {
+        $_SESSION['mensagem_erro'] = "Verifique as informações";
+        header("location:./adm_editar_usuarios.php?id_usuario=" . $user_id);
+        exit();
     }
 }
 
@@ -81,15 +115,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <fieldset>
                         <div class="divInput">
                             <label class="label" for="nome">Nome</label>
-                            <input type="text" name="nome" id="nome" value="<?= $user['nome'] ?>" class="input" required>
+                            <input type="text" name="nome" id="nome" value="<?= $user['nome'] ?>" class="input"
+                                required>
                         </div>
                         <div class="divInput">
-                            <label class="label"for="email">Email</label>
+                            <label class="label" for="email">Email</label>
                             <input type="text" name="email" id="email" value="<?= $user['email'] ?>" class="input"
                                 required>
                         </div>
                         <div class="divInput">
-                            <label class="label"for="senha">Senha</label>
+                            <label class="label" for="senha">Senha</label>
                             <input type="text" name="senha" id="senha" value="<?= $user['senha'] ?>" class="input"
                                 required>
                         </div>
@@ -98,20 +133,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input type="number" name="telefone" id="telefone" value="<?= $user['telefone'] ?>" class="input">
                         </div> -->
                         <div class="divInput">
-                            <label class="labelcheck"for="ativo">Ativo</label>
+                            <label class="labelcheck" for="ativo">Ativo</label>
                             <input type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>
                         </div>
-                        <button class="button-cian" type="submit" name="submit" id="submit">CADASTRAR</button>
-                    </fieldset>
-                    <?php
-                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                        if (isset($e)) {
-                            echo "Error";
-                        } else {
-                            echo "OK";
-                        }
-                    }
-                    ?>
+                        <p style="color: red; font-size: 12px; margin: top 5px; font-weight: 600;">
+                            <?php if (isset($_SESSION['mensagem_erro']))
+                                echo $_SESSION['mensagem_erro'] ?>
+                            </p>
+                            <button class="button-cian" type="submit" name="submit" id="submit">CADASTRAR</button>
+                        </fieldset>
+                        <?php
+                            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                                if (isset($e)) {
+                                    echo "Error";
+                                } else {
+                                    echo "OK";
+                                }
+                            }
+                            ?>
                 </form>
             </div>
         </section>
@@ -124,3 +163,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </body>
 
 </html>
+<?php
+unset($_SESSION['mensagem_erro']);

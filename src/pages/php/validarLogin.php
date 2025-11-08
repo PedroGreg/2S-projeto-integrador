@@ -4,7 +4,6 @@ try {
     require_once('./conn.php');
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $ativo = 1;
     $user = "SELECT * FROM usuarios WHERE email = :useremail AND senha = :usersenha AND ativo = 1";
     $admin = "SELECT * FROM administradores WHERE email = :adminemail AND senha = :adminsenha AND ativo = 1";
     $tecnicos = "SELECT * FROM tecnicos WHERE email = :tecemail AND senha = :tecsenha AND ativo = 1";

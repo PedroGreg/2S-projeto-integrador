@@ -3,7 +3,7 @@ require_once("../php/adm_teste.php");
 $x = true;
 try {
     require_once("../php/conn.php");
-    $sql = "SELECT u.nome, u.email, u.id_usuario, e.empresa FROM usuarios u INNER JOIN empresas e ON u.id_empresa = e.id_empresa";
+    $sql = "SELECT u.nome, u.email, u.id_usuario, e.empresa FROM usuarios u INNER JOIN empresas e ON u.id_empresa = e.id_empresa ORDER BY u.id_usuario ASC";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);

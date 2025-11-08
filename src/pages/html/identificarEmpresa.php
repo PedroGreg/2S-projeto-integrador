@@ -1,8 +1,6 @@
 <?php
 session_start();
-if (isset($_SESSION["mensagem_erro"])){
-    print_r($_SESSION["mensagem_erro"]);
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -36,6 +34,10 @@ if (isset($_SESSION["mensagem_erro"])){
                     <div class="divInput">
                         <label for="codigo" class="labelUser">Codigo da empresa</label>
                         <input type="number" name="codigo" id="codigo" class="inputUser" required>
+                        <p style="color: red; font-size: 12px; margin: top 5px; font-weight: 600;">
+                            <?php if (isset($_SESSION["mensagem_erro"])) {
+                                echo $_SESSION["mensagem_erro"];
+                            } ?></p>
                     </div>
                     <p style="margin-top: 10px;">Já possui cadastro? <a href="./login.php">Entre aqui!</a></p>
                     <input type="submit" name="submit" value="Cadastrar" id="submit">

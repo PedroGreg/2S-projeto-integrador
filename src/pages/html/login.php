@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION["mensagem_erro"]))
     print_r($_SESSION["mensagem_erro"]);
 unset($_SESSION['IDE']);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt_BR">
@@ -36,23 +37,22 @@ unset($_SESSION['IDE']);
                     <div class="divInput">
                         <label for="email" class="labelUser">Email</label>
                         <input type="email" value="<?php if (isset($_SESSION['email']))
-                            print_r($_SESSION['email']) ?>" name="email" id="email" class="inputUser" required>
-                        </div>
-                        <div class="divInput">
+                            echo $_SESSION['email'] ?>" name="email" id="email" class="inputUser" required>
+                    </div>
+                    <div class="divInput">
                             <label for="senha" class="labelUser">Senha</label>
                             <input type="password" name="senha" id="senha" class="inputUser" required>
-                        </div>
-                        <a href="./recuperacao.php">Esqueci minha senha!</a><br>
-                        <p style="margin-top: 10px;">Ainda não cadastrado? <a href="./cadastro.php">Cadastre-se Aqui!</a>
-                        </p>
-                        <input type="submit" name="submit" value="Login" id="submit">
-                    </fieldset>
-                </form>
-            </div>
-        </main>
-    </body>
+                    </div>
+                    <a href="./recuperacao.php">Esqueci minha senha!</a><br>
+                    <p style="margin-top: 10px;">Ainda não cadastrado? <a href="./cadastro.php">Cadastre-se Aqui!</a>
+                    </p>
+                    <input type="submit" name="submit" value="Login" id="submit">
+                </fieldset>
+            </form>
+        </div>
+    </main>
+</body>
 
     </html>
     <?php
-                        unset($_SESSION['mensagem_erro']);
-                        ?>
+    unset($_SESSION['mensagem_erro']);
