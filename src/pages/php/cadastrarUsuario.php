@@ -6,12 +6,14 @@ if (!isset($_POST["submit"]) || !isset($_POST["nome"]) || !isset($_POST["email"]
     exit();
 }
 unset($_SESSION["mensagem_erro"]);
+$regex_nome = "/^[À-ü]+$/";
 if(strlen($_POST["nome"]) > 0 && 
     strlen($_POST["nome"]) <= 255 &&
     strlen($_POST["email"]) > 0 &&
     strlen($_POST["email"]) <= 255 &&
     strlen($_POST["senha"]) > 0 &&
     strlen($_POST["senha"]) <= 255 &&
+    preg_match($regex_nome, $_POST['nome']) &&
     filter_var(($_POST['email']), FILTER_VALIDATE_EMAIL)) {
         require_once "./conn.php";
         try {
@@ -34,5 +36,6 @@ if(strlen($_POST["nome"]) > 0 &&
         }
         } else {
         header("location:../html/cadastro.php");
+        exit();
     }
 ?>

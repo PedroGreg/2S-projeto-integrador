@@ -6,6 +6,7 @@ if (!isset($_POST["submit"]) || strlen($_POST["codigo"]) != 8 || !isset($_POST["
     exit();
 }
 unset($_SESSION["mensagem_erro"]);
+$regex_nome = "/^[À-ü]+$/";
 if (
     strlen($_POST["nome"]) > 0 &&
     strlen($_POST["nome"]) <= 255 &&
@@ -13,6 +14,7 @@ if (
     strlen($_POST["email"]) <= 255 &&
     strlen($_POST["senha"]) > 0 &&
     strlen($_POST["senha"]) <= 255 &&
+    preg_match($regex_nome, $_POST['nome']) &&
     filter_var(($_POST['email']), FILTER_VALIDATE_EMAIL)
 ) {
     $codigo = $_POST['codigo'];

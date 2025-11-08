@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_POST["submit"]) || !isset($_POST["codigo"]) || strlen($_POST["codigo"]) != 8) {
+if (!isset($_POST["submit"]) || !isset($_POST["codigo"]) || strlen($_POST["codigo"]) != 6) {
     $_SESSION["mensagem_erro"] = "DADOS INCORRETOS";
     header("location: ../html/identificarEmpresa.php");
     exit();
