@@ -1,9 +1,9 @@
 <?php
-$dbHost = "mysql-gmh-gmh-support.i.aivencloud.com";
+$dbHost = "";
 $dbName = "gmh";
-$dbUsername = "avnadmin";
-$dbPassword = 'AVNS_wCb-fqcic6XWw8_L91_';
-$dbPort = '12997';
+$dbUsername = "";
+$dbPassword = '';
+$dbPort = '';
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$dbHost;port=$dbPort;dbname=$dbName;$charset";
