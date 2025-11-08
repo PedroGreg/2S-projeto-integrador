@@ -17,8 +17,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     // $telefone = $_POST['telefone'];
-    $ativo = $_POST['ativo'];
-
+    if(isset($_POST['ativo'])){
+        $ativo = $_POST['ativo'];
+    } else{
+        $ativo = 0;
+    }
     try {
         $stmt_update_administrador = $pdo->prepare("UPDATE administradores SET nome = :nome, email = :email, senha = :senha, ativo = :ativo WHERE id_administrador = :id");
         $stmt_update_administrador->bindParam(':nome', $nome);

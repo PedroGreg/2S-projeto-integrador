@@ -16,9 +16,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $telefone = $_POST['telefone'];
-    $ativo = $_POST['ativo'];
-
+    if ($_POST['telefone'] == '') {
+        $telefone = 000000000;
+    } else {
+        $telefone = $_POST['telefone'];
+    }
+    if(isset($_POST['ativo'])){
+        $ativo = $_POST['ativo'];
+    } else{
+        $ativo = 0;
+    }
     try {
         $stmt_update_usuarios = $pdo->prepare("UPDATE usuarios SET nome = :nome, email = :email, senha = :senha, ativo = :ativo WHERE id_usuario = :id");
         $stmt_update_usuarios->bindParam(':nome', $nome);

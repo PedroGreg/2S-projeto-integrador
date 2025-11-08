@@ -16,8 +16,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
-    $telefone = $_POST['telefone'];
-    $ativo = $_POST['ativo'];
+    if ($_POST['telefone'] == '') {
+        $telefone = 000000000;
+    } else {
+        $telefone = $_POST['telefone'];
+    }
+    if (isset($_POST['ativo'])) {
+        $ativo = $_POST['ativo'];
+    } else {
+        $ativo = 0;
+    }
 
     try {
         $stmt_update_colaboradores = $pdo->prepare("UPDATE tecnicos SET nome = :nome, email = :email, senha = :senha, telefone = :telefone, ativo = :ativo WHERE id_tecnico = :id");
@@ -26,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt_update_colaboradores->bindParam(':email', $email);
         $stmt_update_colaboradores->bindParam(':senha', $senha);
         $stmt_update_colaboradores->bindParam(':ativo', $ativo);
-        $stmt_update_colaboradores->bindParam(':telefone', $telefone);
+        $stmt_update_colaboradores->bindParam(':telefone', $telefone, PDO::PARAM_INT);
         $stmt_update_colaboradores->execute();
         header('location:./adm_colaboradores.php');
         exit();
@@ -77,21 +85,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <input type="text" name="nome" id="nome" value="<?= $tec['nome'] ?>" class="input" required>
                         </div>
                         <div class="divInput">
-                            <label class="label"for="email">Email</label>
+                            <label class="label" for="email">Email</label>
                             <input type="text" name="email" id="email" value="<?= $tec['email'] ?>" class="input"
                                 required>
                         </div>
                         <div class="divInput">
-                            <label class="label"for="senha">Senha</label>
+                            <label class="label" for="senha">Senha</label>
                             <input type="text" name="senha" id="senha" value="<?= $tec['senha'] ?>" class="input"
                                 required>
                         </div>
                         <div class="divInput">
-                            <label class="label"for="telefone">Telefone</label>
-                            <input type="number" name="telefone" id="telefone" value="<?= $tec['telefone'] ?>" class="input">
+                            <label class="label" for="telefone">Telefone</label>
+                            <input type="number" name="telefone" id="telefone" value="<?= $tec['telefone'] ?>"
+                                class="input">
                         </div>
                         <div class="divInput">
-                            <label class="labelcheck"for="ativo">Ativo</label>
+                            <label class="labelcheck" for="ativo">Ativo</label>
                             <input type="checkbox" name="ativo" id="ativo" class="input" value="1" checked>
                         </div>
                         <button class="button-cian" type="submit" name="submit" id="submit">CADASTRAR</button>
