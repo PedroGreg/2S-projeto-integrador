@@ -1,12 +1,12 @@
 <?php
 session_start();
-if (!isset($_POST["submit"]) || strlen($_POST["codigo"]) != 8 || !isset($_POST["email"]) || !isset($_POST["senha"])) {
+if (!isset($_POST["submit"]) || strlen($_POST["codigo"]) != 6 || !isset($_POST["email"]) || !isset($_POST["senha"])) {
     $_SESSION["mensagem_erro"] = "Erro no cadastro, verifique as informações";
-    header("location:../html/cadastrar_administrador.php");
+    header("location:../html/adm_cadastrar_administrador.php");
     exit();
 }
 unset($_SESSION["mensagem_erro"]);
-$regex_nome = "/^[À-ü]+$/";
+$regex_nome = "/^[A-Za-zÀ-ü]+(\s[A-Za-zÀ-ü]+)+$/";
 if (
     strlen($_POST["nome"]) > 0 &&
     strlen($_POST["nome"]) <= 255 &&
