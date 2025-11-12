@@ -23,10 +23,12 @@ try {
         ORDER by m.data_envio DESC
         LIMIT 1 ) as mu,
         COALESCE(CONCAT(UPPER(LEFT(t.nome, 1)), LOWER(SUBSTRING(t.nome, 2))), 'Sem Técnico') as tecnome,
+        COALESCE(CONCAT(UPPER(LEFT(a.nome, 1)), LOWER(SUBSTRING(a.nome, 2))), 'Sem Administrador') as admnome,
         CONCAT(UPPER(LEFT(e.empresa, 1)), LOWER(SUBSTRING(e.empresa, 2))) as empresa,
         CONCAT(UPPER(LEFT(ca.categoria, 1)), LOWER(SUBSTRING(ca.categoria, 2))) as categoria, 
         CONCAT(UPPER(LEFT(p.prioridade, 1)), LOWER(SUBSTRING(p.prioridade, 2))) as prioridade 
         FROM chamados c 
+        LEFT JOIN administradores a ON a.id_administrador = c.id_administrador
         LEFT JOIN tecnicos t ON t.id_tecnico = c.id_tecnico
         LEFT JOIN mensagens m ON m.id_chamado = c.id_chamado
         INNER JOIN categorias ca ON ca.id_categoria = c.id_categoria

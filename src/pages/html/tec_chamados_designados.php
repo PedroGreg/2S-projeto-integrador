@@ -56,7 +56,12 @@ require_once('../php/tec_teste.php');
                         <div class="email">
                             <p><?php echo $chamado['email'] ?></p>
                             <div class="email-detalhe"><img src="" alt=""><span>Sendo atendido por
-                                    <?php echo $chamado['tecnome'] ?></span></div>
+                                    <?php if($chamado['tecnome'] != 'Sem Técnico'){
+                                        echo $chamado['tecnome'];
+                                    } elseif($chamado['admnome'] != 'Sem Administrador'){
+                                        echo $chamado['admnome'];
+                                    } ?>
+                                    </span></div>
                         </div>
                         <div id="id">
                             <p><?php echo "ID #" . $chamado['id_chamado'] ?></p>

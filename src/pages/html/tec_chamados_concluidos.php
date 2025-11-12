@@ -32,7 +32,7 @@ require_once('../php/tec_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados Concluidos</h2>
-                <p class="display-flex">1</p>
+                <p class="display-flex"><?php echo $chamadosfinalizados ?></p>
             </div>
             <section id="section-chamados" class="display-flex-column">
                 <?php foreach ($chamadosfin as $chamado): ?>
@@ -41,7 +41,11 @@ require_once('../php/tec_teste.php');
                         <div class="email">
                             <p><?php echo $chamado['email'] ?></p>
                             <div class="email-detalhe"><img src="" alt=""><span>Atendido por
-                                    <?php echo $chamado['tecnome'] ?></span></div>
+                                    <?php if ($chamado['tecnome'] != 'Sem Técnico') {
+                                        echo $chamado['tecnome'];
+                                    } elseif ($chamado['admnome'] != 'Sem Administrador') {
+                                        echo $chamado['admnome'];
+                                    } ?></span></div>
                         </div>
                         <div id="id">
                             <p><?php echo "ID #" . $chamado['id_chamado'] ?></p>

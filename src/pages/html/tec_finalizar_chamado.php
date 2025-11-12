@@ -2,16 +2,29 @@
 require_once('../php/tec_teste.php');
 require_once('../php/tec_detalhes_chamado.php');
 try {
-    $sql = "UPDATE chamados c SET c.status = 'atendimento', c.id_tecnico = :idtec 
-    WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
-    $query = $pdo->prepare($sql);
-    $query->bindParam(":idtec", $id, PDO::PARAM_INT);
-    $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
-    $query->execute();
-    $sql = "UPDATE tecnicos SET status = 'atendendo chamado', id_chamado = :id WHERE id_tecnico = :idtec";
-    $query->bindParam(":idtec", $id, PDO::PARAM_INT);
-    $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
-    $query->execute();
+    if (isset($_SESSION['tecnico_logado']) && $_SESSION['tecnico_logado'] === true) {
+        $sql = "UPDATE chamados c SET c.status = 'atendimento', c.id_tecnico = :idtec 
+        WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
+        $query = $pdo->prepare($sql);
+        $query->bindParam(":idtec", $id, PDO::PARAM_INT);
+        $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
+        $query->execute();
+        $sql = "UPDATE tecnicos SET status = 'atendendo chamado', id_chamado = :id WHERE id_tecnico = :idtec";
+        $query->bindParam(":idtec", $id, PDO::PARAM_INT);
+        $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
+        $query->execute();
+    } elseif(isset($_SESSION['admin_logado']) && $_SESSION['admin_logado'] === true) {
+        $sql = "UPDATE chamados c SET c.status = 'atendimento', c.id_administrador = :idadm 
+        WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
+        $query = $pdo->prepare($sql);
+        $query->bindParam(":idadm", $id, PDO::PARAM_INT);
+        $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
+        $query->execute();
+        $sql = "UPDATE administradores SET status = 'atendendo chamado', id_chamado = :id WHERE id_administrador = :idadm";
+        $query->bindParam(":idadm", $id, PDO::PARAM_INT);
+        $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
+        $query->execute();
+    }
 } catch (PDOException $e) {
     echo 'Erro ' . $e->getMessage();
 }

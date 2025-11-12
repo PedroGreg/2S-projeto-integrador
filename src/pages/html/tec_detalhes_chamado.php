@@ -1,11 +1,9 @@
 <?php
 require_once('../php/tec_teste.php');
 require_once('../php/tec_detalhes_chamado.php');
-if (!isset($detalhechamado['mu'])) {
-    if ($id === $detalhechamado['id_tecnico']) {
-        header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_chamado']);
-    }
-} elseif ($id === $detalhechamado['id_tecnico']) {
+if ($id === $detalhechamado['id_tecnico']) {
+    header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_chamado']);
+} elseif ($id === $detalhechamado['id_administrador']) {
     header("location: ./tec_finalizar_chamado.php?id_chamado=" . $detalhechamado['id_chamado']);
 }
 ?>
@@ -65,15 +63,21 @@ if (!isset($detalhechamado['mu'])) {
                         <dd><?php echo $detalhechamado['tecnome'] ?></dd>
                     </div>
                 <?php endif ?>
+                <?php if ($_GET['consulta'] == 1 && $detalhechamado['status'] == 'atendimento'): ?>
+                    <div class="chamados-info">
+                        <dt>Administrador designado:</dt>
+                        <dd><?php echo $detalhechamado['admnome'] ?></dd>
+                    </div>
+                <?php endif ?>
                 <div class="chamados-info">
                     <dt>Descrição do cliente:</dt>
                     <dd><?php echo $detalhechamado['descricao'] ?></dd>
                 </div>
                 <?php if (isset($detalhechamado['pendencia']) && $detalhechamado['pendencia'] != ''): ?>
-                <div class="chamados-info">
-                    <dt>Pendencia:</dt>
-                    <dd><?php echo $detalhechamado['pendencia'] ?></dd>
-                </div>
+                    <div class="chamados-info">
+                        <dt>Pendencia:</dt>
+                        <dd><?php echo $detalhechamado['pendencia'] ?></dd>
+                    </div>
                 <?php endif ?>
                 <?php if (isset($detalhechamado['mu'])): ?>
                     <div class="chamados-info">

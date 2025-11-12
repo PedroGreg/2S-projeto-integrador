@@ -32,10 +32,12 @@ try {
     $sql = "SELECT c.id_chamado,
     UPPER(LEFT(u.nome, 1)) as inicial,
     COALESCE(CONCAT(UPPER(LEFT(t.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(t.nome, ' ', 1), 2))), 'Sem Técnico') as tecnome,
+    COALESCE(CONCAT(UPPER(LEFT(a.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(a.nome, ' ', 1), 2))), 'Sem Administrador') as admnome,
     CONCAT(UPPER(LEFT(c.status, 1)), LOWER(SUBSTRING(c.status, 2))) as status, 
     CONCAT(LOWER(SUBSTRING(u.email, 1))) as email, 
     SUBSTRING_INDEX(u.nome, ' ', 1) as nome, p.prioridade 
     FROM chamados c 
+    LEFT JOIN administradores a ON a.id_administrador = c.id_administrador
     LEFT JOIN tecnicos t ON t.id_tecnico = c.id_tecnico
     INNER JOIN prioridade p ON p.id_prioridade = c.id_prioridade
     INNER JOIN usuarios u ON u.id_usuario = c.id_usuario
@@ -56,10 +58,12 @@ try {
     TIMESTAMPDIFF(HOUR, c.data_abertura, c.data_encerramento) AS tempo,
     UPPER(LEFT(u.nome, 1)) AS inicial,
     COALESCE(CONCAT(UPPER(LEFT(t.nome, 1)),LOWER(SUBSTRING(SUBSTRING_INDEX(t.nome, ' ', 1),2))),'Sem Técnico') AS tecnome,
+    COALESCE(CONCAT(UPPER(LEFT(a.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(a.nome, ' ', 1), 2))), 'Sem Administrador') as admnome,
     CONCAT(LOWER(SUBSTRING(u.email, 1))) AS email,
     SUBSTRING_INDEX(u.nome, ' ', 1) AS nome,
     p.prioridade
 FROM chamados c
+LEFT JOIN administradores a ON a.id_administrador = c.id_administrador
 LEFT JOIN tecnicos t ON t.id_tecnico = c.id_tecnico
 INNER JOIN prioridade p ON p.id_prioridade = c.id_prioridade
 INNER JOIN usuarios u ON u.id_usuario = c.id_usuario
