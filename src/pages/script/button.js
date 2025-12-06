@@ -32,4 +32,7 @@ button.forEach((button) => {
         }
     })
 });
+    document.getElementById("menu-toggle").addEventListener("click", function () {
+    document.getElementById("sidebar-mobile").classList.toggle("active");
+});
 

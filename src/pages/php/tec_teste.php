@@ -61,7 +61,8 @@ try {
     COALESCE(CONCAT(UPPER(LEFT(a.nome, 1)), LOWER(SUBSTRING(SUBSTRING_INDEX(a.nome, ' ', 1), 2))), 'Sem Administrador') as admnome,
     CONCAT(LOWER(SUBSTRING(u.email, 1))) AS email,
     SUBSTRING_INDEX(u.nome, ' ', 1) AS nome,
-    p.prioridade
+    p.prioridade,
+    c.avaliacao
 FROM chamados c
 LEFT JOIN administradores a ON a.id_administrador = c.id_administrador
 LEFT JOIN tecnicos t ON t.id_tecnico = c.id_tecnico

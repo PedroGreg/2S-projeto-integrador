@@ -1,18 +1,27 @@
-.chamados-info{
-    margin-bottom: 20px;
+.chamados-info {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding:8px 0px 8px 5px;
+    border-left: 5px solid var(--button-color-cian);
+    background-color: white;
 }
-.chamados-info dt{
+
+.chamados-info dt {
     display: inline-block;
     color: var(--text-color-titulo);
     font-weight: 600;
 }
-.chamados-info dd{
+
+.chamados-info dd {
     display: inline;
     font-weight: 400;
 }
-#chamados-descricao{
+
+#chamados-descricao {
+    gap: 10px;
     columns: 1;
 }
-#descricao-button{
+
+#descricao-button {
     display: inline;
 }

@@ -2,6 +2,13 @@ form{
     gap: 20px;
     columns: 1;
 }
+.form-div{
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px 10px 10px 5px;
+    border-left: 5px solid var(--button-color-cian);
+    background-color: white;
+}
 .form-div input, select, textarea{
     display: inline;
     background-color: white;
@@ -14,4 +21,16 @@ form{
     color: var(--text-color-titulo);
     font-weight: 600;
     display: inline-block;
+}
+#pendenciaDiv{
+    max-height: 0px;
+    padding: 0px 10px 0px 5px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+#pendenciaDiv.ativo{
+    max-height: 1000px;
+    padding: 10px 10px 10px 5px;
+    overflow: auto;
+    transition: 0.5;
 }

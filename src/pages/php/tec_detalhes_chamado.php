@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['id_chamado']) && !isset($_POST['id_chamado'])) {
-    header('location:./tec_chamados_abertos.php');
+    header('location: ./tec_chamados_abertos.php');
     exit();
 }
 try {
@@ -13,7 +13,7 @@ try {
         $chamadoativo = $query->fetch(PDO::FETCH_ASSOC);
     }
     if ($chamadoativo['data_encerramento'] != NULL) {
-        header('location:./tec_chamados_abertos.php');
+        header('location:../html/tec_chamados_abertos.php');
         exit();
     }
     $sql = "SELECT c.*, 
@@ -43,7 +43,7 @@ try {
     $query->execute();
     $detalhechamado = $query->fetch(PDO::FETCH_ASSOC);
 
-
+    
 } catch (PDOException $e) {
     echo 'Erro ' . $e->getMessage();
 }

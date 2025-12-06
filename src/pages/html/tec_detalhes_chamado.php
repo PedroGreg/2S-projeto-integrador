@@ -73,6 +73,12 @@ if ($id === $detalhechamado['id_tecnico']) {
                     <dt>Descrição do cliente:</dt>
                     <dd><?php echo $detalhechamado['descricao'] ?></dd>
                 </div>
+                <?php if (isset($detalhechamado['observacao'])): ?>
+                    <div class="chamados-info">
+                        <dt>Observação:</dt>
+                        <dd><?php echo $detalhechamado['observacao'] ?></dd>
+                    </div>
+                <?php endif ?>
                 <?php if (isset($detalhechamado['pendencia']) && $detalhechamado['pendencia'] != ''): ?>
                     <div class="chamados-info">
                         <dt>Pendencia:</dt>

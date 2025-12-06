@@ -13,7 +13,7 @@ try {
         $query->bindParam(":idtec", $id, PDO::PARAM_INT);
         $query->bindParam(":id", $_GET['id_chamado'], PDO::PARAM_STR);
         $query->execute();
-    } elseif(isset($_SESSION['admin_logado']) && $_SESSION['admin_logado'] === true) {
+    } elseif (isset($_SESSION['admin_logado']) && $_SESSION['admin_logado'] === true) {
         $sql = "UPDATE chamados c SET c.status = 'atendimento', c.id_administrador = :idadm 
         WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
         $query = $pdo->prepare($sql);
@@ -83,6 +83,12 @@ try {
                     <dt>Descrição do cliente:</dt>
                     <dd><?php echo $detalhechamado['descricao'] ?></dd>
                 </div>
+                <?php if (isset($detalhechamado['observacao'])): ?>
+                    <div class="chamados-info">
+                        <dt>Observação:</dt>
+                        <dd><?php echo $detalhechamado['observacao'] ?></dd>
+                    </div>
+                <?php endif ?>
                 <?php if (isset($detalhechamado['pendencia']) && $detalhechamado['pendencia'] != ''): ?>
                     <div class="chamados-info">
                         <dt>Pendencia:</dt>

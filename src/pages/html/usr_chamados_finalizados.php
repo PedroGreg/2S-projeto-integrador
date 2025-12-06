@@ -31,25 +31,21 @@ require_once('../php/usr_teste.php');
         <section id="hero" class="display-flex-column">
             <div class="hero-titulo display-flex">
                 <h2>Chamados finalizados</h2>
-                <p class="display-flex"><?php if (isset($chamadosfinalizados)){ echo $chamadosfinalizados;}else{ echo "0";} ?></p>
+                <p class="display-flex">
+                    <?php if (isset($chamadosfinalizados)) {
+                        echo $chamadosfinalizados;
+                    } else {
+                        echo "0";
+                    } ?></p>
             </div>
-            <!-- <button class="chamados-button" id="checkall"></button>
-            <div class="titulos display-flex">
-                <button class="margin-button"></button>
-                <p class="margin-email">Email</p>
-                <p class="margin-id">ID do chamado</p>
-                <p class="margin-status">Status</p>
-                <p class="margin-categoria">Categoria</p>
-                <p class="margin-prioridade">Prioridade</p>
-            </div> -->
             <section id="section-chamados" class="display-flex-column">
-                <?php foreach($chamadosfin as $chamado): ?>
-                <article class="chamado">
-                    <div class="chamados  display-flex">
-                        <h3 class="button"><?php echo $chamado['inicial'] ?></h3>
-                        <div class="email">
-                            <p>                                    
-                                <?php
+                <?php foreach ($chamadosfin as $chamado): ?>
+                    <article class="chamado">
+                        <div class="chamados  display-flex">
+                            <h3 class="button"><?php echo $chamado['inicial'] ?></h3>
+                            <div class="email">
+                                <p>
+                                    <?php
                                     switch ($chamado["id_categoria"]) {
                                         case "1":
                                             echo "Outros";
@@ -64,19 +60,19 @@ require_once('../php/usr_teste.php');
                                             echo "Problemas de software";
                                             break;
                                     }
-                                ?>
-                            </p>
-                            <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
-                        </div>
-                        <div id="id">
-                            <p>
-                                <?php echo "ID #" . $chamado['id_chamado'] ?>
-                            </p>
-                            <span>Finalizado 1 dia atrás</span>
-                        </div>
-                        <h4 class="button"><?php echo $chamado['status'] ?></h4>
-                        <p id="sobre">
-                            <?php
+                                    ?>
+                                </p>
+                                <div class="email-detalhe"><img src="" alt=""><span>criado a 4 dias por Pedro</span></div>
+                            </div>
+                            <div id="id">
+                                <p>
+                                    <?php echo "ID #" . $chamado['id_chamado'] ?>
+                                </p>
+                                <span>Finalizado 1 dia atrás</span>
+                            </div>
+                            <h4 class="button"><?php echo $chamado['status'] ?></h4>
+                            <p id="sobre">
+                                <?php
                                 switch ($chamado['id_categoria']) {
                                     case '1':
                                         echo 'Outros reparos';
@@ -91,13 +87,13 @@ require_once('../php/usr_teste.php');
                                         echo 'Reparo em aplicativos';
                                         break;
                                 }
-                            ?>
-                        </p>
-                        <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
-                    </div>
-                    <div class="extra">
-                        <p>
-                        <?php
+                                ?>
+                            </p>
+                            <button class="expand"><img src="../../images/Icons/setaD.svg" alt="" class="seta"></button>
+                        </div>
+                        <div class="extra">
+                            <p>
+                                <?php
                                 echo "<span style='font-size: 10px'>Mensagem: </span>" . $chamado['mensagem'] . "<br><br>";
                                 switch ($chamado['status']) {
                                     case 'aberto':
@@ -111,9 +107,32 @@ require_once('../php/usr_teste.php');
                                         break;
                                 }
                                 ?>
-                        </p>
-                    </div>
-                </article>
+                            </p>
+                            <form class="avaliacao" action="../php/avaliacaoChamado.php?id_chamado=<?php echo $chamado['id_chamado'] ?>" method="post">
+                                <div class="radioDiv">
+                                    <label class="radioAv" for="nota1">1 Estrela</label>
+                                    <input type="radio" name="nota" id="nota1" value="1">
+                                </div>
+                                <div class="radioDiv">
+                                    <label class="radioAv" for="nota2">2 Estrelas</label>
+                                    <input type="radio" name="nota" id="nota2" value="2">
+                                </div>
+                                <div class="radioDiv">
+                                    <label class="radioAv" for="nota3">3 Estrelas</label>
+                                    <input type="radio" name="nota" id="nota3" value="3">
+                                </div>
+                                <div class="radioDiv">
+                                    <label class="radioAv" for="nota4">4 Estrelas</label>
+                                    <input type="radio" name="nota" id="nota4" value="4">
+                                </div>
+                                <div class="radioDiv">
+                                    <label class="radioAv" for="nota5">5 Estrelas</label>
+                                    <input type="radio" name="nota" id="nota5" value="5">
+                                </div>
+                                <button type="submit" name="submit" value="submit" class="submit">Avaliar</button>
+                            </form>
+                        </div>
+                    </article>
                 <?php endforeach ?>
             </section>
         </section>

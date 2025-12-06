@@ -21,34 +21,7 @@ require_once('../php/tec_detalhes_chamado.php');
 </head>
 
 <body class="display-flex">
-    <?php
-    if (isset($_POST['submit'])) {
-        if ($_POST['pendencia'] == 'sim') {
-            if ($_POST['descricaoPend'] == "") {
-                echo "<p style='text-align: center; position: absolute; left: 50%; z-index: 3; margin-top: 20px'>Necesário informar a descrição das pendencias $_POST[descricaoPend]</p>";
-            } else {
-                $_SESSION['pend'] = 1;
-                $_SESSION['descricao'] = $_POST["descricaoPend"];
-                $_SESSION['mensagem'] = $_POST["mensagem"];
-                // $_SESSION['id_chamado'] = $detalhechamado['id_chamado'];
-                header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
-                exit();
-            }
-
-        } elseif ($_POST['pendencia'] == 'nao') {
-            if (strlen($_POST['mensagem']) > 3) {
-                $_SESSION['pend'] = 0;
-                $_SESSION['mensagem'] = $_POST['mensagem'];
-                // $_SESSION['id_chamado'] = $detalhechamado['id_chamado'];
-                header("location: ./tec_chamado_concluido.php?id_chamado=$detalhechamado[id_chamado]");
-                exit();
-            } else {
-                echo "<p style='text-align: center; position: absolute; left: 50%; z-index: 3; margin-top: 20px'>Necesário informar a descrição válida do serviço</p>";
-            }
-        }
-    }
-    include_once('../php/tec_nav.php')
-        ?>
+    <?php include_once('../php/tec_nav.php') ?>
     <header class="display-flex">
         <button id="header-button" class="botao">+ NOVO CHAMADO</button>
         <div id="header-user" class="display-flex">
@@ -61,7 +34,7 @@ require_once('../php/tec_detalhes_chamado.php');
                 <h2>Conclusão do chamado</h2>
                 <p class="display-flex"><?php echo "#" . $detalhechamado['id_chamado'] ?></p>
             </div>
-            <form method="POST" action="" id="form">
+            <form method="POST" action="../php/tec_validar_chamado.php?id_chamado=<?php echo $detalhechamado['id_chamado'] ?>" id="form">
                 <div class="form-div">
                     <label for="pendencia">Chamado com pendências?:</label>
                     <select name="pendencia" id="pendencia" required>
@@ -69,7 +42,7 @@ require_once('../php/tec_detalhes_chamado.php');
                         <option value="sim">Sim</option>
                     </select>
                 </div>
-                <div class="form-div">
+                <div id="pendenciaDiv" class="form-div">
                     <label for="descricaoPend">Descrição das pendências</label>
                     <textarea rows="3" name="descricaoPend" id="descricaoPend"></textarea>
                 </div>
@@ -84,12 +57,18 @@ require_once('../php/tec_detalhes_chamado.php');
         </section>
     </main>
     <script src="../script/button.js"></script>
-    <!-- <script>
-        const form = document.getElementById('form');
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
+   <script>
+    const pendenciaDiv = document.getElementById('pendenciaDiv');
+        const pendencia = document.getElementById('pendencia');
+        pendencia.addEventListener('change', () => {
+            if(pendencia.value == "sim"){
+                pendenciaDiv.classList.add('ativo');
+            }else{
+                pendenciaDiv.classList.remove('ativo');
+            }
         })
-    </script> -->
+        
+    </script>
 
 </body>
 

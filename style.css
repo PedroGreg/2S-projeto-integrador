@@ -8,57 +8,6 @@
     ;
 }
 
-.section-p {
-    line-height: 1.5;
-    font-weight: 300;
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.card h4 {
-    font-size: 30px;
-    color: #6609BE;
-}
-
-.card-p {
-    font-size: 20px;
-    font-weight: 600;
-    margin: 0;
-}
-
-.card span {
-    font-size: 16px;
-    font-weight: 300;
-}
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    border: 3px solid #000000;
-    border-radius: 12px;
-    padding: 40px 25px;
-}
-
-.categorias-card {
-    min-height: 540px;
-    width: 330px;
-}
-
-.section h2 {
-    font-size: 48px;
-}
-
 header {
     display: flex;
     width: 100%;
@@ -150,40 +99,57 @@ main p {
 
 #beneficios {
     display: flex;
-    background-color: #eeeeee;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 25px;
     padding: 110px 35px;
-    gap: 60px;
 }
 
-.beneficios-card {
-    align-items: center;
-    justify-content: center;
-    width: 450px;
-    height: 320px;
+#beneficios h2 {
+    font-size: 48px;
+}
+
+#cards {
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 10px -5px black;
+    border-radius: 12px;
+}
+
+.card p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.card span {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.card img {
+    width: 15%;
 }
 
 #beneficios-card {
-    width: 80%;
+    width: 70%;
     background-color: #140094;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
     margin-top: 60px;
-    max-width: 1700px;
-    padding: 45px 8%;
+    padding: 45px 45px;
     border-radius: 16px;
-}
-
-#beneficios-img {
-    max-width: 200px;
-    min-width: 100px;
-    flex-shrink: 100;
 }
 
 #beneficios-card h3 {
@@ -198,13 +164,11 @@ main p {
     width: 100%;
     display: flex;
     align-items: flex-end;
-
-    gap: 15%;
     justify-content: space-between;
 }
 
-#benecifios-card-card p {
-    text-align: start;
+#benecifios-card-card img {
+    box-shadow: 0px 0px 20px 0px white;
 }
 
 #benecifios-card-card div {
@@ -228,487 +192,1249 @@ main p {
 }
 
 #chamados-categorias {
-    background-color: #e4e4e4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #F8FAFC;
+    width: 100%;
+    padding: 150px 35px;
+    margin-top: 60px;
+}
+
+.cards-categorias {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 300px;
+    background-color: white;
+    padding: 40px 30px;
+    box-sizing: border-box;
+    margin-top: 34px;
+    border-radius: 14px;
+    border: solid 2px #E2E8F0;
+}
+
+.cards-categorias p {
+    height: 10px;
+    margin-top: 34px;
+    text-align: left;
+
+
+}
+.cards-categorias span,
+.cards-categorias ul {
+    width: 100%; 
+    text-align: left; 
+    margin: 10px 0; 
+    align-content: center;
+}
+
+
+#grupo-cards {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+
+}
+
+#chamados-categorias h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin-bottom: 5px;
+    color: #020817;
+
+
+
+
+}
+
+#chamados-categorias p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 250;
+
+
+}
+
+.cards-categorias h3 {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 60px;
+
+
+}
+
+.cards-categorias img {
+    display: flex;
     justify-content: space-between;
-    gap: 25px;
-    padding: 110px 35px;
+
+
+
+
+
+
 }
 
-.categorias-text {
-    display: flex;
-    gap: 15px;
-    flex-direction: column;
-}
-
-.categorias-text h3,
-span {
-    margin: auto;
-}
-
-.categorias-text span {
-    height: 130px;
-}
-
-.categorias-text img {
-    height: 32px;
-    width: auto;
+.cards-categorias ul {
     display: flex;
     flex-direction: column;
-}
-
-.categorias-beneficios {
-    align-items: start;
-    margin-top: 25px;
-}
-
-.categorias-beneficios p {
-    text-align: start;
-}
-
-.categorias-beneficios ul {
-    margin-left: 20px;
-    list-style-image: url(./src/images/LandingPage/check.svg);
+    justify-content: center;
+    gap: 0px;
 }
 
 #transforme-desempenho {
-    background-color: #dfdfdf;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    padding: 110px 35px;
-}
-
-.transforme-img {
-    height: 65px;
-}
-
-.transforme-p {
-    font-size: 20px;
-    font-weight: 600;
-    color: #3D0673;
-}
-
-.transforme-span {
-    text-align: center;
-}
-
-.transforme-card {
-    width: 250px;
-    height: 400px;
-}
-
-.transforme-card2 {
-    display: flex;
-    padding: 50px;
     justify-content: center;
     align-items: center;
-    border-radius: 16px;
-    gap: 10px;
-    width: 80%;
-    max-width: 1700px;
-    background-color: #140094;
-}
-
-#transforme-img {
-    flex-shrink: 1;
-    min-width: 100px;
-    max-width: 200px;
-}
-
-.transforme-card2-div {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.transforme-card2-div h3 {
-    font-size: 30px;
-    color: white;
-}
-
-.transforme-card2-div p {
-    font-size: 16px;
-    color: white;
-    text-align: start;
-    margin-bottom: 20px;
-}
-
-.transforme-card2-a {
-    display: flex;
-    width: 300px;
-    gap: 10%;
-}
-
-.transforme-card2-a a {
-    width: 40%;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    border-radius: 8px;
-    justify-content: center;
-}
-
-.a1 {
-    color: #6609BE;
-    background-color: white;
-}
-
-.a2 {
-    color: white;
-    border: white 1px solid;
-    background-color: #ffffff00;
-}
-
-#comecar-simples {
-    background-color: #d3d3d3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    padding: 110px 35px;
-}
-
-#comecar-cards {
     width: 100%;
-    align-items: start;
-    gap: 0;
-    margin-bottom: 120px;
+    background-color: white;
+
+
+
+
+
 }
 
-.comecar-card {
-    margin-top: 20px;
-    width: 250px;
-    height: 400px;
-}
 
-.comecar-card p {
-    font-size: 20px;
-    color: #3D0673;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.comecar-card span {
+#grupo-indicadores {
     display: flex;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 300;
-    text-align: center;
-}
-
-.comecar-card img {
-    width: 100px;
-}
-
-.comecar-card-seta {
-    width: 5%;
-    border: none;
-}
-
-
-.seta img {
-    margin-top: 38px;
-    width: 35px;
-}
-
-#comece {
-    display: flex;
-    width: 160px;
-    height: 40px;
     justify-content: center;
     align-items: center;
-    background-color: #6609BE;
-    color: white;
-    border-radius: 8px;
+    gap: 25px;
+    width: 90%;
+    margin-top: 48px;
+    flex-wrap: wrap;
+
+
+
+
 }
+
+#transforme-desempenho h2 {
+
+    font-size: 48px;
+    margin-bottom: 32px;
+
+
+}
+
+.cards-indicadores {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 248px;
+    height: 258px;
+    
+    
+    text-align: center;
+    border-radius: 12px;
+
+}
+
+.cards-indicadores h4 {
+    color: #6609BE;
+    font-size: 30px;
+
+}
+
+.cards-indicadores {
+    font-size: 16px;
+    color: #4B5563;
+    border: solid 2px #EBE5FF;
+   
+
+}
+
+.cards-indicadores p {
+    color: #3D0673;
+    font-weight: 600;
+
+    
+
+}
+.cards-indicadores img {
+    width: 40px;
+    height: 40px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+
+}
+
+#transforme-desempenho h2 {
+
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    color: #1E0E3E;
+
+}
+
+#transforme-desempenho p {
+   
+    font-size: 20px;
+
+}
+
+
+
+#cartao-beneficios {
+    display: flex;
+    justify-content: space-between;
+    background-color: #140094;
+    width: 90%;
+    margin-top: 64px;
+    border-radius: 16px;
+
+
+
+}
+
+
+.benefícios-empresa {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 40px;
+    width: 920px;
+    height: 104px;
+
+
+}
+
+
+.grupo-beneficios h3 {
+    display: flex;
+    color: white;
+    font-size: 30px;
+    margin-left: 40px;
+    margin-top: 72px;
+}
+
+#cartao-beneficios img {
+    margin-right: 30px;
+
+
+
+}
+
+.grupo-beneficios p {
+    color: #ffff;
+    margin: 40px;
+
+}
+.grupo-beneficios span {
+
+    font-weight: bold;
+}
+
+.botao-beneficios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 295px;
+    height: 40px;
+    text-align: auto;
+    gap: 16px;
+    margin: 30px;
+
+
+
+}
+
+
+.botao-beneficios a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    border-radius: 10px;
+
+}
+
+#botao-precos {
+    display: flex;
+    background-color: #ffff;
+    color: #6609BE;
+    width: 147px;
+    height: 40px;
+    border-radius: 10px;
+
+
+
+
+
+}
+
+#botao-teste {
+    display: flex;
+    background-color: #ffffff00;
+    width: 147px;
+    height: 40px;
+    border-radius: 10px;
+    border: solid 3px white;
+    color: white;
+
+
+}
+
+.imagem-benefícios {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 50px;
+    height: 150px;
+    margin-left: 40px;
+
+
+}
+
+.imagem-benefícios img {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+}
+
+
+.imagem-trabalhador {
+    display: flex;
+    justify-content: flex-end;
+
+
+}
+
+.grupo-benefícios {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #ffff;
+}
+
+
+.texto-benefícios {
+    display: flex;
+    flex-direction: column;
+
+
+}
+#comecar-simples {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    background-color: #F9FAFB;
+}
+
+#grupo-comecar {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 65%;
+    margin-top: 30px;
+
+
+
+}
+
+.icone-comecar{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    width: 175px;
+    
+    
+
+        
+
+
+
+
+}
+
+.icone-comecar img{
+
+    width: 80px;
+    height: 80px;
+    
+
+
+}
+
+
+.setas {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 70px;
+
+}
+
+#comecar-simples h2 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-top: 128px;
+    margin-bottom: 73px;
+
+
+}
+
+#comecar-simples span {
+    font-weight: 500;
+
+
+}
+
+.icone-comecar p {
+
+color: #3D0673;
+font-weight: bold;
+margin-top: 32px;
+
+
+
+
+}
+
+.icone-comecar span{
+    display: flex;
+    font-size: 16px;
+    margin-top: 10px;
+    
+
+
+}
+
+.paragrafocomecar {
+    display: flex;
+    margin-bottom: 135px;
+    
+
+}
+
+.paragrafocomecar span{
+
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+#comecar-simples a {
+    width: 15%;
+    background-color: #2700F0;
+    color: #ffff;
+display: flex;
+text-align: center;
+justify-content: center;
+border-radius: 10px;
+padding: 10px;
+margin-top: 55px;
+font-size: 16px;
+margin-bottom: 25   px;
+
+}
+
+
 
 #planos {
-    background-color: #eeeeee;
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    padding: 110px 35px;
+    width: 100%;
+    background-color: white;
+
+    
+
+}
+#planos h2{
+    font-size: 48px;
+    margin-top: 50px;
+}
+#planos p { 
+    font-size: 12px;
+
+
+
 }
 
-.planos-cards {
-    height: 100%;
-    gap: 30px;
-    align-items: start;
-}
-
-.planos-card {
-    width: 450px;
-    height: 100%;
-    align-items: start;
-    justify-content: space-between;
-    min-height: 600px;
-    gap: 30px;
-}
-
-.planos-card a {
+#grupocards-planos {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 25px;
     width: 90%;
-    height: 40px;
-    background-color: #0F172A;
-    color: white;
-    border-radius: 8px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+
+
+
 }
 
-.planos-card ul {
-    margin-left: 25px;
-    list-style-image: url(./src/images/LandingPage/check.svg);
+.cardplano {
+     flex: 1 1 300px;
+     max-width: 500px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center; 
+    border-radius: 12px;
+    border: solid 2px #E5E7EB;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-.planos-card>ul>li {
-    margin-bottom: 10px;
+.cardplano ul {
+
+    padding: 20px;
+    margin-left: 10px;
+    height: 300px;
+    
+
+
 }
 
-.planos-card h3 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #1E0E3E;
-}
-
-.planos-p {
-    font-size: 36px;
-    font-weight: 600;
-    color: #1E0E3E;
-}
-
-.planos-p2 {
-    font-size: 16px;
-    font-weight: 300;
+.cardplano a {
+     background-color: #0F172A;
+    color: #FFFFFF;
+    border-radius: 4px;
+    padding: 5px;
     text-align: center;
+    
+
+
+
 }
 
 #duvidas {
     display: flex;
-
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    padding: 110px 35px;
-    gap: 60px;
+    background-color: #ffffff;
+    padding: 80px 20px;
+
 }
 
-#duvidas-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 80%;
-    gap: 40px;
-    background-color: #c5c5c5;
-    border-radius: 16px;
-    padding: 30px;
-}
-
-#duvidas-div h2 {
-    font-size: 26px;
-    font-weight: 600;
-    color: #1E0E3E;
-}
-
-#div {
-    display: flex;
+.caixa-duvidas{
+    background-color:  #F3F4F6;
+    padding: 40px 30px;
+    border-radius: 12px;
     width: 100%;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
+    max-width: 768px;
+    box-sizing: border-box;
 }
 
-
-.abertura {
-    transition: 0.5s;
-}
-
-#descontos {
-    display: flex;
-    background-color: #2700F0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-    padding: 110px 35px;
-    gap: 25px;
-}
-
-.p1 {
-    color: white;
-    background-color: #FFFFFF23;
-    padding: 5px 20px;
-    font-size: 16px;
-    border-radius: 30px;
-}
-
-.p2 {
-    font-size: 16px;
-    color: white;
+.caixa-duvidas h2 {
     text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    
+    
 }
 
-#descontos h1 {
-    font-size: 48px;
-    color: white;
-}
-
-#descontos-a {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    display: flex;
-    justify-content: center;
-    width: 40%;
-    gap: 30px;
-}
-
-#descontos-a a {
-    padding: 10px 40px;
+.item-duvidas{
+    margin-bottom: 16px;
     border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    background-color: #E2E8F0;
+    
 }
 
-#descontos h3 {
-    font-size: 30px;
-    color: white;
-}
-
-#cont {
-    display: flex;
-    width: 40%;
-    justify-content: center;
-    gap: 20px;
-}
-
-#cont-s {
-    margin: 0;
-    color: white;
-}
-
-#cont-p {
-    margin: 0;
-    color: white;
-}
-
-.faq-item {
-    border: 1px solid #eee;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    width: 100%;
-    background-color: white;
-    /* Remove o marcador padrão do <details> no Firefox */
-    list-style: none;
-}
-
-/* Ajuste para remover o marcador no Webkit (Chrome/Safari) */
-.faq-item>summary::-webkit-details-marker {
+.item-duvidas input[type="checkbox"]{
     display: none;
 }
-
-.faq-pergunta {
-    /* Define o estilo da linha da pergunta */
-    padding: 18px 20px;
-    font-weight: 500;
-    color: var(--cor-texto);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    /* Impede seleção do texto ao clicar */
-
-    /* Adiciona o ícone de seta customizado */
-    position: relative;
+.titulo-duvida {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  position: relative;
 }
 
-/* Cria o ícone de seta personalizado (chevrón) */
-.faq-pergunta::after {
-    content: '⌵';
-    /* Seta para baixo, você pode usar um SVG ou '⌄' se preferir */
-    font-size: 24px;
-    color: #888;
-    transition: transform 0.3s;
-    line-height: 1;
+
+.titulo-duvida::after{
+    content: "";
+    border: solid black;
+    border-width: 0px 2px 2px 0px;
+    display: inline-block;
+    padding: 6px;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+    margin-left: auto;
+    
 }
 
-/* Gira a seta quando o item está aberto */
-.faq-item[open] .faq-pergunta::after {
-    transform: rotate(180deg);
-    color: var(--cor-principal);
+.item-duvidas input[type="checkbox"]:checked + .titulo-duvida::after {
+    transform: rotate(-135deg);
 }
 
-/* --------------------------------- */
-/* Estilo da Resposta (Animação) */
-/* --------------------------------- */
-
-.faq-resposta {
-    /* Esconde o conteúdo e prepara para a animação */
+.resposta{
     max-height: 0;
     overflow: hidden;
     padding: 0 20px;
-
-    /* A chave da animação: transição suave */
-    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
-
-    background-color: #fafafa;
-    /* Fundo suave para a resposta */
-    border-top: 1px solid #eee;
+    transition: all 0.4s ease;
+    background-color: #FFFFFF;
+    
+    
+    
 }
 
-/* Estado Aberto: Expande a altura máxima e adiciona padding */
-.faq-item[open] .faq-resposta {
-    max-height: 500px;
-    /* Valor grande o suficiente para qualquer resposta */
-    padding-top: 15px;
-    padding-bottom: 20px;
+.item-duvidas input[type="checkbox"]:checked + .titulo-duvida + .resposta {
+    max-height: 200px;
+    padding: 16px 20px;
+    
+    
+    
 }
 
-.faq-resposta p {
-    margin: 0;
-    line-height: 1.6;
-    color: #555;
-}
 
-#footer {
+#descontos {
+    background: linear-gradient(135deg, #5A08A8 0%, #2700F0 100%);
     display: flex;
-    padding: 80px 35px;
-    gap: 150px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 20px;
+
 }
 
-.footer-contato {
+.descontolimitado p{
+    align-content: center;
+    justify-content: center;
+    color: #ffffff;
+    background-color: purple;
+    border-radius: 10px;
+    width: 278px;
+}
+
+#descontos h1 {
+    color: #FFFFFF;
+    font-size: 35px;
+
+
+
+}
+
+#descontos p {
+    max-width: 636px;
+    margin: 0px 25px auto;
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+
+.botoes-descontos {
+    display: flex;
+    margin: 20px 0 40px 0;
+    gap: 15px;
+}
+
+.botoes-descontos a {
+    display: inline-flex;
+    padding: 12px 25px;
+    border-radius: 8px;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.botoes-descontos a:first-child {
+    background-color: #FFFFFF;
+    color: #6609BE;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.botoes-descontos a:first-child:hover{
+    background-color: #6609BE;
+    color: #FFFFFF;
+}
+
+
+
+.botoes-descontos a:last-child {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.botoes-descontos a:last-child:hover {
+    background: rgba(255, 255, 255, 0.2); 
+}
+
+
+#descontos h3 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #FFFFFF;
+
+
+}
+
+
+.contato {
+    display: flex;              
+    align-items: center;        
+    gap: 8px;                   
+    color: white;
+    font-size: 16px;
+    margin-top: 32px;
+
+}
+
+.contato img {
+    height: 24px;
+    width: 24px;               
+}
+
+#footer-redes {
+    display: flex;
+   flex-direction: column;
+}
+
+.footer-contato h3 {
+    color: #3D0673;
+
+
+}
+
+
+#footer-redes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 35px;
+  padding: 50px;
+  background-color: #ffffff;
+  border-top: 3px solid #36007c; 
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.grupo-contato {
+    width: 400px;
+    display: inline;
+    flex-direction: column;
+    justify-items: center;
+
+
+}
+
+.grupo-contato h3 {
+  color: #36007c;
+  margin-bottom: 20px;
+}
+
+.textos-contato {
+    display: flex;
+    align-items: center;
+  margin-bottom: 15px;
+}
+
+.textos-contato img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.textos-contato h6 {
+  margin: 0;
+  width: 350px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+
+
+.redes-footer {
+    gap: 15px;
+}
+.redes-footer h3 {
+    margin-bottom: 20px;
+    color: #36007c;
+
+}
+
+.icones-redes img {
+  width: 40px;
+  height: 40px;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
+
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  font-size: 12px;
+  color: #888;
+  border-top: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.footer-bottom a {
+  margin-left: 20px;
+  color: #888;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 850px) {
+
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    background: none;
+    font-family: "Poppins", sans-serif;
+  }
+
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 16px;
+    gap: 16px;
+    box-shadow: 0px 1px 4px 1px gray;
+    width: 100%;
+  }
+
+  #header-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+    #header-navbar {
+        gap: 25px;
+    }
+  #header-navbar a {
+    color: #374151;
+    font-size: 14px;
+  }
+
+  #header-a {
+    width: 100%;
+    max-width: 165px;
+    height: 40px;
+    background-color: #2700F0;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px;
+    align-items: center;
+    gap: 24px;
+  }
+
+  #main-div {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-.footer-contato h3{
-    color: #3D0673;
-    font-size: 18px;
-}
-.footer-span img{
-    margin-right: 10px;
-}
-footer{
+    text-align: center;
+  }
+
+  #main-h1 {
+    line-height: 1.2;
+  }
+
+  .main-text, .main-text2 {
+    font-size: 25px;
+  }
+
+  main p {
+    font-size: 16px;
+  }
+
+  #main-img {
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+  }
+
+  #main-div a {
+    width: 100%;
+    max-width: 190px;
+    height: 40px;
+    font-size: 14px;
+    background-color: #2700F0;
+    color: white;
     display: flex;
-    padding: 20px 35px;
-    border-top: 1px rgb(0, 0, 0) solid;
-    justify-content: space-between;
-    text-align: justify;
-}
-footer span{
-    margin: 0;
-    color: gray;
-}
-#footer-a{
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    align-self: center;
+  }
+
+  #beneficios {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  #beneficios h2 {
+    font-size: 32px;
+  }
+
+  #cards {
+    margin-top: 40px;
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    color: gray;
+  }
+
+  .card {
+    padding: 20px;
+    gap: 16px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px -5px black;
+    text-align: left;
+  }
+
+  .card p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .card span {
+    font-size: 14px;
+  }
+
+  .card img {
+    width: 20%;
+  }
+
+  #beneficios-card {
+    width: 100%;
+    padding: 30px 20px;
+    margin-top: 40px;
+    border-radius: 16px;
+  }
+
+  #beneficios-card h3 {
+    font-size: 21px;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  #benecifios-card-card {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  #benecifios-card-card img {
+    width: 100%;
+    max-width: 120px;
+    align-self: center;
+    box-shadow: 0px 0px 20px 0px white;
+    border-radius: 100px;
+  }
+
+  #benecifios-card-card div {
+    gap: 16px;
+    text-align: center;
+  }
+
+  #benecifios-card-card div a {
+    width: 100%;
+    max-width: 160px;
+    align-self: center;
+    justify-content: center;
+  }
+
+  #chamados-categorias {
+    padding: 60px 20px;
+  }
+
+  #chamados-categorias h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  #chamados-categorias p {
+    font-size: 16px;
+  }
+
+  #grupo-cards {
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .cards-categorias {
+    width: 100%;
+    max-width: 300px;
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .cards-categorias h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+  .cards-categorias img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .cards-categorias ul {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  #transforme-desempenho {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  #transforme-desempenho h2 {
+    font-size: 24px;
+  }
+
+  #transforme-desempenho p {
+    font-size: 18px;
+  }
+
+  #grupo-indicadores {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cards-indicadores {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;
+
+  }
+
+  .cards-indicadores h4 {
+    font-size: 24px;
+  }
+
+  #cartao-beneficios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+    gap: 24px;
+  }
+
+  .botao-beneficios {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin: 5px;
+    
+  }
+
+  #cartao-beneficios h3 {
+    margin: 20px;
+    font-size: 25px;
+  }
+
+   #cartao-beneficios p {
+    margin: 20px;
+    text-align: center;
+    font-size: 16px;
+   }
+   #cartao-beneficios img {
+    margin: 10px;
+    width: 150px;
+    
+   }
+
+  .botao-beneficios a {
+    width: 100%;
+    max-width: 147px;
+        
+   
+  }
+
+  #comecar-simples {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  #comecar-simples h2 {
+    font-size: 28px;
+    margin: 20px;
+  }
+
+  #grupo-comecar {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .icone-comecar {
+    width: 100%;
+    max-width: 175px;
+  }
+
+  .icone-comecar img {
+    width: 60px;
+    height: 60px;
+  }
+  .setas-icones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    transform: rotate(90deg);
+    max-width: 175px;
+    
+  }
+
+  .paragrafocomecar {
+    flex-direction: column;
+    margin: 25px;
+  }
+
+  #comecar-simples a {
+    width: 125px;
+    max-width: 150px;
+    margin: 20px;
+  }
+
+  #planos {
+    padding: 60px 20px;
+  }
+
+  #planos h2 {
+    font-size: 28px;
+  }
+
+  #planos p{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 20px;
+    
+  }
+
+  #grupocards-planos {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cardplano {
+    width: 100%;
+    max-width: 300px;
+    padding: 20px;
+  }
+  .cardplano p {
+    font-weight: 600;
+    
+  }
+
+  .cardplano ul {
+    height: auto;
+    
+  }
+
+  .cardplano li { 
+    font-size: 12px;
+  }
+
+  #duvidas {
+    padding: 60px 20px;
+  }
+
+  .caixa-duvidas {
+    padding: 30px 20px;
+  }
+
+  .caixa-duvidas h2 {
+    font-size: 20px;
+  }
+
+
+  #descontos {
+    padding: 40px 20px;
+  }
+
+  #descontos h1 {
+    font-size: 27px;
+    margin: 5px;
+  }
+  #descontos p {
+    margin: 5px;
+  }
+
+  .botoes-descontos {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .botoes-descontos a {
+    width: 100%;
+    max-width: 220px;
+    justify-content: center;
+  }
+
+  #footer-redes {
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 20px;
+  }
+  
+  #footer-redes h3 {
+    
+    font-size: 18px;
+    width: 400px;
+  }
+
+
+  .grupo-contato {
+    width: 100%;
+  }
+
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+  }
 }

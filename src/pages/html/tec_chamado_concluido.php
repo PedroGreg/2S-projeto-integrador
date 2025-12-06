@@ -8,7 +8,7 @@ if (!isset($_GET['id_chamado'])) {
 if (isset($_SESSION['mensagem'])) {
     if ($_SESSION['pend'] == 0) {
         try {
-            $sql = "UPDATE chamados c SET status = 'finalizado', c.data_encerramento = NOW() 
+            $sql = "UPDATE chamados c SET status = 'finalizado', data_encerramento = NOW() 
             WHERE c.id_chamado = :id AND c.data_encerramento IS NULL";
             $query = $pdo->prepare($sql);
             $query->bindParam(":id", $_GET["id_chamado"], PDO::PARAM_INT);

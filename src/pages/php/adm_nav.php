@@ -13,6 +13,37 @@
                 <img src="../../images/logado/Rede.svg" alt="">
             </a>
         </nav>
+        <nav>
+            <div class="topbar-mobile">
+                <div class="iconNav">
+                    <a href="./usr_meus_chamados.php">
+                        <img src="../../images/logado/Logo.svg" alt="">
+                    </a>
+                    <a href="./tec_chamados_abertos.php">
+                        <img src="../../images/logado/Itens novos.svg" alt="">
+                    </a>
+                    <a href="./adm_usuarios.php">
+                        <img src="../../images/logado/Pessoas.svg" alt="">
+                    </a>
+                    <a href="./adm_relatorios.php">
+                        <img src="../../images/logado/Rede.svg" alt="">
+                    </a>
+                </div>
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+            </div>
+ 
+            <!-- 🔹 sidebar fora do outro nav -->
+            <div class="sidebar-mobile" id="sidebar-mobile">
+                <ul>
+                    <li><a href="#">Página Inicial</a></li>
+                    <li><a class="links" href="./adm_usuarios.php">Usuários</a></li>
+                    <li><a class="links" href="./adm_colaboradores.php">Colaboradores</a></li>
+                    <li><a class="links" href="./adm_administradores.php">Administradores</a></li>
+                    <li><a class="links" href="./adm_cadastrar_tecnico.php">Cadastrar Tecnico</a></li>
+                    <li><a class="links" href="./adm_cadastrar_administrador.php">Cadastrar administrador</a></li>
+                </ul>
+            </div>
+        </nav>
         <section id="navbar-dir" class="display-flex-column">
             <div id="navbar-dir-enterprise" class="display-flex">
                 <img src="../../images/logado/Logo.svg" alt="">
@@ -27,23 +58,23 @@
             </div>
             <div id="navbar-dir-ancoras" class="display-flex-column">
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_usuarios.php">Usuários</a>
+                    <a class="links" href="./adm_usuarios.php">Usuários</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_colaboradores.php">Colaboradores</a>
+                    <a class="links" href="./adm_colaboradores.php">Colaboradores</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_administradores.php">Administradores</a>
+                    <a class="links" href="./adm_administradores.php">Administradores</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_cadastrar_tecnico.php">Cadastrar Tecnico</a>
+                    <a class="links" href="./adm_cadastrar_tecnico.php">Cadastrar Tecnico</a>
                     <p></p>
                 </div>
                 <div class="navbar-dir-a display-flex">
-                    <a href="./adm_cadastrar_administrador.php">Cadastrar administrador</a>
+                    <a class="links" href="./adm_cadastrar_administrador.php">Cadastrar administrador</a>
                     <p></p>
                 </div>
             </div>

@@ -64,8 +64,30 @@ require_once('../php/tec_teste.php');
                             <p><?php echo $chamado['tempo'] . 'h' ?></p>
                         </div>
                         <div id="avaliacao" class="display-flex-column">
-                            <h4 id="av">5.0</h4>
-                            <img src="../../images/logado/5-estrelas.svg" alt="">
+                            <?php if ($chamado['avaliacao'] == 5): ?>
+                                <h4 id="av">5</h4>
+                                <img src="../../images/logado/5-estrelas.svg" alt="">
+                            <?php endif; ?>
+                            <?php if ($chamado['avaliacao'] == 4): ?>
+                                <h4 id="av">4</h4>
+                                <img src="../../images/logado/4-estrelas.svg" alt="">
+                            <?php endif; ?>
+                            <?php if ($chamado['avaliacao'] == 3): ?>
+                                <h4 id="av">3</h4>
+                                <img src="../../images/logado/3-estrelas.svg" alt="">
+                            <?php endif; ?>
+                            <?php if ($chamado['avaliacao'] == 2): ?>
+                                <h4 id="av">2</h4>
+                                <img src="../../images/logado/2-estrelas.svg" alt="">
+                            <?php endif; ?>
+                            <?php if ($chamado['avaliacao'] == 1): ?>
+                                <h4 id="av">1</h4>
+                                <img src="../../images/logado/1-estrelas.svg" alt="">
+                            <?php endif; ?>
+                            <?php if ($chamado['avaliacao'] === NULL): ?>
+                                <h4 id="av">NA</h4>
+                                <img src="" alt="">
+                            <?php endif; ?>
                         </div>
                     </article>
                 <?php endforeach ?>

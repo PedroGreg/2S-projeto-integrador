@@ -1,3 +1,4 @@
+@media(min-width:736px){
 .titulos {
     display: none;
     align-items: center;
@@ -111,3 +112,50 @@ h4{
 #sobre{
     width: 170px;
 }
+}
+
+@media(max-width:736px){
+    #section-chamados{
+        display: flex;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+ 
+    .chamados {
+        background-color:  #ffffff;
+        border-radius: 8px;
+        border-left: 5px solid var(--button-color-cian);
+        padding: 10px 70px;
+}
+ 
+    .chamados p {
+        font-size: 13px;
+        font-weight: 600;
+        color: #031849;
+}
+ 
+    .chamados span {
+        font-size: 10px;
+        color: var(--text-color-gray);
+}
+ 
+ 
+    .chamados-button {
+        border: 2px solid #DEE3F1;
+        border-radius: 2px;
+        width: 20px;
+        height: 20px;
+}
+ 
+    .chamados-button-clicked {
+        border: 2px solid #DEE3F1;
+        background-color: #06004C;
+        border-radius: 2px;
+        width: 20px;
+        height: 20px;
+}
+ 
+}  

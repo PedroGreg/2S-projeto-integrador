@@ -72,6 +72,7 @@ catch (PDOException $e) {
             </table>
         </section>
     </main>
+    <script src="../script/button.js"></script>
     <script>
         function confirmDeletion(){
             return confirm('Tem certeza que deseja deletar esse colaborador?');

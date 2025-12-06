@@ -1,0 +1,1 @@
+<?php header('location: ../html/tec_chamados_abertos.php');

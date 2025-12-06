@@ -9,6 +9,7 @@ require_once("../php/adm_teste.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/adm_cadastrar_administrador.css">
     <link rel="stylesheet" href="../style/geral.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -61,6 +62,7 @@ require_once("../php/adm_teste.php");
             </div>
         </section>
     </main>
+    <script src="../script/button.js"></script>
     <script src="../script/chamados_abertos.js"></script>
 </body>
 
