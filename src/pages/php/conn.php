@@ -4,7 +4,7 @@ $dbName = "";
 $dbUsername = "";
 $dbPassword = '';
 $dbPort = '';
-$charset = '';
+$charset = 'utf8mb4';
 
 $dsn = "mysql:host=$dbHost;port=$dbPort;dbname=$dbName;$charset";
 $options = array(
